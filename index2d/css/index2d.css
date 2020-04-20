@@ -1,0 +1,785 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Source Han Sans CN, Source Han Serif SC;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    min-width: 0;
+    user-select: none;
+    background-color: #DAE0DC;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #3a7bd5;
+}
+
+#moveDiv {
+    position: absolute;
+    left: -950px;
+    top: -3200px;
+    cursor: move;
+}
+
+.imgActive img {
+    position: absolute;
+    left: 0px;
+    display: none;
+}
+
+.firstFloor {
+    bottom: 0;
+}
+
+.secondFloor {
+    bottom: 650px;
+}
+
+.thirdFloor {
+    top: 1600px;
+}
+
+.fouthFloor {
+    top: 818px;
+}
+
+.fifthFloor {
+    top: 285px;
+}
+
+.guanName>div {
+    border: 2px solid #000;
+    position: absolute;
+    background: #fff;
+}
+
+.guanNameC {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.guanNameE {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0px;
+}
+
+.guanTui {
+    font-size: 14px;
+    border-top: 2px solid #000;
+    padding: 10px;
+}
+
+.guanTui li {
+    margin-bottom: 8px;
+    color: #00a2e9;
+    cursor: pointer;
+}
+
+.guanTui li:hover {
+    text-decoration: underline;
+}
+
+.guanTui li:last-child {
+    margin-bottom: 0;
+}
+
+.greenName {
+    background: #2bff0d;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.orangeName {
+    background: #ffed0d;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.purpleName {
+    background: #e8d7ff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.redName {
+    background: #ffa6a6;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.blueName {
+    background: #62e3ed;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.bpqguan {
+    bottom: 140px;
+    left: 2052px;
+}
+
+.djguan {
+    bottom: 340px;
+    left: 1290px;
+}
+
+.zhouguan {
+    bottom: 680px;
+    left: 3040px;
+}
+
+.jkguan {
+    bottom: 1320px;
+    left: 2600px;
+}
+
+.guiguan {
+    bottom: 1000px;
+    left: 1670px;
+}
+
+.cgguan {
+    bottom: 1220px;
+    left: 1370px;
+}
+
+.cpguan {
+    bottom: 820px;
+    left: 520px;
+}
+
+.zcguan {
+    bottom: 1220px;
+    left: 210px;
+}
+
+.bzjguan {
+    top: 1580px;
+    left: 320px;
+}
+
+.jsguan {
+    top: 1600px;
+    left: 1590px;
+}
+
+.fsguan {
+    top: 2240px;
+    left: 1730px;
+}
+
+.jyclguan {
+    top: 1880px;
+    left: 2800px;
+}
+
+.dxguan {
+    top: 2100px;
+    left: 3150px;
+}
+
+.cssbguan {
+    top: 1350px;
+    left: 3100px;
+}
+
+.zzsbguan {
+    top: 650px;
+    left: 2020px;
+}
+
+.qtguan {
+    top: 430px;
+    left: 700px;
+}
+
+.guanPoint {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.guanPoint>img {
+    width: 100%;
+    height: 100%;
+}
+
+.djPoint {
+    left: -50px;
+    top: -160px;
+}
+
+.bpqPoint {
+    left: 10px;
+    top: -160px;
+}
+
+.zhouPoint {
+    left: 20px;
+    top: -270px;
+}
+
+.jkPoint {
+    left: -200px;
+    top: 310px;
+}
+
+.guiPoint {
+    left: 350px;
+    top: -270px;
+}
+
+.cgPoint {
+    left: 100px;
+    top: -200px;
+}
+
+.cpPoint {
+    left: 270px;
+    top: -200px;
+}
+
+.zcPoint {
+    left: 400px;
+    top: -200px;
+}
+
+.bzjPoint {
+    left: 400px;
+    top: 400px;
+}
+
+.jsPoint {
+    left: -370px;
+    top: 300px;
+}
+
+.fsPoint {
+    left: 90px;
+    top: -240px;
+}
+
+.jyclPoint {
+    left: -190px;
+    top: 300px;
+}
+
+.dxPoint {
+    left: -190px;
+    top: 350px;
+}
+
+.cssbPoint {
+    left: -320px;
+    top: -30px;
+}
+
+.zzsbPoint {
+    left: -120px;
+    top: 610px;
+}
+
+.qtPoint {
+    left: 300px;
+    top: 120px;
+}
+
+.rightContrl {
+    position: fixed;
+    right: 0;
+    top: 80px;
+    color: #ffffff;
+    z-index: 999;
+    min-width: 262px;
+    width: 262px;
+    font-size: 12px;
+    padding-left: 22px;
+}
+
+.rightContrlIn {
+    background: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding: 10px;
+    width: 240px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-arrow-color: #ccc;
+    /**/
+    /*三角箭头的颜色*/
+    scrollbar-face-color: #333;
+    /**/
+    /*立体滚动条的颜色*/
+    scrollbar-3dlight-color: #666;
+    /**/
+    /*立体滚动条亮边的颜色*/
+    scrollbar-highlight-color: #666;
+    /**/
+    /*滚动条空白部分的颜色*/
+    scrollbar-shadow-color: #999;
+    /**/
+    /*立体滚动条阴影的颜色*/
+    scrollbar-darkshadow-color: #666;
+    /**/
+    /*立体滚动条强阴影的颜色*/
+    scrollbar-track-color: #666;
+    /**/
+    /*立体滚动条背景颜色*/
+    scrollbar-base-color: #f8f8f8;
+    /**/
+    /*滚动条的基本颜色*/
+}
+
+.rightContrlIn::-webkit-scrollbar {
+    /*滚动条整体部分，其中的属性有width,height,background,border等（就和一个块级元素一样）（位置1）*/
+    width: 8px;
+    height: 5px;
+}
+
+.rightContrlIn::-webkit-scrollbar-button {
+    /*滚动条两端的按钮，可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果（位置2）*/
+    background: #222;
+}
+
+.rightContrlIn::-webkit-scrollbar-track {
+    /*外层轨道，可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果（位置3）*/
+    background: #222;
+}
+
+.rightContrlIn::-webkit-scrollbar-track-piece {
+    /*内层轨道，滚动条中间部分（位置4）*/
+    background: #222;
+}
+
+.rightContrlIn::-webkit-scrollbar-thumb {
+    /*滚动条里面可以拖动的那部分（位置5）*/
+    background: #999;
+    border-radius: 4px;
+}
+
+.rightContrlIn::-webkit-scrollbar-corner {
+    /*边角（位置6）*/
+    background: #222;
+}
+
+.rightContrlIn::-webkit-scrollbar-resizer {
+    /*定义右下角拖动块的样式（位置7）*/
+    background: #222;
+}
+
+.rightContrlSlogan {
+    background: #269B67;
+    width: 100%;
+    text-align: center;
+    padding: 5px 5px;
+    font-size: 16px;
+}
+
+.rightContrlDiv {
+    width: 100%;
+    margin-bottom: 8px;
+    background: #222;
+    padding: 10px;
+}
+
+.rightContrlNameBig {
+    text-align: center;
+}
+
+.rightContrlNumberBig {
+    margin-top: 5px;
+    color: #EC4A04;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.rightContrlTitle {
+    color: #979797;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding-bottom: 5px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid #444444;
+}
+
+.rightContrlUlOut {
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.rightContrlUl {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.rightContrlUl2 {
+    display: none;
+}
+
+.rightContrlUl li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #444444;
+    padding: 3px 0px;
+}
+
+.rightContrlName {
+    color: #0189FF;
+    cursor: pointer;
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rightContrlName:hover {
+    text-decoration: underline;
+}
+
+.rightContrlUser {
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.rightContrlButton {
+    background: #FF6220;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.rightContrlButton:hover {
+    background: #d4521b;
+}
+
+.rightContrlButton img {
+    height: 16px;
+}
+
+.rightContrlTou {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.rightContrlGuideTitle {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.rightContrlGuideMain {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightContrlGuideImg {
+    width: 160px;
+    height: 177px;
+    position: relative;
+    /* cursor: pointer; */
+}
+
+.rightContrlGuideUl {
+    width: 100%;
+}
+
+.rightContrlGuideUl li {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #444444;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.rightContrlGuideUl li:hover {
+    background: #FF6220;
+}
+
+.rightContrlGuideUl li.rightContrlGuideOn {
+    background: #FF6220;
+}
+
+.toRightMove {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin-top: -67px;
+    height: 134px;
+    width: 22px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.toLeftMove {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin-top: -67px;
+    height: 134px;
+    width: 22px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.guideActive img {
+    position: relative;
+    width: 160px;
+    display: none;
+    left: 0;
+}
+
+.piontJump {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -73px;
+    width: 146px;
+    top: -55px;
+    height: 55px;
+}
+
+.piontJumpOut {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    width: 100%;
+    height: 45px;
+}
+
+.piontJumpIn {
+    background: #222;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
+    padding: 0px 10px;
+}
+
+.piontJumpNumber {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #EC4A04;
+    font-weight: 600;
+}
+
+.piontJumpThree {
+    height: 10px;
+    width: 8px;
+    opacity: 0.6;
+    bottom: 0px;
+    position: absolute;
+    left: 68px;
+}
+
+.searchDiv {
+    position: fixed;
+    top: 80px;
+    left: 35%;
+    width: 30%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.searchDivSelect {
+    background: #fff;
+    border-right: 1px solid #E5E5E5;
+    position: relative;
+    height: 100%;
+}
+
+.searchDivSelectValue {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.searchDivSelectValue .fa-angle-down {
+    font-size: 22px;
+    color: #269B67;
+    margin-left: 8px;
+}
+
+.searchSelectTransform {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.searchDivSelectUl {
+    display: none;
+    position: absolute;
+    left: 0;
+    min-width: 100%;
+    background: #fff;
+    top: 39px;
+    padding: 5px 10px;
+    border-top: 1px solid #E5E5E5;
+    z-index: 9999;
+}
+
+.searchDivSelectUl li {
+    cursor: pointer;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.searchDivSelectUl li:last-child {
+    margin-bottom: 0px;
+}
+
+.searchDivSelectUl li:hover {
+    color: #269B67;
+}
+
+.searchDivIpt {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.searchDivIpt input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0px 5px;
+}
+
+.searchDivBtn {
+    height: 100%;
+    width: 76px;
+    background: #269B67;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 15px;
+}
+
+.searchDivBtn:hover {
+    background: #228a5c;
+}
+
+@media (max-width:640px) {
+    .rightContrl {
+        top: 97px;
+    }
+    .searchDiv {
+        top: 65px;
+        height: 30px;
+        left: 10%;
+        width: 80%;
+    }
+    .searchDivSelectUl {
+        top: 30px;
+    }
+    .main {
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    #moveDiv {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 3800px;
+        height: 4200px;
+    }
+    .rightContrlGuide {
+        display: none;
+    }
+}
