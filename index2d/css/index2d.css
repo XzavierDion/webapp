@@ -57,6 +57,7 @@ input[type="text"] {
     left: -950px;
     top: -3200px;
     cursor: move;
+    cursor: url(../img/hand.ico), auto;
 }
 
 .imgActive img {
