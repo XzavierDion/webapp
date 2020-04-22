@@ -554,23 +554,46 @@
     <script src="js/jquery-ui.min.js"></script>
     <script>
         //右侧列表滚动效果
-        function rightScrollUl(id) {
-            var thisTop = $(id).position().top;
-            var thisHeight = $(id).height();
-            var ste1 = setInterval(function() {
-                thisTop = thisTop - 2;
-                // console.log(thisTop);
-                // console.log(thisHeight);
-                $(id).css("top", thisTop + "px");
-                if (thisTop < -thisHeight) {
-                    // clearInterval(ste1);
-                    // ste1 = null;
-                    thisTop = 120;
-                }
-            }, 45);
+        // function rightScrollUl(id) {
+        //     var thisTop = $(id).position().top;
+        //     var thisHeight = $(id).height();
+        //     var ste1 = setInterval(function() {
+        //         thisTop = thisTop - 2;
+        //         // console.log(thisTop);
+        //         // console.log(thisHeight);
+        //         $(id).css("top", thisTop + "px");
+        //         if (thisTop < 120 - thisHeight) {
+        //             // clearInterval(ste1);
+        //             // ste1 = null;
+        //             // thisTop = 120;
+        //             var newLi = "<li><div class='rightContrlName'>1横店东磁股份有限公司</div><div class='rightContrlGuan'>磁钢馆</div></li>"
+        //             var newLi1 = "<li><div class='rightContrlUser'><img src='img/tou.png' class='rightContrlTou'><span>1sdhgfjsgdfjs</span></div><div>磁钢馆</div></li>"
+        //             $("#rightContrlUlCompany").append(newLi);
+        //             $("#rightContrlUlCust").append(newLi1);
+
+        //         }
+        //     }, 45);
+
+        // }
+        // rightScrollUl("#rightContrlUlCompany");
+        // rightScrollUl("#rightContrlUlCust");
+        function autoScroll(obj) {
+            $(obj).find(".rightContrlUl").animate({
+                marginTop: "-24px"
+            }, 1000, function() {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            })
         }
-        rightScrollUl("#rightContrlUlCompany");
-        rightScrollUl("#rightContrlUlCust");
+        var timer = setInterval('autoScroll(".rightContrlUlOut")', 1000);
+        $(function() {
+            $(".rightContrlUlOut").hover(function() {
+                clearInterval(timer);
+            }, function() {
+                timer = setInterval('autoScroll(".rightContrlUlOut")', 1000);
+            })
+        })
 
         window.onload = function() {
             //body高宽等于浏览器窗口高宽
