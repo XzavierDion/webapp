@@ -231,13 +231,14 @@ input[type="text"] {
 .magneticSteelCompanyUl {
     display: flex;
     border: 1px solid #E5E5E5;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .magneticSteelCompanyUl li {
     width: 24%;
+    margin-bottom: 10px;
 }
 
 .magneticSteelCompanyUl li img {
@@ -577,7 +578,6 @@ input[type="text"] {
 }
 
 .magneticSteelMetalMain {
-    background: aquamarine;
     width: 100%;
     height: 127px;
 }
@@ -589,24 +589,75 @@ input[type="text"] {
 
 .magneticSteelHotUl {
     display: flex;
-}
-
-.magneticSteelHotUl li {
-    width: 25%;
+    justify-content: space-between;
     padding: 0px 10px;
 }
 
-.magneticSteelHotLi {
-    width: 100%;
+.magneticSteelHotUl li {
+    width: 24%;
     border: 1px solid #E5E5E5;
 }
 
 .magneticSteelHotAD {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .magneticSteelHotAD img {
     width: 100%;
+}
+
+.magneticSteelHotProduct {
+    width: 100%;
+    margin: 0px 5px 10px 10px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.magneticSteelHotProductImg {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.magneticSteelHotProductImg img {
+    width: 100%;
+}
+
+.magneticSteelHotProductPrice {
+    color: #FF1700;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.magneticSteelHotProductCompany {
+    color: #0189FF;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.magneticSteelHotTui {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px 0px;
+}
+
+.magneticSteelHotTui>div {
+    display: flex;
+    padding: 0px 10px;
+}
+
+.magneticSteelHotTuiLeft {
+    border-right: 1px solid #e5e5e5;
+}
+
+.magneticSteelHotTui img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
 }
 
 @media (max-width:640px) {}
