@@ -78,6 +78,18 @@ input[type="text"] {
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.searchDivIn {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.searchDivIn1 {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
 .searchDivSelect {
     background: #fff;
     border-right: 1px solid #E5E5E5;
@@ -207,7 +219,8 @@ input[type="text"] {
 }
 
 .magneticSteelADTop img {
-    width: 100%
+    width: 100%;
+    cursor: pointer;
 }
 
 .magneticSteelMiddle {
@@ -239,6 +252,7 @@ input[type="text"] {
 .magneticSteelCompanyUl li {
     width: 24%;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .magneticSteelCompanyUl li img {
@@ -377,6 +391,11 @@ input[type="text"] {
     font-size: 12px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.magneticSteelJoinBtn:hover {
+    background: #e27f2d;
 }
 
 .magneticSteelJoinBtn img {
@@ -466,6 +485,12 @@ input[type="text"] {
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 50%;
+    cursor: pointer;
+}
+
+.magneticSteelDataLiName:hover {
+    text-decoration: underline;
+    color: #0189FF;
 }
 
 .magneticSteelBuy {
@@ -486,6 +511,11 @@ input[type="text"] {
 
 .magneticSteelTitleMs {
     color: #979797;
+    cursor: pointer;
+}
+
+.magneticSteelTitleMs:hover {
+    text-decoration: underline;
 }
 
 .magneticSteelTitleMs .fa {
@@ -510,17 +540,31 @@ input[type="text"] {
     font-size: 16px;
     font-weight: 600;
     padding: 12px 5px 5px 15px;
+    /* width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+
+.magneticSteelBuyUlName span:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .magneticSteelBuyUlInfo {
     color: #979797;
     font-size: 12px;
     padding: 0px 15px 12px 15px;
+    max-height: 85px;
+    line-height: 17px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
 }
 
 .magneticSteelBuyUlCompany {
     background: #FEEFDB;
-    color: #F35B1A;
     font-size: 12px;
     position: absolute;
     left: 0;
@@ -530,6 +574,15 @@ input[type="text"] {
     display: flex;
     align-items: center;
     padding-left: 15px;
+}
+
+.magneticSteelBuyUlCompany span {
+    color: #F35B1A;
+    cursor: pointer;
+}
+
+.magneticSteelBuyUlCompany span:hover {
+    text-decoration: underline;
 }
 
 .magneticSteelMetal {
@@ -553,6 +606,14 @@ input[type="text"] {
     font-size: 12px;
     color: #979797;
     margin-top: 8px;
+}
+
+.magneticSteelMetalMore span {
+    cursor: pointer;
+}
+
+.magneticSteelMetalMore span:hover {
+    text-decoration: underline;
 }
 
 .magneticSteelMetalName {
@@ -584,7 +645,8 @@ input[type="text"] {
 
 .magneticSteelHot {
     border: 1px solid #E5E5E5;
-    padding: 10px 0px;
+    padding-top: 10px;
+    margin-bottom: 20px;
 }
 
 .magneticSteelHotUl {
@@ -596,6 +658,7 @@ input[type="text"] {
 .magneticSteelHotUl li {
     width: 24%;
     border: 1px solid #E5E5E5;
+    margin-bottom: 10px;
 }
 
 .magneticSteelHotAD {
@@ -609,19 +672,39 @@ input[type="text"] {
 
 .magneticSteelHotProduct {
     width: 100%;
-    margin: 0px 5px 10px 10px;
+    margin-bottom: 10px;
+    padding-left: 0px 5px 0px 10px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .magneticSteelHotProductImg {
     width: 60px;
+    min-width: 60px;
+    height: 60px;
     margin-right: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .magneticSteelHotProductImg img {
     width: 100%;
+}
+
+.magneticSteelHotProductName {
+    width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.magneticSteelHotProductName span:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .magneticSteelHotProductPrice {
@@ -631,10 +714,17 @@ input[type="text"] {
 }
 
 .magneticSteelHotProductCompany {
-    color: #0189FF;
     font-size: 12px;
-    text-decoration: underline;
+}
+
+.magneticSteelHotProductCompany span {
     cursor: pointer;
+    color: #0189FF;
+    text-decoration: underline;
+}
+
+.magneticSteelHotProductCompany span:hover {
+    color: #0766b9;
 }
 
 .magneticSteelHotTui {
@@ -647,17 +737,261 @@ input[type="text"] {
 
 .magneticSteelHotTui>div {
     display: flex;
+    /* justify-content: center; */
+    align-items: center;
     padding: 0px 10px;
+    width: 50%;
 }
 
 .magneticSteelHotTuiLeft {
     border-right: 1px solid #e5e5e5;
 }
 
-.magneticSteelHotTui img {
+.magneticSteelHotTuiImg {
     width: 40px;
     height: 40px;
+    min-width: 40px;
+    overflow: hidden;
     margin-right: 5px;
 }
 
-@media (max-width:640px) {}
+.magneticSteelHotTuiImg img {
+    width: 100%;
+}
+
+.magneticSteelHotTuiName {
+    font-size: 12px;
+}
+
+.magneticSteelHotTuiName:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.magneticSteelBrand {
+    border: 1px solid #E5E5E5;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+}
+
+.magneticSteelBrandUl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.magneticSteelBrandUl li {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #EFEFEF;
+    width: 32%;
+    margin-left: 1%;
+    margin-bottom: 15px;
+}
+
+.magneticSteelBrandUl li.magneticSteelBrandLiUp {
+    padding-top: 45px;
+}
+
+.magneticSteelBrandUl li.magneticSteelBrandLiDown {
+    padding-bottom: 45px;
+}
+
+.magneticSteelBrandPurpleUp {
+    position: absolute;
+    width: 102%;
+    right: -2%;
+    top: 0;
+    height: 40px;
+    background: url(../img/6ad1img6.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 8px;
+    color: #5A54B1;
+}
+
+.magneticSteelBrandBlueUp {
+    position: absolute;
+    width: 102%;
+    right: -2%;
+    top: 0;
+    height: 40px;
+    background: url(../img/6ad2img6.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 8px;
+    color: #2F7BB1;
+}
+
+.magneticSteelBrandGreenUp {
+    position: absolute;
+    width: 102%;
+    right: -2%;
+    top: 0;
+    height: 40px;
+    background: url(../img/6ad3img6.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 8px;
+    color: #317876;
+}
+
+.magneticSteelBrandPurpleDown {
+    position: absolute;
+    width: 102%;
+    right: -2%;
+    bottom: 0;
+    height: 40px;
+    background: url(../img/6ad4img6.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #5A54B1;
+}
+
+.magneticSteelBrandBlueDown {
+    position: absolute;
+    width: 102%;
+    right: -2%;
+    bottom: 0;
+    height: 40px;
+    background: url(../img/6ad5img6.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #2F7BB1;
+}
+
+.magneticSteelBrandGreenDown {
+    position: absolute;
+    width: 102%;
+    right: -2%;
+    bottom: 0;
+    height: 40px;
+    background: url(../img/6ad6img6.png) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #317876;
+}
+
+.magneticSteelBrandInfo {
+    margin-bottom: 10px;
+}
+
+.magneticSteelBrandLogo {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-right: 5px;
+}
+
+.magneticSteelBrandLogo img {
+    width: 100%;
+}
+
+.magneticSteelBrandName {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.magneticSteelBrandName:hover {
+    text-decoration: underline;
+}
+
+.magneticSteelBrandMain {
+    color: #979797;
+    font-size: 12px;
+}
+
+.magneticSteelBrandImg {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.magneticSteelBrandImg img {
+    width: 100%;
+}
+
+@media (max-width:1280px) {
+    .magneticSteelCompanyUl {
+        flex-wrap: wrap;
+    }
+    .magneticSteelCompanyUl li {
+        width: 49%;
+    }
+    .magneticSteelHotUl {
+        flex-wrap: wrap;
+    }
+    .magneticSteelHotUl li {
+        width: 49%;
+    }
+}
+
+@media (max-width:640px) {
+    .magneticSteelMiddle {
+        flex-wrap: wrap;
+    }
+    .magneticSteelLeft {
+        width: 100%;
+        padding-right: 0;
+    }
+    .magneticSteelRight {
+        width: 100%;
+    }
+    .magneticSteelBuyUl li {
+        width: 98%;
+    }
+    .magneticSteelHotUl li {
+        width: 100%;
+    }
+    .magneticSteelBrandUl li {
+        width: 98%;
+    }
+    .magneticSteelNav {
+        justify-content: space-between;
+    }
+    .magneticSteelNav li {
+        padding: 7px 5px;
+        font-size: 12px;
+    }
+    .magneticSteelTop {
+        margin: 15px 0px;
+        flex-wrap: wrap;
+    }
+    .searchDiv {
+        width: 100%;
+        height: auto;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        border: none;
+    }
+    .searchDivIn {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        width: 100%;
+    }
+    .searchDivIn1 {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .magneticSteelTopLogo {
+        height: 48px;
+    }
+    .magneticSteelCon {
+        padding: 0px 10px;
+    }
+}
