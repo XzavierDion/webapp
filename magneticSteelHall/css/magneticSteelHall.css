@@ -927,6 +927,40 @@ input[type="text"] {
     width: 100%;
 }
 
+.carousel-control {
+    display: none;
+}
+
+.carousel-control i {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 30px;
+    height: 6px;
+    margin: 0;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #111;
+    border: none;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.carousel-indicators .active {
+    width: 30px;
+    height: 6px;
+    margin: 0;
+    background-color: #FF8F33;
+}
+
 @media (max-width:1280px) {
     .magneticSteelCompanyUl {
         flex-wrap: wrap;
@@ -970,8 +1004,8 @@ input[type="text"] {
         font-size: 12px;
     }
     .magneticSteelTop {
-        margin: 15px 0px;
-        flex-wrap: wrap;
+        margin: 15px 0px 0px 0px;
+        flex-wrap: wrap-reverse
     }
     .searchDiv {
         width: 100%;
@@ -993,5 +1027,11 @@ input[type="text"] {
     }
     .magneticSteelCon {
         padding: 0px 10px;
+    }
+    .magneticSteelADTop {
+        margin: 10px 0px;
+    }
+    .carousel-control {
+        display: block;
     }
 }
