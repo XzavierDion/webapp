@@ -57,7 +57,7 @@
                 </ul>
                 <div class="flexDiv searchProductFind">
                     <div class="flexDiv">
-                        <div><span>所有分类</span><span>></span></div>
+                        <div style="margin-right: 5px;"><span>所有分类</span><span>></span></div>
                         <div>共找到<span class="searchProductRed">188</span>条企业信息</div>
                     </div>
                     <div class="searchProductFindArrow">
@@ -95,11 +95,11 @@
                     <li>
                         <div class="searchProductName">应用领域：</div>
                         <div class="searchProductValue">
-                            <ul>
+                            <ul class="searchProductCheckUl">
                                 <li>全部</li>
                                 <li>汽车电机</li>
                                 <li>家用电器电机</li>
-                                <li>工业电机</li>
+                                <li class="searchProductCheckLiOn">工业电机</li>
                                 <li>仪器仪表</li>
                                 <li>通讯器材</li>
                                 <li>风力发电</li>
@@ -111,8 +111,8 @@
                     <li>
                         <div class="searchProductName">品牌：</div>
                         <div class="searchProductValue">
-                            <ul>
-                                <li>全部</li>
+                            <ul class="searchProductCheckUl">
+                                <li class="searchProductCheckLiOn">全部</li>
                                 <li>杭州永磁</li>
                                 <li>中科三环</li>
                                 <li>宁波韵升</li>
@@ -124,47 +124,67 @@
                     <li>
                         <div class="searchProductName">形状：</div>
                         <div class="searchProductValue">
-                            <ul>
+                            <ul class="searchProductCheckUl">
                                 <li>全部</li>
-                                <li>方形</li>
+                                <li class="searchProductCheckLiOn">方形</li>
                                 <li>瓦形</li>
                                 <li>圆环</li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <div class="searchProductName">牌号：</div>
-                        <div class="searchProductValue">
-                            <input type="text">
-                            <button type="button">确定</button>
+                        <div class="searchProductName searchProductNameTall">牌号：</div>
+                        <div class="flexDiv searchProductValue">
+                            <input type="text" class="searchProductIpt">
+                            <button type="button" class="searchProductBtn">确定</button>
                         </div>
                     </li>
                     <li>
-                        <div class="searchProductName">尺寸：</div>
+                        <div class="searchProductName searchProductNameTall">尺寸：</div>
                         <div class="searchProductValue">
-
-                            <div class="row">
-                                <div class="col-lg-6">
+                            <div class="searchProductSizeOut">
+                                <div class="flexDiv searchProductSize">
+                                    <div>长</div>
                                     <div class="input-group">
                                         <input type="text" class="form-control" aria-label="...">
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mm<i class="fa fa-angle-down" aria-hidden="true"></i></button>
                                             <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#">Action</a></li>
-                                                <li><a href="#">Another action</a></li>
-                                                <li><a href="#">Something else here</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
+                                                <li><a href="#">mm</a></li>
+                                                <li><a href="#">cm</a></li>
                                             </ul>
                                         </div>
-                                        <!-- /btn-group -->
                                     </div>
-                                    <!-- /input-group -->
                                 </div>
-                                <!-- /.col-lg-6 -->
-                            </div>
-                            <!-- /.row -->
+                                <div class="flexDiv searchProductSize">
+                                    <div>宽</div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" aria-label="...">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mm<i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#">mm</a></li>
+                                                <li><a href="#">cm</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flexDiv searchProductSize">
+                                    <div>高</div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" aria-label="...">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mm<i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#">mm</a></li>
+                                                <li><a href="#">cm</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <button type="button" class="searchProductBtn">确定</button>
+                            </div>
                         </div>
                     </li>
                 </ul>
