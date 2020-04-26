@@ -1,0 +1,298 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Source Han Sans CN, Source Han Serif SC;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    min-width: 0;
+    user-select: none;
+    background-color: #fff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.magneticSteelCon {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+
+.magneticSteelTop {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.searchDiv {
+    width: 600px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.searchDivIn {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.searchDivIn1 {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.searchDivSelect {
+    background: #fff;
+    border-right: 1px solid #E5E5E5;
+    position: relative;
+    height: 100%;
+}
+
+.searchDivSelectValue {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.searchDivSelectValue .fa-angle-down {
+    font-size: 22px;
+    color: #269B67;
+    margin-left: 8px;
+}
+
+.searchSelectTransform {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.searchDivSelectUl {
+    display: none;
+    position: absolute;
+    left: 0;
+    min-width: 100%;
+    background: #eee;
+    top: 39px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    z-index: 9999;
+}
+
+.searchDivSelectUl li {
+    cursor: pointer;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.searchDivSelectUl li:last-child {
+    margin-bottom: 0px;
+}
+
+.searchDivSelectUl li:hover {
+    color: #269B67;
+}
+
+.searchDivIpt {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.searchDivIpt input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0px 5px;
+}
+
+.searchDivBtn {
+    height: 100%;
+    background: #269B67;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+}
+
+.searchDivBtn:hover {
+    background: #228a5c;
+}
+
+.searchDivBtn1 {
+    height: 100%;
+    background: #FF8F33;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+}
+
+.searchDivBtn1:hover {
+    background: #da7a2b;
+}
+
+.magneticSteelLeft {
+    width: 80%;
+    padding-right: 20px;
+}
+
+.magneticSteelRight {
+    width: 20%;
+}
+
+.searchProductTitle {
+    font-size: 14px;
+}
+
+.searchProductTitleCheck {
+    color: #269B67;
+    font-size: 22px;
+    margin-left: 5px;
+}
+
+.searchProductTitleCheck i {
+    margin-left: 5px;
+}
+
+.searchProductNav {
+    border: 1px solid #E5E5E5;
+}
+
+.searchProductNav li {
+    padding: 8px 20px;
+    font-size: 16px;
+}
+
+.searchProductNav li:hover {
+    background: #269B67;
+    color: #fff;
+}
+
+.searchProductNav li.searchProductNavOn {
+    background: #269B67;
+    color: #fff;
+}
+
+.searchProductRed {
+    color: #F35B1A;
+    font-weight: 600;
+}
+
+.searchProductFind {
+    font-size: 12px;
+    justify-content: space-between;
+    padding: 8px 0px;
+}
+
+.searchProductFindArrow {
+    padding: 4px 8px;
+    border: 1px solid #E5E5E5;
+    cursor: pointer;
+}
+
+.searchProductFindArrow:hover {
+    color: #269B67;
+}
+
+.searchProductSelectUl {
+    border: 1px solid #E5E5E5;
+    padding: 15px 15px 0px 15px;
+}
+
+.searchProductSelectUl>li {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.searchProductSelectUl li input[type=checkbox],
+.searchProductSelectUl li input[type=radio] {
+    margin: 2px 0px 0px -20px;
+}
+
+.searchProductSelectUl li .checkbox-inline+.checkbox-inline,
+.searchProductSelectUl li .radio-inline+.radio-inline {
+    margin-left: 20px;
+}
+
+.searchProductName {
+    color: #979797;
+    min-width: 80px;
+}
+
+.searchProductCheckUl {
+    display: flex;
+    align-items: center;
+}
+
+.searchProductCheckUl li {
+    padding: 2px 7px;
+}
+
+.searchProductCheckLiOn {
+    background: #269B67;
+    color: #fff;
+}
+
+.searchProductCheckUl li:hover {
+    background: #269B67;
+    color: #fff;
+}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 640px) {}
