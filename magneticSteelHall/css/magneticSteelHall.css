@@ -39,6 +39,9 @@ input[type="text"] {
     align-items: center;
 }
 
+
+/* 磁钢馆头部样式开始 */
+
 .magneticSteelCon {
     width: 100%;
     max-width: 1366px;
@@ -222,6 +225,9 @@ input[type="text"] {
     width: 100%;
     cursor: pointer;
 }
+
+
+/* 磁钢馆头部样式结束 */
 
 .magneticSteelMiddle {
     display: flex;
@@ -1009,6 +1015,41 @@ input[type="text"] {
 }
 
 @media (max-width:640px) {
+    /* 头部手机适配样式 */
+    .magneticSteelNav {
+        justify-content: space-between;
+    }
+    .magneticSteelNav li {
+        padding: 7px 5px;
+        font-size: 12px;
+    }
+    .magneticSteelTop {
+        margin: 15px 0px 0px 0px;
+        flex-wrap: wrap-reverse
+    }
+    .searchDiv {
+        width: 100%;
+        height: auto;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        border: none;
+        padding-bottom: 5px;
+    }
+    .searchDivIn {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        width: 100%;
+    }
+    .searchDivIn1 {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .magneticSteelTopLogo {
+        height: 48px;
+    }
+    .magneticSteelCon {
+        padding: 0px 10px;
+    }
+    /* 内容部分 */
     .magneticSteelMiddle {
         flex-wrap: wrap;
     }
@@ -1027,38 +1068,6 @@ input[type="text"] {
     }
     .magneticSteelBrandUl li {
         width: 98%;
-    }
-    .magneticSteelNav {
-        justify-content: space-between;
-    }
-    .magneticSteelNav li {
-        padding: 7px 5px;
-        font-size: 12px;
-    }
-    .magneticSteelTop {
-        margin: 15px 0px 0px 0px;
-        flex-wrap: wrap-reverse
-    }
-    .searchDiv {
-        width: 100%;
-        height: auto;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        border: none;
-    }
-    .searchDivIn {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        width: 100%;
-    }
-    .searchDivIn1 {
-        width: 100%;
-        justify-content: flex-end;
-    }
-    .magneticSteelTopLogo {
-        height: 48px;
-    }
-    .magneticSteelCon {
-        padding: 0px 10px;
     }
     .magneticSteelADTop {
         margin: 10px 0px;
