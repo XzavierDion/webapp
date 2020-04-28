@@ -1,0 +1,566 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Source Han Sans CN, Source Han Serif SC;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    min-width: 0;
+    user-select: none;
+    background-color: #DAE0DC;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.exhibitionPayCon {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+
+.exhibitionPayText {
+    background: #000;
+    width: 100%;
+    padding: 15px 8px;
+}
+
+.exhibitionPayTextIcon {
+    width: 54px;
+    height: 54px;
+    background: #FBD736;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.exhibitionPayTextIcon img {
+    width: 100%;
+    height: 100%;
+}
+
+.exhibitionPayTextWord {
+    color: #FBD736;
+    margin-left: 30px;
+}
+
+.exhibitionPayTextUp {
+    font-size: 20px;
+}
+
+.exhibitionPayTextDown {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.exhibitionPayNumber {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 40px 0px 20px 0px;
+}
+
+.exhibitionPayLi {
+    background: #fff;
+    padding: 18px 15px;
+    margin-bottom: 15px;
+}
+
+.exhibitionPayTable ul {
+    display: flex;
+    align-items: center;
+}
+
+.exhibitionPayTable ul li {
+    width: 20%;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.exhibitionPayTable ul li:last-child {
+    width: 40%;
+}
+
+.exhibitionPayTableUp {
+    background: #345345;
+    color: #fff;
+}
+
+.exhibitionPayTableDown li {
+    border: 1px solid #D7D8D9;
+}
+
+.exhibitionPayTableTip {
+    color: #979797;
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.exhibitionPayTableTip .fa-exclamation-circle {
+    margin-right: 10px;
+}
+
+.exhibitionPayName {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.exhibitionPayInfo {
+    border-bottom: 1px solid #EFEFEF;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.exhibitionPayInfoTip {
+    position: relative;
+    background-color: #FFEA8B;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.exhibitionPayInfoTip .fa-caret-left {
+    color: #FFEA8B;
+    position: absolute;
+    left: -5px;
+    font-size: 16px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.exhibitionPayInfoName {
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.exhibitionPayWay {
+    display: flex;
+    margin: 18px 0px 10px 0px;
+}
+
+.exhibitionPayWay li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    border: 1px solid #D7D8D9;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.exhibitionPayWay li.exhibitionPayWayOn {
+    border: 1px solid #269B67;
+}
+
+.exhibitionPayWay li.exhibitionPayWayOn .exhibitionPayCheck {
+    border: 1px solid #269B67;
+}
+
+.exhibitionPayWay li.exhibitionPayWayOn .exhibitionPayCheckIn {
+    display: block;
+}
+
+.exhibitionPayWay li:hover {
+    border: 1px solid #269B67;
+}
+
+.exhibitionPayCheck {
+    border: 1px solid #D7D8D9;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.exhibitionPayCheckIn {
+    display: none;
+    margin: 2px 0px 0px 2px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #269B67;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.exhibitionPayLogo img {
+    height: 40px;
+    margin: 0px 12px;
+}
+
+.exhibitionPayCtrl {
+    padding: 20px 0px;
+}
+
+.exhibitionPayCtrlBtn {
+    color: #00A0E9;
+    text-decoration: underline;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.exhibitionPayAll {
+    font-size: 12px;
+    text-align: right;
+    padding: 5px 0px;
+}
+
+.exhibitionPayReal {
+    font-size: 18px;
+    text-align: right;
+    padding: 5px 0px;
+}
+
+.exhibitionPayRealName {
+    color: #979797;
+}
+
+.exhibitionPayRealNumber {
+    font-weight: 600;
+    color: #B60006;
+}
+
+.exhibitionPaySubmit {
+    justify-content: flex-end;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.exhibitionPaySubmitText {
+    color: #7D7D7D;
+}
+
+.exhibitionPaySubmitBtn {
+    color: #fff;
+    background: #E84335;
+    border: 1px solid #B60006;
+    font-size: 16px;
+    padding: 5px 20px;
+    margin-left: 15px;
+}
+
+.exhibitionPaySubmitBtn:hover {
+    background: #B60006;
+}
+
+
+/* 弹出框样式 */
+
+.exhibitionPayJump {
+    position: fixed;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -310px;
+    background: #fff;
+    z-index: 999;
+    border: 6px solid rgba(151, 151, 151, 0.38);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.exhibitionPayJumpTitle {
+    background: #EFEFEF;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+.exhibitionPayJumpTab {
+    padding: 20px 40px;
+    justify-content: space-between;
+    border-bottom: 2px solid #EFEFEF;
+}
+
+.exhibitionPayJumpTab>li {
+    padding: 8px 38px;
+    border: 2px solid #EFEFEF;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.exhibitionPayJumpTab>li.exhibitionPayJumpTabOn {
+    border: 2px solid #00A0E9;
+}
+
+.exhibitionPayJumpTab>li .jumpCheck {
+    display: none;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 18px;
+    width: 20px;
+}
+
+.exhibitionPayJumpTab>li.exhibitionPayJumpTabOn .jumpCheck {
+    display: block;
+}
+
+.exhibitionPayJumpTab>li:hover {
+    border: 2px solid #00A0E9;
+}
+
+.exhibitionPayJumpTab>li:last-child {
+    margin-right: 0px;
+}
+
+.exhibitionPayJumpUlCon {
+    padding: 20px 40px;
+}
+
+.exhibitionPayJumpUlOut {
+    display: none;
+}
+
+.exhibitionPayJumpUlOut>ul>li {
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.exhibitionPayJumpName {
+    min-width: 110px;
+    margin-right: 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.exhibitionPayJumpNameUp {
+    color: #B60006;
+    display: inline-block;
+    min-width: 8px;
+}
+
+.exhibitionPayJumpNameDown {
+    font-size: 14px;
+}
+
+.exhibitionPayJumpValue {
+    width: 100%;
+    position: relative;
+}
+
+.exhibitionPayJumpValueIn {
+    border: 1px solid #eee;
+    cursor: pointer;
+    position: relative;
+}
+
+.exhibitionPayJumpValueIn .jumpCheck {
+    display: none;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 15px;
+    width: 18px;
+}
+
+.exhibitionPayJumpValueIn:hover {
+    border: 1px solid #00A0E9;
+}
+
+.exhibitionPayJumpValueIn:hover .exhibitionPayJumpIpt1 {
+    border: 1px solid #00A0E9;
+}
+
+.exhibitionPayJumpValueInOn {
+    border: 1px solid #00A0E9;
+}
+
+.exhibitionPayJumpValueInOn .exhibitionPayJumpIpt1 {
+    border: 1px solid #00A0E9;
+}
+
+.exhibitionPayJumpValueIn.exhibitionPayJumpValueInOn .jumpCheck {
+    display: block;
+}
+
+.exhibitionPayJumpIpt {
+    width: 100%;
+    border: 1px solid #eee;
+    height: 30px;
+    padding: 0px 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.exhibitionPayJumpIpt1 {
+    width: 100%;
+    border: 1px solid #fff;
+    height: 30px;
+    padding: 0px 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.exhibitionPayJumpSelect {
+    height: 30px;
+    width: 100%;
+    border: 1px solid #eee;
+    justify-content: space-between;
+    padding: 0px 8px;
+    cursor: pointer;
+}
+
+.exhibitionPayJumpSelect .fa-angle-down {
+    color: #269B67;
+    font-size: 20px;
+}
+
+.exhibitionPayJumpSelectUl {
+    padding: 8px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    z-index: 99;
+    background: #f6f6f6;
+    border: 1px solid #ddd;
+    width: 100%;
+    display: none;
+}
+
+.exhibitionPayJumpSelectUl li {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.exhibitionPayJumpSelectUl li:last-child {
+    margin-bottom: 0px;
+}
+
+.exhibitionPayJumpSelectUl li:hover {
+    color: #00A0E9;
+}
+
+.jumpSelectTransform {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.exhibitionPayJumpBtns {
+    padding-left: 120px;
+    margin-top: 10px;
+}
+
+.exhibitionPayJumpBtns button {
+    padding: 5px 45px;
+    background: #efefef;
+    margin-right: 10px;
+}
+
+.exhibitionPayJumpBtns button.exhibitionPayJumpBtn2 {
+    background: #00A0E9;
+    color: #fff;
+}
+
+.exhibitionPayJumpBtns button.exhibitionPayJumpBtn1:hover {
+    background: #cec9c9;
+}
+
+.exhibitionPayJumpBtns button.exhibitionPayJumpBtn2:hover {
+    background: #0a82b9;
+}
+
+@media (max-width: 640px) {
+    .exhibitionPayTextIcon {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+    .exhibitionPayTextUp {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .exhibitionPayTextDown {
+        font-size: 12px;
+    }
+    .exhibitionPayTextWord {
+        margin-left: 15px;
+    }
+    .exhibitionPayNumber {
+        padding: 20px 0px;
+    }
+    .exhibitionPayLi {
+        padding: 18px 10px;
+    }
+    .exhibitionPayTable {
+        display: flex;
+    }
+    .exhibitionPayTable ul {
+        display: block;
+    }
+    .exhibitionPayTable ul li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 5px;
+    }
+    .exhibitionPayTable ul.exhibitionPayTableUp li {
+        border-top: 1px solid #979797;
+        border-bottom: 1px solid #979797;
+    }
+    .exhibitionPayTable ul li:last-child {
+        width: 100%;
+    }
+    .exhibitionPayCheck {
+        min-width: 12px;
+    }
+    .exhibitionPayCheckIn {
+        min-width: 6px;
+    }
+    .exhibitionPayWay {
+        flex-wrap: wrap;
+    }
+    .exhibitionPayWay li {
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+    }
+    .exhibitionPayInfoTip {
+        line-height: 1.2;
+    }
+    .exhibitionPaySubmit {
+        flex-wrap: wrap;
+    }
+    .exhibitionPaySubmitOut {
+        margin-top: 15px;
+    }
+    .exhibitionPayAll {
+        text-align: left;
+    }
+    .exhibitionPayReal {
+        text-align: left;
+    }
+}
