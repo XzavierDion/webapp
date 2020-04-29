@@ -9,6 +9,7 @@
             top: 100%;
             border-radius: 4px;
             border: 1px solid #ccc;
+            z-index: 999;
         }
         
         .headerDownUl li {
@@ -27,12 +28,31 @@
             overflow: inherit;
         }
         
-        .ulCon {
-            position: absolute;
-            left: 0;
+        .navModal {
+            display: none;
+            position: fixed;
             top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .modalTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
             width: 100%;
-            height: 100%;
+            font-size: 24px;
+            color: #fff;
+        }
+        
+        .modalClose {
+            height: 25px;
         }
     </style>
     [#if channel??]${channel.name}[#else]留言板[/#if]
@@ -56,6 +76,14 @@
         [/#if]
         <!-- <a class="header-search" href="${base}/search.jspx"></a> --></div>
     <link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/style.css">
+    <div class="navModal">
+        <div class="modalTop">
+            <span>目录</span>
+            <img src="/${mobileRes!}/images/remove.png" class="modalClose">
+        </div>
+        [#include "../include/nav.html"]
+    </div>
+    <script src="/${mobileRes!}/js/main.js"></script>
     <!-- 百度统计代码 -->
     <script>
         var _hmt = _hmt || [];
@@ -71,35 +99,29 @@
             location.href = "${base}/login.jspx?returnUrl=" + returnUrl;
         });
         $(".headerDownImg").click(function() {
-            $(".headerDownUl").slideToggle(200);
+            $(".headerDownUl").slideToggle(150);
         });
-    </script>
-    <script src="/${mobileRes!}/js/main.js"></script>
-    <div class="cd-bouncy-nav-modal">
-        <nav>
-            <div class="ulCon">
-                <div>
-                    <div>222</div>
-                    <div>111</div>
-                </div>
-                <ul class="cd-bouncy-nav">
-                    <li> <a href="${base}/fzfx/index.jhtml">仿真分析</a></li>
-                    <li> <a href="${base}/djjczs/index.jhtml">电机基础知识</a></li>
-                    <li> <a href="${base}/gydjsj/index.jhtml">感应电机设计</a></li>
-                    <li> <a href="${base}/qtdjsj/index.jhtml">其他电机设计</a></li>
-                    <li> <a href="${base}/ycdjsj/index.jhtml">永磁电机设计</a></li>
-                    <li> <a href="${base}/xnydqdxt/index.jhtml">新能源电驱动系统</a></li>
-                    <li> <a href="${base}/NVH/index.jhtml">NVH</a></li>
-                    <li> <a href="${base}/hylw/index.jhtml">会议论文</a></li>
-                    <li> <a href="${base}/gyzz/index.jhtml">工艺制造</a></li>
-                    <li> <a href="${base}/kzjs/index.jhtml">控制技术</a></li>
-                    <li> <a href="${base}/gwjdal/index.jhtml">国外经典案例</a></li>
-                    <li> <a href="${base}/xyfz/index.jhtml">行业发展</a></li>
-            </div>
-        </nav>
-        <a href="#0" class="cd-close">Close modal</a>
-    </div>
-    <script type="text/javascript">
+
+        $(".modalClose").click(function() {
+            $(".navModal").hide();
+            $("body").css({
+                "overflow-y": "auto"
+            });
+        });
+        $(".header-nav").click(function() {
+            $(".navModal").show();
+            $("body").css({
+                "overflow-y": "hidden"
+            });
+        });
+
+        var windowsWidth = $(window).width();
+        if (windowsWidth < 350) {
+            $(".header").css({
+                "font-size": "14px"
+            });
+        }
+
         $(function() {
                     [#
                         if site.config.ssoEnable

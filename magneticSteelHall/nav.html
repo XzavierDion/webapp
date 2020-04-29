@@ -1,0 +1,129 @@
+<style>
+    .nav {
+        width: 100%;
+    }
+    
+    .nav a {
+        color: #fff;
+        display: inline-block;
+    }
+    
+    .menu2 {
+        display: none;
+        width: 100%;
+        background: #202124;
+    }
+    
+    .menu3 {
+        display: none;
+        width: 100%;
+    }
+    
+    .menu1>li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0px;
+    }
+    
+    .menu2>li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0px 5px 30px;
+    }
+    
+    .menu3>li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0px 5px 45px;
+    }
+    
+    .menu1>li>a {
+        font-size: 18px;
+        margin-left: 15px;
+    }
+    
+    .menu2>li>a {
+        font-size: 16px;
+        color: #9b9ea0;
+        margin-left: 15px;
+    }
+    
+    .menu3>li>a {
+        font-size: 14px;
+        color: #9b9ea0;
+        margin-left: 15px;
+    }
+    
+    .haveRight {
+        width: 20px;
+        display: none;
+        margin-right: 15px;
+    }
+    
+    .haveChild>.haveRight {
+        display: inline-block;
+    }
+    
+    .selectTransform {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
+</style>
+<nav class="nav">
+    <ul class="menu1">
+        [@cms_channel_list] [#list tag_list as c] [@cms_channel_list parentId=c.id] [#if tag_list?size>0]
+        <li class="haveChild">
+            [#else]
+            <li>[/#if][/@cms_channel_list]<a href="${c.url}" target="_self">${c.name}</a> <img src="/${mobileRes!}/images/down.png" class="haveRight">[@cms_channel_list parentId=c.id][#if tag_list?size>0]
+                <ul class="menu2">
+                    [@cms_channel_list parentId=c.id] [#list tag_list as c1] [@cms_channel_list parentId=c1.id][#if tag_list?size>0]
+                    <li class="haveChild">
+                        [#else]
+                        <li>[/#if][/@cms_channel_list] <a href="${c1.url}">${c1.name}</a><img src="/${mobileRes!}/images/down.png" class="haveRight">[@cms_channel_list parentId=c1.id][#if tag_list?size>0]
+
+                            <ul class="menu3">
+                                [@cms_channel_list parentId=c1.id] [#list tag_list as c2]
+                                <li><a href="${c2.url}">${c2.name}</a></li>
+                                [/#list] [/@cms_channel_list]
+                            </ul>
+                            [/#if][/@cms_channel_list] </li> [/#list] [/@cms_channel_list]
+                </ul>
+                [/#if][/@cms_channel_list] </li> [/#list] [/@cms_channel_list]
+
+                <li>
+                    <a href="https://online.easimotor.com" target="_blank">Easimotor Online</a>
+                </li>
+                <li>
+                    <a href="https://online.easimotor.com/ewl/showIndustrialChainPage.html" target="_blank">在线展会</a>
+                </li>
+                <li>
+                    <a href="https://online.easimotor.com/supplyDemand/showSupplyAndDemandPage.html" target="_blank">供需对接广场</a>
+                </li>
+
+    </ul>
+</nav>
+<script>
+    $(".menu1>li>.haveRight").click(function() {
+        $(this).siblings(".menu2").slideToggle(150);
+        $(this).parent("li").siblings().find(".menu2").slideUp(150);
+        $(this).toggleClass("selectTransform");
+        $(this).parent("li").siblings().find(".haveRight").removeClass("selectTransform");
+    });
+
+    $(".menu2>li>.haveRight").click(function() {
+        $(this).siblings(".menu3").slideToggle(150);
+        $(this).parent("li").siblings().find(".menu3").slideUp(150);
+        $(this).toggleClass("selectTransform");
+        $(this).parent("li").siblings().find(".haveRight").removeClass("selectTransform");
+
+    });
+</script>
