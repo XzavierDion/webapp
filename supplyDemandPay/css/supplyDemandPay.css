@@ -218,10 +218,18 @@ button {
     padding: 20px 0px;
 }
 
+.exhibitionPayCtrl span {
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.exhibitionPayCtrl span:last-child {
+    margin-right: 0;
+}
+
 .exhibitionPayCtrlBtn {
     color: #00A0E9;
     text-decoration: underline;
-    margin-left: 15px;
     cursor: pointer;
 }
 
@@ -243,7 +251,7 @@ button {
 
 .exhibitionPayRealNumber {
     font-weight: 600;
-    color: #B60006;
+    color: #FF5000;
 }
 
 .exhibitionPaySubmit {
@@ -258,15 +266,15 @@ button {
 
 .exhibitionPaySubmitBtn {
     color: #fff;
-    background: #E84335;
-    border: 1px solid #B60006;
+    background: #FF5000;
+    border: 1px solid #E04900;
     font-size: 16px;
     padding: 5px 20px;
     margin-left: 15px;
 }
 
 .exhibitionPaySubmitBtn:hover {
-    background: #B60006;
+    background: #E04900;
 }
 
 
@@ -296,17 +304,24 @@ button {
 }
 
 .exhibitionPayJumpTab {
-    padding: 20px 40px;
-    justify-content: space-between;
+    padding: 20px 20px;
+    justify-content: center;
     border-bottom: 2px solid #EFEFEF;
 }
 
 .exhibitionPayJumpTab>li {
-    padding: 8px 38px;
+    min-width: 26%;
+    padding: 8px 8px;
     border: 2px solid #EFEFEF;
     font-size: 14px;
     cursor: pointer;
     position: relative;
+    text-align: center;
+    margin-right: 25px;
+}
+
+.exhibitionPayJumpTab>li:last-child {
+    margin-right: 0px;
 }
 
 .exhibitionPayJumpTab>li.exhibitionPayJumpTabOn {
@@ -562,5 +577,42 @@ button {
     }
     .exhibitionPayReal {
         text-align: left;
+    }
+    /* 弹出框移动端样式 */
+    .exhibitionPayJump {
+        width: 96%;
+        top: 1%;
+        left: 2%;
+        max-height: 99%;
+        margin-left: 0;
+        margin-top: 0;
+        border: 2px solid rgba(151, 151, 151, 0.38);
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .exhibitionPayJumpTab {
+        padding: 15px;
+    }
+    .exhibitionPayJumpTab>li {
+        font-size: 14px;
+        margin-right: 0px;
+        min-height: 54px;
+        min-width: 0px;
+    }
+    .exhibitionPayJumpUlCon {
+        padding: 15px;
+    }
+    .exhibitionPayJumpBtns {
+        padding-left: 0px;
+        width: 100%;
+        text-align: center;
+    }
+    .exhibitionPayJumpBtns button:last-child {
+        margin-right: 0px;
     }
 }
