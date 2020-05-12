@@ -60,18 +60,21 @@ input[type="text"] {
     display: flex;
 }
 
-.magneticSteelNav li {
+.magneticSteelNav li {}
+
+.magneticSteelNav li a {
+    display: block;
     padding: 7px 20px;
     color: #fff;
     cursor: pointer;
 }
 
-.magneticSteelNav li.magneticSteelNavOn {
+.magneticSteelNav li.magneticSteelNavOn a {
     background: #fff;
     color: #007C79;
 }
 
-.magneticSteelNav li:hover {
+.magneticSteelNav li:hover a {
     background: #fff;
     color: #007C79;
 }
@@ -80,7 +83,7 @@ input[type="text"] {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 20px 15px;
+    padding: 19px 15px;
 }
 
 .searchDiv {

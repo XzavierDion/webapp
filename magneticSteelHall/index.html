@@ -46,10 +46,10 @@
     <div class="magneticSteelConOut">
         <div class="magneticSteelCon">
             <ul class="magneticSteelNav">
-                <li class="magneticSteelNavOn">首页</li>
-                <li>云展厅</li>
-                <li>磁钢选型</li>
-                <li>材料牌号</li>
+                <li class="magneticSteelNavOn"><a href="index.html">首页</a></li>
+                <li><a>云展厅</a></li>
+                <li><a href="searchProduct.html">磁钢选型</a></li>
+                <li><a>材料牌号</a></li>
             </ul>
         </div>
     </div>
@@ -630,6 +630,21 @@
             myChart.resize();
         }
 
+        // var bigData = ["96000", "82000", "91000", "83000", "90000"];
+        var bigData = new Array();
+
+        for (var i = 0; i < 5; i++) {
+            function selectFrom(lowerValue, upperValue) {
+                var choices = upperValue - lowerValue + 1;
+                return Math.floor(Math.random() * choices + lowerValue);
+            }
+            var num = selectFrom(80000, 100000);
+            // var num = Math.floor(Math.random() * 20000 + 80000);
+            bigData.push(num);
+        }
+
+
+
         option = {
             grid: {
                 left: '4%',
@@ -708,7 +723,7 @@
                 showSymbol: false,
                 symbol: 'circle',
                 symbolSize: 6,
-                data: ['94008', '90411', '92300', '90800', '91000'],
+                data: bigData,
                 areaStyle: {
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -743,23 +758,23 @@
         });
 
         //文字滚动
-        // function autoScroll(obj) {
-        //     $(obj).find(".magneticSteelDataUl").animate({
-        //         marginTop: "-31px"
-        //     }, 1000, function() {
-        //         $(this).css({
-        //             marginTop: "0px"
-        //         }).find("li:first").appendTo(this);
-        //     });
-        // };
-        // var timer = setInterval('autoScroll(".magneticSteelDataUlOut")', 1000);
-        // $(function() {
-        //     $(".magneticSteelDataUlOut").hover(function() {
-        //         clearInterval(timer);
-        //     }, function() {
-        //         timer = setInterval('autoScroll(".magneticSteelDataUlOut")', 1000);
-        //     });
-        // });
+        function autoScroll(obj) {
+            $(obj).find(".magneticSteelDataUl").animate({
+                marginTop: "-31px"
+            }, 1000, function() {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            });
+        };
+        var timer = setInterval('autoScroll(".magneticSteelDataUlOut")', 1000);
+        $(function() {
+            $(".magneticSteelDataUlOut").hover(function() {
+                clearInterval(timer);
+            }, function() {
+                timer = setInterval('autoScroll(".magneticSteelDataUlOut")', 1000);
+            });
+        });
     </script>
 
 </body>
