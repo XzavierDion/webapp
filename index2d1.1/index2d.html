@@ -666,55 +666,55 @@
             var sUserAgent = navigator.userAgent.toLowerCase();
             if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
                 //手机端：页面滚动
-                $(".main").scrollTop(3200);
-                $(".main").scrollLeft(950);
+
 
             } else {
                 //电脑端：页面拖动
-                $("#moveDiv").draggable({
-                    containment: [-3800 + window.innerWidth, -4200 + window.innerHeight, 0, 0]
-                });
-                $('#moveDiv').bind('dragstart', function(event, ui) {
-                    $(".rightContrlGuideUl li").removeClass("rightContrlGuideOn");
-                    $(".imgActive img").hide();
-                });
 
+                // $("#moveDiv").draggable({
+                //     containment: [-3800 + window.innerWidth, -4200 + window.innerHeight, 0, 0]
+                // });
 
+                var moveHeight = $("#moveDiv").height();
+                var firstScroll = moveHeight * 0.7;
+                var secondScroll = moveHeight * 0.5;
+                var thirdScroll = moveHeight * 0.3;
+                var fouthScroll = moveHeight * 0.1;
                 //电脑端：右下角导引按钮点击定位
                 $(".toFirstFloor").click(function() {
                     $(".firstFloor").show().siblings().hide();
-                    $("#moveDiv").css({
-                        "left": "-950px",
-                        "top": "-3200px"
-                    });
+                    // $("#moveDiv").css({
+                    //     "top": "-76%"
+                    // });
+                    $(".main").scrollTop(firstScroll);
                 });
                 $(".toSecondFloor").click(function() {
                     $(".secondFloor").show().siblings().hide();
-                    $("#moveDiv").css({
-                        "left": "-100px",
-                        "top": "-2450px"
-                    });
+                    // $("#moveDiv").css({
+                    //     "top": "-58%"
+                    // });
+                    $(".main").scrollTop(secondScroll);
                 });
                 $(".toThirdFloor").click(function() {
                     $(".thirdFloor").show().siblings().hide();
-                    $("#moveDiv").css({
-                        "left": "-200px",
-                        "top": "-1500px"
-                    });
+                    // $("#moveDiv").css({
+                    //     "top": "-36%"
+                    // });
+                    $(".main").scrollTop(thirdScroll);
                 });
                 $(".toFouthFloor").click(function() {
                     $(".fouthFloor").show().siblings().hide();
-                    $("#moveDiv").css({
-                        "left": "-900px",
-                        "top": "-600px"
-                    });
+                    // $("#moveDiv").css({
+                    //     "top": "-14%"
+                    // });
+                    $(".main").scrollTop(fouthScroll);
                 });
                 $(".toFifthFloor").click(function() {
                     $(".fifthFloor").show().siblings().hide();
-                    $("#moveDiv").css({
-                        "left": "-400px",
-                        "top": "0px"
-                    });
+                    // $("#moveDiv").css({
+                    //     "top": "0px"
+                    // });
+                    $(".main").scrollTop(0);
                 });
             }
         }
