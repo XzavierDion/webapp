@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/invoiceForm.css" />
+</head>
+
+<body>
+
+
+    <div class="exhibitionPayJump">
+        <!-- 弹出框 -->
+        <div class="exhibitionPayJumpTitle">发票信息</div>
+        <ul class="flexDiv exhibitionPayJumpTab">
+            <li>
+                <span>不需要发票</span>
+                <img src="img/jumpcheck.png" class="jumpCheck">
+            </li>
+            <li class="exhibitionPayJumpTabOn">
+                <span>增值税电子普通发票</span>
+                <img src="img/jumpcheck.png" class="jumpCheck">
+            </li>
+            <li>
+                <span>增值税专用发票</span>
+                <img src="img/jumpcheck.png" class="jumpCheck">
+            </li>
+        </ul>
+        <div class="exhibitionPayJumpUlCon">
+            <div class="exhibitionPayJumpUlOut">
+                <div class="exhibitionPayJumpBtns">
+                    <button type="button" class="exhibitionPayJumpBtn1">确定</button>
+                    <button type="button" class="exhibitionPayJumpBtn2">取消</button>
+                </div>
+            </div>
+            <div class="exhibitionPayJumpUlOut" style="display: block;">
+                <ul>
+                    <li>
+                        <div class="exhibitionPayJumpName exhibitionPayJumpNameCheck">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">发票抬头</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <ul class="exhibitionJumpCustCheck">
+                                <li class="exhibitionCustCheckPerson exhibitionCustCheckOn">
+                                    <span>个人</span>
+                                    <img src="img/jumpcheck.png" class="jumpCheck">
+                                </li>
+                                <li class="exhibitionCustCheckCompany">
+                                    <span>企业</span>
+                                    <img src="img/jumpcheck.png" class="jumpCheck">
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exhibitionJumpLiCompany">
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">企业名称</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="企业名称" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li class="exhibitionJumpLiCompany">
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">纳税人识别号</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="纳税人识别号" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">发票内容</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <div class="flexDiv exhibitionPayJumpSelect">
+                                <span>服务费</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">联系方式</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写手机号码" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">收票人邮箱</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写邮箱" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp"></span>
+                            <span class="exhibitionPayJumpNameDown">公司地址</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写地址" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpBtns">
+                            <button type="button" class="exhibitionPayJumpBtn1">保存</button>
+                            <button type="button" class="exhibitionPayJumpBtn2">取消</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="exhibitionPayJumpUlOut">
+                <ul>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">发票抬头</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="企业" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">纳税人识别号</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="纳税人识别号" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">发票内容</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <div class="flexDiv exhibitionPayJumpSelect">
+                                <span>技术服务费</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">开户银行</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写银行名称" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">银行账号</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写银行账号" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">联系方式</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写手机号码" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">收票人邮箱</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写邮箱" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpName">
+                            <span class="exhibitionPayJumpNameUp">*</span>
+                            <span class="exhibitionPayJumpNameDown">公司地址</span>
+                        </div>
+                        <div class="exhibitionPayJumpValue">
+                            <input type="text" placeholder="请填写地址" class="exhibitionPayJumpIpt">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="exhibitionPayJumpBtns">
+                            <button type="button" class="exhibitionPayJumpBtn1">保存</button>
+                            <button type="button" class="exhibitionPayJumpBtn2">取消</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+        $(".exhibitionPayJumpTab>li").click(function() {
+            $(this).addClass("exhibitionPayJumpTabOn").siblings().removeClass("exhibitionPayJumpTabOn");
+            var tabIndex = $(this).index();
+            $(".exhibitionPayJumpUlCon .exhibitionPayJumpUlOut").eq(tabIndex).show().siblings().hide();
+        });
+        $(".exhibitionJumpCustCheck li").click(function() {
+            $(this).addClass("exhibitionCustCheckOn").siblings().removeClass("exhibitionCustCheckOn");
+        });
+        $(".exhibitionPayJumpBtn2").click(function() {
+            $(".exhibitionPayJump").hide();
+        });
+        $(".exhibitionCustCheckPerson").click(function() {
+            $(".exhibitionJumpLiCompany").css({
+                "display": "none"
+            });
+        });
+        $(".exhibitionCustCheckCompany").click(function() {
+            $(".exhibitionJumpLiCompany").css({
+                "display": "flex"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

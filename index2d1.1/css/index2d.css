@@ -78,7 +78,7 @@ input[type="text"] {
 }
 
 .secondFloor {
-    bottom: 15.4%;
+    bottom: 15.5%;
 }
 
 .thirdFloor {
@@ -113,6 +113,7 @@ input[type="text"] {
 }
 
 .guanTui {
+    display: none;
     font-size: 14px;
     border-top: 2px solid #000;
     padding: 10px;
@@ -242,99 +243,97 @@ input[type="text"] {
     left: 18%;
 }
 
-.guanPoint {
+.guanPoint>div {
     position: absolute;
-    left: 0;
-    top: 0;
     height: 40px;
     width: 40px;
     cursor: pointer;
     z-index: 99;
 }
 
-.guanPoint>img {
+.guanPoint>div>img {
     width: 100%;
     height: 100%;
 }
 
-.djPoint {
-    left: -50px;
-    top: -160px;
+.bpqPoint {
+    bottom: 9%;
+    left: 54%;
 }
 
-.bpqPoint {
-    left: 10px;
-    top: -160px;
+.djPoint {
+    bottom: 14%;
+    left: 34%;
 }
 
 .zhouPoint {
-    left: 20px;
-    top: -270px;
+    bottom: 24%;
+    left: 78%;
 }
 
 .jkPoint {
-    left: -200px;
-    top: 310px;
+    bottom: 25%;
+    left: 62%;
 }
 
 .guiPoint {
-    left: 350px;
-    top: -270px;
+    bottom: 32%;
+    left: 53%;
 }
 
 .cgPoint {
-    left: 100px;
-    top: -200px;
+    bottom: 36%;
+    left: 38%;
 }
 
 .cpPoint {
-    left: 270px;
-    top: -200px;
+    bottom: 25%;
+    left: 21%;
 }
 
 .zcPoint {
-    left: 400px;
-    top: -200px;
+    bottom: 33%;
+    left: 16%;
 }
 
 .bzjPoint {
-    left: 400px;
-    top: 400px;
+    top: 46%;
+    left: 18%;
 }
 
 .jsPoint {
-    left: -370px;
-    top: 300px;
+    top: 46%;
+    left: 38%;
 }
 
 .fsPoint {
-    left: 90px;
-    top: -240px;
+    top: 48%;
+    left: 50%;
 }
 
 .jyclPoint {
-    left: -190px;
-    top: 300px;
+    top: 52%;
+    left: 69%;
 }
 
 .dxPoint {
-    left: -190px;
-    top: 350px;
+    top: 58%;
+    left: 78%;
 }
 
 .cssbPoint {
-    left: -320px;
-    top: -30px;
+    top: 32%;
+    left: 72%;
 }
 
 .zzsbPoint {
-    left: -120px;
-    top: 610px;
+    top: 28%;
+    left: 53%;
 }
 
 .qtPoint {
-    left: 300px;
-    top: 120px;
+    top: 10%;
+    left: 30%;
 }
 
 .rightContrl {
@@ -607,11 +606,53 @@ input[type="text"] {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.guideActive img {
+
+/* .guideActive img {
     position: relative;
     width: 160px;
     display: none;
     left: 0;
+} */
+
+.guideActive {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.guideActive li {
+    display: none;
+    height: 20%;
+    width: 100%;
+    padding: 5px;
+    background: #000;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0px;
+}
+
+.guideActiveFifth {
+    top: 0px;
+}
+
+.guideActiveFouth {
+    top: 20%;
+}
+
+.guideActiveThird {
+    top: 40%;
+}
+
+.guideActiveSecond {
+    top: 60%;
+}
+
+.guideActiveFirst {
+    top: 80%;
 }
 
 .piontJump {
@@ -782,11 +823,7 @@ input[type="text"] {
         overflow-y: scroll;
     }
     #moveDiv {
-        position: relative;
-        left: 0;
-        top: 0;
-        width: 3800px;
-        height: 4200px;
+        width: 400%;
     }
     .rightContrlGuide {
         display: none;
