@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="main">
+    <div class="main" id="box">
         <div id="moveDiv">
             <!-- 背景图片 -->
             <img src="img/d1.jpg">
@@ -531,21 +531,29 @@
                             <img src="img/guidesecond.jpg" class="guidesecond">
                             <img src="img/guidefirst.jpg" class="guidefirst">
                         </div> -->
-                        <ul class="guideActive">
-                            <li class="guideActiveFifth">其他展</li>
-                            <li class="guideActiveFouth">设备展</li>
-                            <li class="guideActiveThird">电机结构材料展</li>
-                            <li class="guideActiveSecond">电机有效材料展</li>
-                            <li class="guideActiveFirst">电机及控制器展</li>
-                        </ul>
                     </div>
                     <ul class="rightContrlGuideUl">
                         <!-- 楼层引导 -->
-                        <li class="toFifthFloor">f5</li>
-                        <li class="toFouthFloor">f4</li>
-                        <li class="toThirdFloor">f3</li>
-                        <li class="toSecondFloor">f2</li>
-                        <li class="toFirstFloor">f1</li>
+                        <li class="toFifthFloor">
+                            <span>f5</span>
+                            <div class="guideActive">其他展</div>
+                        </li>
+                        <li class="toFouthFloor">
+                            <span>f4</span>
+                            <div class="guideActive">设备展</div>
+                        </li>
+                        <li class="toThirdFloor">
+                            <span>f3</span>
+                            <div class="guideActive">电机结构材料展</div>
+                        </li>
+                        <li class="toSecondFloor">
+                            <span>f2</span>
+                            <div class="guideActive">电机有效材料展</div>
+                        </li>
+                        <li class="toFirstFloor">
+                            <span>f1</span>
+                            <div class="guideActive">电机及控制器展</div>
+                        </li>
                         <!-- <li class="toFirstFloor rightContrlGuideOn">f1</li> -->
                     </ul>
                 </div>
@@ -664,13 +672,8 @@
 
         //右下角导引按钮高亮效果
         $(".rightContrlGuideUl li").click(function() {
-            $(this).addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
+            // $(this).addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
             var floorIndex = $(this).index();
-            $(".guideActive").find("li").eq(floorIndex).css({
-                "display": "flex"
-            }).siblings().css({
-                "display": "none"
-            });
             $(".imgActive").find("img").eq(floorIndex).show().siblings().hide();
         });
 
@@ -689,26 +692,49 @@
                 // });
 
                 var moveHeight = $("#moveDiv").height();
-                var firstScroll = moveHeight * 0.7;
-                var secondScroll = moveHeight * 0.5;
-                var thirdScroll = moveHeight * 0.3;
-                var fouthScroll = moveHeight * 0.1;
-                //电脑端：右下角导引按钮点击定位
+                var moreHeight = moveHeight - window.innerHeight;
+                var firstScroll = moreHeight * 0.8;
+                var secondScroll = moreHeight * 0.4;
+                var thirdScroll = moreHeight * 0.2;
+                var fouthScroll = moreHeight * 0.1;
+                $(".main").scrollTop(moreHeight);
+
                 $(".toFirstFloor").click(function() {
-                    $(".main").scrollTop(firstScroll);
+                    $(".main").scrollTop(moreHeight);
                 });
                 $(".toSecondFloor").click(function() {
-                    $(".main").scrollTop(secondScroll);
+                    $(".main").scrollTop(firstScroll);
                 });
                 $(".toThirdFloor").click(function() {
-                    $(".main").scrollTop(thirdScroll);
+                    $(".main").scrollTop(secondScroll);
                 });
                 $(".toFouthFloor").click(function() {
-                    $(".main").scrollTop(fouthScroll);
+                    $(".main").scrollTop(thirdScroll);
                 });
                 $(".toFifthFloor").click(function() {
-                    $(".main").scrollTop(0);
+                    $(".main").scrollTop(1);
                 });
+
+                var element = document.getElementById('box');
+                element.onscroll = function() {
+                    // var h = element.scrollTop + moveHeight / 2;
+                    if (element.scrollTop >= 0) {
+                        $(".toFifthFloor").addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
+                    }
+                    if (element.scrollTop >= fouthScroll) {
+                        $(".toFouthFloor").addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
+                    }
+                    if (element.scrollTop >= thirdScroll) {
+                        $(".toThirdFloor").addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
+                    }
+                    if (element.scrollTop >= secondScroll) {
+                        $(".toSecondFloor").addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
+                    }
+                    if (element.scrollTop >= firstScroll) {
+                        $(".toFirstFloor").addClass("rightContrlGuideOn").siblings().removeClass("rightContrlGuideOn");
+                    }
+                }
+
 
             }
         }
