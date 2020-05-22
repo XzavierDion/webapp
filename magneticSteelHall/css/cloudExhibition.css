@@ -221,7 +221,7 @@ input[type="text"] {
 /* 云展厅样式开始 */
 
 .cloudExhibitionTop {
-    height: 400px;
+    /* height: 400px; */
     background: url("../img/cloudBg.png") no-repeat;
     background-position: center center;
     background-size: cover;
@@ -242,12 +242,13 @@ input[type="text"] {
 }
 
 .cloudExhibitionTopCon {
+    /* height: 300px; */
     background: rgba(0, 79, 171, 0.8);
     width: 100%;
-    height: 300px;
     color: #fff;
     display: flex;
     padding: 20px 0px 25px 0px;
+    flex-wrap: wrap;
 }
 
 .cloudExhibitionTopLeft {
@@ -292,8 +293,208 @@ input[type="text"] {
     font-size: 18px;
 }
 
+.cloudExhibitionTopInfo {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cloudTopInfoTitle {
+    width: 100%;
+    color: #FFB900;
+    padding: 0px 25px;
+}
+
+.cloudTopInfoTitleIn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E5E5E5;
+    font-size: 14px;
+    padding: 5px 0px;
+    white-space: nowrap;
+}
+
+.cloudTopInfoTitleIn .cloudTopInfoHot {
+    padding-left: 18px;
+}
+
+.cloudTopInfoUl {
+    width: 100%;
+    padding: 0px 20px 0px 25px;
+    font-size: 12px;
+    height: 175px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.cloudTopInfoUl li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 5px 0px;
+}
+
+.cloudTopInfoUl li>div {
+    display: flex;
+    align-items: center;
+}
+
+.cloudTopInfoUl li>div img {
+    margin-right: 2px;
+}
+
+.cloudTopInfoLogo {
+    width: 9%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.cloudTopInfoName {
+    width: 30%;
+    padding-right: 10px;
+}
+
+.cloudTopInfoName span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cloudTopInfoOnline {
+    width: 13%;
+}
+
+.cloudTopInfoHot {
+    width: 15%;
+}
+
+.cloudTopInfoVideo {
+    width: 33%;
+}
+
+.cloudTopInfoVideo span {
+    margin-right: 2px;
+    white-space: nowrap;
+}
+
+.cloudTopInfoLogoIn {
+    height: 24px;
+    width: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cloudTopInfoLogoIn img {
+    width: 100%;
+}
+
 .cloudExhibitionTopRight {
     width: 50%;
+    padding: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cloudTopRightVideoCon {
+    width: 430px;
+    height: 242px;
+    position: relative;
+    background: #333;
+}
+
+.cloudTopRightVideoStart {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -26px;
+    margin-top: -26px;
+    cursor: pointer;
+}
+
+.cloudTopRightSeat {
+    width: 168px;
+    height: 242px;
+    background: #fff;
+    padding: 0px 15px;
+    color: #979797;
+}
+
+.cloudTopRightSeatTitle {
+    font-size: 14px;
+    color: #007C79;
+    background: #E5E5E5;
+    text-align: center;
+    padding: 5px 0px;
+    font-weight: 600;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.cloudTopRightSeatLogo {
+    height: 50px;
+    padding: 5px 0px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.cloudTopRightSeatLogo img {
+    height: 100%;
+}
+
+.cloudTopRightSeatName {
+    color: #333;
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+
+.cloudTopRightSeatProduct {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.cloudTopRightSeatProduct img {
+    width: 100%;
+}
+
+.cloudTopRightSeatEnter {
+    font-weight: 600;
+    text-align: center;
+    color: #2C2C2B;
+    background: #FF8F33;
+    padding: 5px 0px;
+    border-radius: 4px 4px 0px 0px;
+    -webkit-border-radius: 4px 4px 0px 0px;
+    -moz-border-radius: 4px 4px 0px 0px;
+    -ms-border-radius: 4px 4px 0px 0px;
+    -o-border-radius: 4px 4px 0px 0px;
+}
+
+.cloudTopRightSeatEnter:hover {
+    background: #fd8421;
+    cursor: pointer;
 }
 
 
@@ -780,5 +981,59 @@ input[type="text"] {
     .searchProductArticle>li {
         width: 100%;
         margin-right: 0;
+    }
+    /* 云展厅 */
+    .cloudExhibitionTopLeft {
+        width: 100%;
+    }
+    .cloudExhibitionTopRight {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .cloudTopInfoLogo {
+        display: none;
+    }
+    .cloudTopInfoUl li>div.cloudTopInfoLogo {
+        display: none;
+    }
+    .cloudTopInfoHot {
+        display: none;
+    }
+    .cloudTopInfoUl li>div.cloudTopInfoHot {
+        display: none;
+    }
+    .cloudTopInfoOnline {
+        display: none;
+    }
+    .cloudTopInfoUl li>div.cloudTopInfoOnline {
+        display: none;
+    }
+    .cloudExhibitionTopTip {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+    .cloudExhibitionTopNumber {
+        flex-wrap: wrap;
+        padding-left: 10px;
+    }
+    .cloudExhibitionTopNumberUl {
+        margin-top: 10px;
+        margin-left: -20px;
+    }
+    .cloudTopInfoTitle {
+        padding: 0px 10px;
+    }
+    .cloudTopInfoUl {
+        padding: 0px 10px;
+    }
+    .cloudExhibitionTopRight {
+        padding: 0px 10px;
+    }
+    .cloudTopRightVideoCon {
+        height: 162px;
+    }
+    .cloudTopRightSeat {
+        width: 100%;
+        margin-top: 10px;
     }
 }
