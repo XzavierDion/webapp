@@ -19,7 +19,7 @@
         </div>
         <div class="searchDiv">
             <div class="searchDivIn">
-                <div class="searchDivSelect">
+                <!-- <div class="searchDivSelect">
                     <div class="searchDivSelectValue">
                         <span>企业</span>
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -27,6 +27,17 @@
                     <ul class="searchDivSelectUl">
                         <li>企业</li>
                         <li>产品</li>
+                    </ul>
+                </div> -->
+                <!-- Single button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>企业</span>
+                        <i class="fa fa-angle-down fa-lg fa-fw" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">企业</a></li>
+                        <li><a href="#">产品</a></li>
                     </ul>
                 </div>
                 <div class="searchDivIpt">
@@ -752,10 +763,10 @@
         myChart.setOption(option);
 
         // 搜索框仿下拉框效果
-        $(".searchDivSelectValue").click(function() {
-            $(".searchDivSelectUl").slideToggle(200);
-            $(this).find(".fa-angle-down").toggleClass("searchSelectTransform");
-        });
+        // $(".searchDivSelectValue").click(function() {
+        //     $(".searchDivSelectUl").slideToggle(200);
+        //     $(this).find(".fa-angle-down").toggleClass("searchSelectTransform");
+        // });
 
         //文字滚动
         function autoScroll(obj) {

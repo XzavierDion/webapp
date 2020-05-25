@@ -21,14 +21,14 @@
         </div>
         <div class="searchDiv">
             <div class="searchDivIn">
-                <div class="searchDivSelect">
-                    <div class="searchDivSelectValue">
-                        <span>找展商</span>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="searchDivSelectUl">
-                        <li>找展商</li>
-                        <li>XXX</li>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>企业</span>
+                        <i class="fa fa-angle-down fa-lg fa-fw" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">企业</a></li>
+                        <li><a href="#">产品</a></li>
                     </ul>
                 </div>
                 <div class="searchDivIpt">
@@ -99,117 +99,144 @@
                                 <div class="cloudTopInfoVideo">直播情况</div>
                             </div>
                         </div>
-                        <ul class="cloudTopInfoUl">
-                            <li>
-                                <div class="cloudTopInfoLogo">
-                                    <div class="cloudTopInfoLogoIn">
-                                        <img src="img/5ad4img5.png">
+                        <div class="cloudTopInfoUlOut">
+                            <ul class="cloudTopInfoUl">
+                                <li>
+                                    <div class="cloudTopInfoLogo">
+                                        <div class="cloudTopInfoLogoIn">
+                                            <img src="img/5ad4img5.png">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="cloudTopInfoName">
-                                    <span>横店东磁股份有限公司</span>
-                                </div>
-                                <div class="cloudTopInfoOnline">
-                                    <img src="img/online.png">
-                                </div>
-                                <div class="cloudTopInfoHot">
-                                    <img src="img/hot.png">
-                                    <span>15234</span>
-                                </div>
-                                <div class="cloudTopInfoVideo">
-                                    <img src="img/videoing.png">
-                                    <span>直播进行中</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cloudTopInfoLogo">
-                                    <div class="cloudTopInfoLogoIn">
-                                        <img src="img/5ad4img5.png">
+                                    <div class="cloudTopInfoName">
+                                        <span>横店东磁股份有限公司</span>
                                     </div>
-                                </div>
-                                <div class="cloudTopInfoName">
-                                    <span>义务市东辰磁业有限公司</span>
-                                </div>
-                                <div class="cloudTopInfoOnline">
-                                    <img src="img/broken.png">
-                                </div>
-                                <div class="cloudTopInfoHot">
-                                    <img src="img/hot.png">
-                                    <span>3672</span>
-                                </div>
-                                <div class="cloudTopInfoVideo">
-                                    <img src="img/videoend.png">
-                                    <span>直播已结束</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cloudTopInfoLogo">
-                                    <div class="cloudTopInfoLogoIn">
-                                        <img src="img/5ad4img5.png">
+                                    <div class="cloudTopInfoOnline">
+                                        <img src="img/online.png">
                                     </div>
-                                </div>
-                                <div class="cloudTopInfoName">
-                                    <span>东莞艾优磁性科技有限公司</span>
-                                </div>
-                                <div class="cloudTopInfoOnline">
-                                    <img src="img/online.png">
-                                </div>
-                                <div class="cloudTopInfoHot">
-                                    <img src="img/hot.png">
-                                    <span>1112</span>
-                                </div>
-                                <div class="cloudTopInfoVideo">
-                                    <img src="img/videoing.png">
-                                    <span>直播进行中</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cloudTopInfoLogo">
-                                    <div class="cloudTopInfoLogoIn">
-                                        <img src="img/5ad4img5.png">
+                                    <div class="cloudTopInfoHot">
+                                        <img src="img/hot.png">
+                                        <span>15234</span>
                                     </div>
-                                </div>
-                                <div class="cloudTopInfoName">
-                                    <span>广州市捂扬磁铁有限公司</span>
-                                </div>
-                                <div class="cloudTopInfoOnline">
-                                    <img src="img/online.png">
-                                </div>
-                                <div class="cloudTopInfoHot">
-                                    <img src="img/hot.png">
-                                    <span>345</span>
-                                </div>
-                                <div class="cloudTopInfoVideo">
-                                    <img src="img/videoing.png">
-                                    <span>直播进行中</span>
-                                </div>
-                            </li>
+                                    <div class="cloudTopInfoVideo">
+                                        <img src="img/videoing.png">
+                                        <span>直播进行中</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cloudTopInfoLogo">
+                                        <div class="cloudTopInfoLogoIn">
+                                            <img src="img/5ad4img5.png">
+                                        </div>
+                                    </div>
+                                    <div class="cloudTopInfoName">
+                                        <span>义务市东辰磁业有限公司</span>
+                                    </div>
+                                    <div class="cloudTopInfoOnline">
+                                        <img src="img/broken.png">
+                                    </div>
+                                    <div class="cloudTopInfoHot">
+                                        <img src="img/hot.png">
+                                        <span>3672</span>
+                                    </div>
+                                    <div class="cloudTopInfoVideo">
+                                        <img src="img/videoend.png">
+                                        <span>直播已结束</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cloudTopInfoLogo">
+                                        <div class="cloudTopInfoLogoIn">
+                                            <img src="img/5ad4img5.png">
+                                        </div>
+                                    </div>
+                                    <div class="cloudTopInfoName">
+                                        <span>东莞艾优磁性科技有限公司</span>
+                                    </div>
+                                    <div class="cloudTopInfoOnline">
+                                        <img src="img/online.png">
+                                    </div>
+                                    <div class="cloudTopInfoHot">
+                                        <img src="img/hot.png">
+                                        <span>1112</span>
+                                    </div>
+                                    <div class="cloudTopInfoVideo">
+                                        <img src="img/videoing.png">
+                                        <span>直播进行中</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cloudTopInfoLogo">
+                                        <div class="cloudTopInfoLogoIn">
+                                            <img src="img/5ad4img5.png">
+                                        </div>
+                                    </div>
+                                    <div class="cloudTopInfoName">
+                                        <span>广州市捂扬磁铁有限公司</span>
+                                    </div>
+                                    <div class="cloudTopInfoOnline">
+                                        <img src="img/online.png">
+                                    </div>
+                                    <div class="cloudTopInfoHot">
+                                        <img src="img/hot.png">
+                                        <span>345</span>
+                                    </div>
+                                    <div class="cloudTopInfoVideo">
+                                        <img src="img/videoing.png">
+                                        <span>直播进行中</span>
+                                    </div>
+                                </li>
 
-                            <li>
-                                <div class="cloudTopInfoLogo">
-                                    <div class="cloudTopInfoLogoIn">
-                                        <img src="img/5ad4img5.png">
+                                <li>
+                                    <div class="cloudTopInfoLogo">
+                                        <div class="cloudTopInfoLogoIn">
+                                            <img src="img/5ad4img5.png">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="cloudTopInfoName">
-                                    <span>东阳市江南电磁源头厂</span>
-                                </div>
-                                <div class="cloudTopInfoOnline">
-                                    <img src="img/online.png">
-                                </div>
-                                <div class="cloudTopInfoHot">
-                                    <img src="img/hot.png">
-                                    <span>1245</span>
-                                </div>
-                                <div class="cloudTopInfoVideo">
-                                    <img src="img/videonew.png">
-                                    <span>直播未开始</span>
-                                    <span>12/25</span>
-                                    <span>10:00</span>
-                                    <span>开始</span>
-                                </div>
-                            </li>
-                        </ul>
+                                    <div class="cloudTopInfoName">
+                                        <span>东阳市江南电磁源头厂</span>
+                                    </div>
+                                    <div class="cloudTopInfoOnline">
+                                        <img src="img/online.png">
+                                    </div>
+                                    <div class="cloudTopInfoHot">
+                                        <img src="img/hot.png">
+                                        <span>1245</span>
+                                    </div>
+                                    <div class="cloudTopInfoVideo">
+                                        <img src="img/videonew.png">
+                                        <span>直播未开始</span>
+                                        <span>12/25</span>
+                                        <span>10:00</span>
+                                        <span>开始</span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="cloudTopInfoLogo">
+                                        <div class="cloudTopInfoLogoIn">
+                                            <img src="img/5ad4img5.png">
+                                        </div>
+                                    </div>
+                                    <div class="cloudTopInfoName">
+                                        <span>东阳市江南电磁源头厂</span>
+                                    </div>
+                                    <div class="cloudTopInfoOnline">
+                                        <img src="img/online.png">
+                                    </div>
+                                    <div class="cloudTopInfoHot">
+                                        <img src="img/hot.png">
+                                        <span>1245</span>
+                                    </div>
+                                    <div class="cloudTopInfoVideo">
+                                        <img src="img/videonew.png">
+                                        <span>直播未开始</span>
+                                        <span>12/25</span>
+                                        <span>10:00</span>
+                                        <span>开始</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="cloudExhibitionTopRight">
@@ -240,12 +267,32 @@
         </div>
     </div>
     <div class="magneticSteelCon">
+        <div class="cloudExhibitionSearch">
+            <div class="flexDiv cloudExhibitionSearchTip">
+                <img src="img/cloudSearch.png">
+                <span>快速查找展商</span>
+            </div>
+            <div class="cloudExhibitionSearchForm">
+                <input type="text" placeholder="请输入展位号、展商名称、产品关键词">
+                <button type="button">搜索</button>
+            </div>
+            <div class="searchProductSortAreaBtn">
+                <span>地址</span><i class="fa fa-caret-down" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="searchProductSortAreaMain">
+            <div class="searchProductSortAreaIn">
+            </div>
+            <div class="searchProductSortAreaCtrl">
+                <button type="button">确定</button>
+                <button type="button">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="magneticSteelCon">
         <div class="magneticSteelCloud">
             <div class="flexDiv searchProductFind">
-                <div class="flexDiv">
-                    <div style="margin-right: 5px;"><span>所有分类</span><span>></span></div>
-                    <div>共找到<span class="searchProductRed">188</span>条企业信息</div>
-                </div>
                 <div class="searchProductFindArrow">
                     <span>收起筛选</span>
                     <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -263,6 +310,12 @@
                               </label>
                         <label class="checkbox-inline">
                                 <input type="checkbox" id="inlineCheckbox3" value="option3"> 产品电子样本
+                              </label>
+                        <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 客服在线
+                              </label>
+                        <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 正在直播中
                               </label>
                     </div>
                 </li>
@@ -294,127 +347,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <div class="searchProductName">品牌：</div>
-                    <div class="searchProductValue">
-                        <ul class="searchProductCheckUl">
-                            <li class="searchProductCheckLiOn">全部</li>
-                            <li>杭州永磁</li>
-                            <li>中科三环</li>
-                            <li>宁波韵升</li>
-                            <li>横店东磁</li>
-                            <li>宁波科星</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="searchProductName">形状：</div>
-                    <div class="searchProductValue">
-                        <ul class="searchProductCheckUl">
-                            <li>全部</li>
-                            <li class="searchProductCheckLiOn">方形</li>
-                            <li>瓦形</li>
-                            <li>圆环</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="searchProductName searchProductNameTall">牌号：</div>
-                    <div class="flexDiv searchProductValue">
-                        <input type="text" class="searchProductIpt">
-                        <button type="button" class="searchProductBtn">确定</button>
-                    </div>
-                </li>
-                <li>
-                    <div class="searchProductName searchProductNameTall">尺寸：</div>
-                    <div class="searchProductValue">
-                        <div class="searchProductSizeOut">
-                            <div class="flexDiv searchProductSize">
-                                <div>长</div>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" aria-label="...">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mm<i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#">mm</a></li>
-                                            <li><a href="#">cm</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flexDiv searchProductSize">
-                                <div>宽</div>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" aria-label="...">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mm<i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#">mm</a></li>
-                                            <li><a href="#">cm</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flexDiv searchProductSize">
-                                <div>高</div>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" aria-label="...">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mm<i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#">mm</a></li>
-                                            <li><a href="#">cm</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button type="button" class="searchProductBtn">确定</button>
-                        </div>
-                    </div>
-                </li>
             </ul>
-            <div class="searchProductSort">
-                <div class="flexDiv searchProductSortLeft">
-                    <ul class="flexDiv searchProductSortUl">
-                        <li class="searchProductSortLiOn">
-                            <span>综合排序</span>
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                        </li>
-                        <li>
-                            <span>询价</span>
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                        </li>
-                        <li>
-                            <span>浏览量</span>
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                        </li>
-                        <li>
-                            <span>口碑</span>
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                        </li>
-                        <li>
-                            <span>新上架</span>
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                        </li>
-                        <li class="searchProductSortAreaBtn">
-                            <span>地址</span><i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flexDiv searchProductSortRight">
-                    <div class="searchProductSortRightBtn searchProductSortRightBtnOn">缩略图</div>
-                    <div class="searchProductSortRightBtn">列表</div>
-                </div>
-            </div>
-            <div class="searchProductSortAreaMain">
-                <div class="searchProductSortAreaIn">
-                </div>
-                <div class="searchProductSortAreaCtrl">
-                    <button type="button">确定</button>
-                    <button type="button">取消</button>
-                </div>
-            </div>
             <ul class="searchProductArticle">
                 <li>
                     <div class="searchProductArticleImg">
@@ -565,36 +498,28 @@
     <script src="js/echarts.min.js"></script>
     <script>
         // 搜索框仿下拉框效果
-        $(".searchDivSelectValue").click(function() {
-            $(".searchDivSelectUl").slideToggle(200);
-            $(this).find(".fa-angle-down").toggleClass("searchSelectTransform");
-        });
-
         $(".searchProductSortAreaBtn").click(function() {
             $(this).toggleClass("searchProductSortAreaBtnOn");
             $(".searchProductSortAreaMain").toggleClass("searchProductSortAreaMainOn");
         });
 
-        function imgSize() {
-            var productImgWidth = $(".searchProductArticleImg").width();
-            $(".searchProductArticleImg").height(productImgWidth);
-
-            var productImgWidth1 = $(".searchProductArticleImg1").width();
-            $(".searchProductArticleImg1").height(productImgWidth1);
-
-        }
-
-        imgSize();
-
-        $(".searchProductRightCheck .searchProductRightCheckBtn").click(function() {
-            $(this).addClass("searchProductRightCheckBtnOn").siblings().removeClass("searchProductRightCheckBtnOn");
-            var checkIndex = $(this).index();
-            $(".searchProductRightUl ul").eq(checkIndex).css({
-                "display": "flex"
-            }).siblings().css({
-                "display": "none"
+        //文字滚动
+        function autoScroll(obj) {
+            $(obj).find(".cloudTopInfoUl").animate({
+                marginTop: "-35px"
+            }, 1000, function() {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
             });
-            imgSize();
+        };
+        var timer = setInterval('autoScroll(".cloudTopInfoUlOut")', 1000);
+        $(function() {
+            $(".cloudTopInfoUlOut").hover(function() {
+                clearInterval(timer);
+            }, function() {
+                timer = setInterval('autoScroll(".cloudTopInfoUlOut")', 1000);
+            });
         });
     </script>
 

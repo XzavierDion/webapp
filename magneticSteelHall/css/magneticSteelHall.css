@@ -85,6 +85,31 @@ input[type="text"] {
     height: 38px;
     display: flex;
     align-items: center;
+    width: 100%;
+}
+
+.searchDivIn .btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border: none;
+    height: 38px;
+    padding: 6px 15px;
+    font-size: 14px;
+}
+
+.searchDivIn .btn .fa {
+    color: #269B67;
+}
+
+.dropdown-menu {
+    min-width: 100%;
+}
+
+.dropdown-menu>li>a {
+    padding: 3px 14px;
 }
 
 .searchDivIn1 {
@@ -157,6 +182,7 @@ input[type="text"] {
     background: #fff;
     display: flex;
     align-items: center;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .searchDivIpt input {
@@ -1051,6 +1077,12 @@ input[type="text"] {
     }
     .magneticSteelCon {
         padding: 0px 10px;
+    }
+    .searchDivIn .btn {
+        height: 36px;
+    }
+    .magneticSteelNav li a {
+        padding: 7px 10px;
     }
     /* 内容部分 */
     .magneticSteelMiddle {
