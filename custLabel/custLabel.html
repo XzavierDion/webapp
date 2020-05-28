@@ -27,49 +27,51 @@
                 <div class="modal-body">
 
                     <!-- 弹出框里内容开始 -->
-                    <div>
-                        <div>
-                            <div>
+                    <div class="custLabelCon">
+                        <div class="custLabelLeft">
+                            <div class="custLabelTitle">
                                 <span>标签库</span>
                             </div>
-                            <ul>
-                                <li>所有标签类型</li>
-                                <li>标签类型1</li>
-                                <li>标签类型2</li>
-                                <li>标签类型3</li>
-                            </ul>
-                            <ul>
-                                <li class="landingArea">
-                                    <div id="dragged" draggable="true" ondragstart="drag(event)" style="background: orange;width:100px;padding:10px;">某某标签1</div>
-                                    <div>某某标签2</div>
-                                    <div>某某标签3</div>
-                                </li>
-                                <li>
-                                    <div>某某标签4</div>
-                                    <div>某某标签5</div>
-                                    <div>某某标签6</div>
-                                </li>
-                                <li>
-                                    <div>某某标签7</div>
-                                    <div>某某标签8</div>
-                                    <div>某某标签9</div>
-                                </li>
-                            </ul>
+                            <div class="custLabelLeftCon">
+                                <ul class="custLabelUlCtrl">
+                                    <li class="custLabelLiCtrlOn">所有类型</li>
+                                    <li>标签类型1</li>
+                                    <li>标签类型2</li>
+                                    <li>标签类型3</li>
+                                </ul>
+                                <ul class="custLabelUlFrom">
+                                    <li class="custLabelLiFrom1 custLabelLiFromOn">
+                                        <div draggable="true" ondragstart="drag(event)">某某标签1</div>
+                                        <div>某某标签2</div>
+                                        <div>某某标签3</div>
+                                    </li>
+                                    <li class="custLabelLiFrom2">
+                                        <div>某某标签4</div>
+                                        <div>某某标签5</div>
+                                        <div>某某标签6</div>
+                                    </li>
+                                    <li class="custLabelLiFrom3">
+                                        <div>某某标签7</div>
+                                        <div>某某标签8</div>
+                                        <div>某某标签9</div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div>
-                            <div>
+                        <div class="custLabelRight">
+                            <div class="custLabelTitle">
                                 <span>当前标签</span>
                             </div>
-                            <div ondrop="drop(event)" ondragover="allowDrop(event)" style="border:1px solid #eee;height:50px;">
-                                <!-- <div>某某标签1</div>
+                            <div class="custLabelRightTo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <div>某某标签1</div>
                                 <div>某某标签2</div>
-                                <div>某某标签3</div> -->
+                                <div>某某标签3</div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button>确定</button>
-                        <button>取消</button>
+                    <div class="custLabelBtn">
+                        <button type="button">确定</button>
+                        <button type="button" class="rightButton">取消</button>
                     </div>
 
                     <!-- 弹出框里内容结束 -->
@@ -89,26 +91,6 @@
         window.onload = function() {
             $('#myModal').modal('show');
         }
-
-        document.addEventListener("drop", function(event) {
-
-            // prevent default action (open as link for some elements)
-
-            event.preventDefault();
-
-            // move dragged elem to the selected drop target
-
-            if (event.target.className == "landingArea") {
-
-                event.target.style.background = "#efefef";
-
-                //dragged.parentNode.removeChild( dragged );
-
-                $(event.target).append($("#dragged").clone().css('opacity', 1))
-
-            }
-
-        }, false);
 
         function allowDrop(ev) {
             ev.preventDefault();
