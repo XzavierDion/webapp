@@ -1,0 +1,21 @@
+.glyphicon {
+    cursor: pointer;
+}
+
+.tenderBtn {
+    background: rgba(255, 80, 0, 1);
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+}
+
+.tenderBtn:hover {
+    background: rgba(255, 80, 0, 0.8);
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}

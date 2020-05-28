@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/custLabel.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- <div>
+        <button type="button" class="tenderBtn">投标报价</button>
+    </div> -->
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width:900px;">
+            <!-- 注意设置他的宽度 -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">用户标签</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- 弹出框里内容开始 -->
+                    <div>
+                        <div>
+                            <div>
+                                <span>标签库</span>
+                            </div>
+                            <ul>
+                                <li>所有标签类型</li>
+                                <li>标签类型1</li>
+                                <li>标签类型2</li>
+                                <li>标签类型3</li>
+                            </ul>
+                            <ul>
+                                <li class="landingArea">
+                                    <div id="dragged" draggable="true" ondragstart="drag(event)" style="background: orange;width:100px;padding:10px;">某某标签1</div>
+                                    <div>某某标签2</div>
+                                    <div>某某标签3</div>
+                                </li>
+                                <li>
+                                    <div>某某标签4</div>
+                                    <div>某某标签5</div>
+                                    <div>某某标签6</div>
+                                </li>
+                                <li>
+                                    <div>某某标签7</div>
+                                    <div>某某标签8</div>
+                                    <div>某某标签9</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div>
+                                <span>当前标签</span>
+                            </div>
+                            <div ondrop="drop(event)" ondragover="allowDrop(event)" style="border:1px solid #eee;height:50px;">
+                                <!-- <div>某某标签1</div>
+                                <div>某某标签2</div>
+                                <div>某某标签3</div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button>确定</button>
+                        <button>取消</button>
+                    </div>
+
+                    <!-- 弹出框里内容结束 -->
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <script type="text/javascript">
+        $(".tenderBtn").click(function() {
+            $('#myModal').modal('show');
+        });
+        window.onload = function() {
+            $('#myModal').modal('show');
+        }
+
+        document.addEventListener("drop", function(event) {
+
+            // prevent default action (open as link for some elements)
+
+            event.preventDefault();
+
+            // move dragged elem to the selected drop target
+
+            if (event.target.className == "landingArea") {
+
+                event.target.style.background = "#efefef";
+
+                //dragged.parentNode.removeChild( dragged );
+
+                $(event.target).append($("#dragged").clone().css('opacity', 1))
+
+            }
+
+        }, false);
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+</body>
+
+</html>

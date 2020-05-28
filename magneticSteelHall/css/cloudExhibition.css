@@ -642,12 +642,12 @@ input[type="text"] {
 .searchProductCheckUl {
     display: flex;
     align-items: center;
-    margin-left: -7px;
+    margin-left: -5px;
     flex-wrap: wrap;
 }
 
 .searchProductCheckUl li {
-    padding: 2px 7px;
+    padding: 2px 5px;
     margin-right: 10px;
     cursor: pointer;
 }
