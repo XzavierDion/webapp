@@ -20,12 +20,6 @@
     align-items: center;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 .custLabelCon {
     width: 100%;
     display: flex;
@@ -53,6 +47,9 @@ ul {
 .custLabelUlCtrl {
     white-space: nowrap;
     border-top: 1px solid #d9d9d9;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .custLabelUlCtrl li {
@@ -74,26 +71,61 @@ ul {
 .custLabelUlFrom {
     border: 1px solid #d9d9d9;
     width: 100%;
-    padding: 10px;
+    padding: 5px 10px 40px 10px;
     background: #f4f4f4;
     height: 222px;
-}
-
-.custLabelUlFrom li {
     display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.custLabelUlFrom li div {
+.custLabelUlFrom>div {
+    padding: 5px 10px 5px 0px;
+    position: relative;
+}
+
+.custLabelBox {
     background: #777;
     color: #fff;
     padding: 4px 8px;
-    margin: 0px 5px 5px 0px;
+    cursor: move;
     border-radius: 3px;
-    cursor: pointer;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+}
+
+.custLabelUlFrom>div:hover .custLabelRemove {
+    display: block;
+}
+
+.custLabelRemove {
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    right: 3px;
+    top: 0px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: url(../img/remove-circle.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    display: none;
+    cursor: pointer;
+}
+
+.custLabelRemove:hover {
+    background: url(../img/remove-circle1.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
 }
 
 .custLabelRight {
@@ -104,23 +136,29 @@ ul {
 .custLabelRightTo {
     border: 1px solid #d9d9d9;
     width: 100%;
-    padding: 10px;
-    height: 222px;
+    padding: 5px 10px 10px 10px;
     background: #f4f4f4;
+    height: 222px;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
+    align-content: flex-start;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.custLabelRightTo div {
-    background: #777;
-    color: #fff;
-    padding: 4px 8px;
-    margin: 0px 4px 4px 0px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+.custLabelRightTo>div {
+    padding: 5px 10px 5px 0px;
+    position: relative;
+}
+
+.custLabelRightTo .custLabelBox {
+    cursor: pointer;
+}
+
+.custLabelRightTo>div:hover .custLabelRemove {
+    display: block;
 }
 
 .custLabelBtn {
@@ -150,4 +188,55 @@ ul {
     background: rgba(0, 0, 0, 0.1);
     color: #222;
     border: 1px solid #222;
+}
+
+.custLabelUlFrom>div.custLabelLiAdd {
+    width: 100%;
+}
+
+.custLabelLiAddName {
+    border: 1px solid #d9d9d9;
+    padding: 3px 1px;
+    cursor: pointer;
+    font-size: 12px;
+    height: 25px;
+    width: 71px;
+}
+
+.custLabelLiAddName:hover {
+    background: #fff;
+}
+
+.custLabelLiAddValue {
+    display: none;
+}
+
+.custLabelLiAddValue input {
+    height: 25px;
+    padding-left: 5px;
+    line-height: 25px;
+}
+
+.custLabelLiAddValue button {
+    height: 25px;
+    margin-left: 10px;
+    background: rgb(239, 239, 239);
+    color: #333;
+    font-size: 14px;
+    padding: 0px 7px;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.custLabelLiAddValue button:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #222;
+    border: 1px solid #999;
 }

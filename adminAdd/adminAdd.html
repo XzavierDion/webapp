@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/adminAdd.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- <div>
+        <button type="button" class="tenderBtn">投标报价</button>
+    </div> -->
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width:800px;">
+            <!-- 注意设置他的宽度 -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">名称</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- 弹出框里内容开始 -->
+                    <div class="custLabelAdmin">
+
+                        <div class="custLabelCeck"><span>某某标签1</span></div>
+
+                        <div class="custLabelCeck"><span>某某标签2</span></div>
+
+                        <div class="custLabelCeck"><span>某某标签3</span></div>
+
+                        <div class="custLabelCeck"><span>某某标签1</span></div>
+
+                        <div class="custLabelCeck"><span>某某标签2</span></div>
+
+                        <div class="custLabelCeck"><span>某某标签3</span></div>
+
+                    </div>
+
+                    <div class="custLabelBtn">
+                        <button type="button">确定</button>
+                        <button type="button" data-dismiss="modal">取消</button>
+                    </div>
+
+                    <!-- 弹出框里内容结束 -->
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <script type="text/javascript">
+        window.onload = function() {
+            $('#myModal').modal('show');
+        }
+
+        $(".custLabelAdmin>div").click(function() {
+            $(this).toggleClass("custLabelCeckOn");
+        });
+    </script>
+
+</body>
+
+</html>
