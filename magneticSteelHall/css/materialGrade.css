@@ -766,6 +766,50 @@ input[type="text"] {
     width: 12%;
 }
 
+.materialGradeTbody li {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    /* align-items: flex-start; */
+}
+
+.materialGradeTbody li:nth-child(odd) {
+    background: #F4FAF7;
+}
+
+.materialGradeTbody li:hover {
+    background: #C9E5D9;
+}
+
+.materialGradeTbody li>div {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 8px;
+}
+
+.materialGradeTbody li>div.gradeTable6 {
+    overflow: hidden;
+}
+
+.gradeTableCompany {
+    color: #3D91E7;
+    cursor: pointer;
+}
+
+.gradeTableCompany:hover {
+    text-decoration: underline;
+}
+
+.gradeTableInfoBtn {
+    background: linear-gradient(180deg, rgba(251, 251, 251, 1) 0%, rgba(202, 202, 202, 1) 100%);
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    color: #040404;
+    padding: 3px 10px;
+}
+
 @media (max-width: 1280px) {}
 
 @media (max-width: 640px) {
