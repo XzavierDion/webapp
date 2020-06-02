@@ -44,20 +44,36 @@
                                         <div class="custLabelBox">某某标签1</div>
                                         <div class="custLabelRemove">
                                         </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
+                                        </div>
                                     </div>
                                     <div class="custLabelLiFrom1">
                                         <div class="custLabelBox">某某标签2</div>
                                         <div class="custLabelRemove">
+                                        </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
                                         </div>
                                     </div>
                                     <div class="custLabelLiFrom1">
                                         <div class="custLabelBox">某某标签3</div>
                                         <div class="custLabelRemove">
                                         </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
+                                        </div>
                                     </div>
                                     <div class="custLabelLiFrom1">
                                         <div class="custLabelBox">某某标签4</div>
                                         <div class="custLabelRemove">
+                                        </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
                                         </div>
                                     </div>
 
@@ -65,42 +81,70 @@
                                         <div class="custLabelBox">某某标签5</div>
                                         <div class="custLabelRemove">
                                         </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
+                                        </div>
                                     </div>
                                     <div class="custLabelLiFrom2">
                                         <div class="custLabelBox">某某标签6</div>
                                         <div class="custLabelRemove">
+                                        </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
                                         </div>
                                     </div>
                                     <div class="custLabelLiFrom2">
                                         <div class="custLabelBox">某某标签7</div>
                                         <div class="custLabelRemove">
                                         </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
+                                        </div>
                                     </div>
                                     <div class="custLabelLiFrom2">
                                         <div class="custLabelBox">某某标签8</div>
                                         <div class="custLabelRemove">
                                         </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
+                                        </div>
                                     </div>
 
                                     <div class="custLabelLiFrom3">
                                         <div class="custLabelBox">某某标签9</div>
                                         <div class="custLabelRemove">
                                         </div>
-                                    </div>
-                                    <div class="custLabelLiFrom3">
-                                        <div class="custLabelBox">某某标签9</div>
-                                        <div class="custLabelRemove">
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
                                         </div>
                                     </div>
                                     <div class="custLabelLiFrom3">
                                         <div class="custLabelBox">某某标签9</div>
                                         <div class="custLabelRemove">
+                                        </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
+                                        </div>
+                                    </div>
+                                    <div class="custLabelLiFrom3">
+                                        <div class="custLabelBox">某某标签9</div>
+                                        <div class="custLabelRemove">
+                                        </div>
+                                        <div class="custLabelLiAddValue1">
+                                            <input type="text" placeholder="请输入标签名称">
+                                            <button type="button">确定</button>
                                         </div>
                                     </div>
 
                                     <div class="custLabelLiAdd">
                                         <div class="custLabelLiAddName">+添加新标签</div>
-                                        <div class="custLabelLiAddValue">
+                                        <div class="custLabelLiAddValue1">
                                             <input type="text" placeholder="请输入标签名称">
                                             <button type="button">确定</button>
                                         </div>
@@ -192,11 +236,16 @@
         });
 
         $(".custLabelLiAddName").click(function() {
-            $(".custLabelLiAddValue").css({
+            $(this).hide().siblings().css({
                 "display": "flex",
-            }).siblings().css({
-                "display": "none",
             });
+        });
+
+        $(".custLabelUlFrom .custLabelBox").dblclick(function() {
+            $(this).hide().siblings(".custLabelLiAddValue1").css({
+                "display": "flex",
+            });
+            $(this).siblings(".custLabelRemove").hide();
         });
     </script>
 
