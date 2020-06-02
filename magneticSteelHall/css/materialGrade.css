@@ -766,6 +766,17 @@ input[type="text"] {
     width: 12%;
 }
 
+.gradeTablePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.materialGradeTbody {
+    min-height: 400px;
+}
+
 .materialGradeTbody li {
     width: 100%;
     font-size: 12px;
@@ -788,8 +799,10 @@ input[type="text"] {
     padding: 8px;
 }
 
-.materialGradeTbody li>div.gradeTable6 {
+.materialGradeTbody li>div.gradeTable6 span {
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .gradeTableCompany {
@@ -808,6 +821,10 @@ input[type="text"] {
     outline: none;
     color: #040404;
     padding: 3px 10px;
+}
+
+.gradeTableInfoBtn:hover {
+    background: linear-gradient(180deg, rgba(251, 251, 251, 0.7) 0%, rgba(202, 202, 202, 0.7) 100%);
 }
 
 @media (max-width: 1280px) {}
