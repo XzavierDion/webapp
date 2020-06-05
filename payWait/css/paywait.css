@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Source Han Sans CN, Source Han Serif SC;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    min-width: 0;
+    user-select: none;
+    background: #fafafa;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.payWaitCon {
+    width: 100%;
+    max-width: 1200px;
+    margin: 70px auto 35px auto;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.payWaitCon>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.payWaitImg img {
+    height: 200px;
+}
+
+.payWaitText {
+    font-size: 26px;
+    color: #333;
+    margin-top: 30px;
+}
+
+.payWaitNumber {
+    color: #FF4D4F;
+}
+
+.payErrorCon {
+    width: 100%;
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.payErrorImg {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payErrorImg img {
+    width: 100%;
+}
+
+.payErrorText {
+    font-size: 26px;
+    color: #333;
+    padding: 35px 5px 5px 5px;
+    text-align: center;
+    background: #fff;
+}
+
+.payErrorTextSmall {
+    font-size: 16px;
+    color: #333;
+    padding: 8px;
+    text-align: center;
+    background: #fff;
+}
+
+.payErrorBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px 20px 10px;
+    background: #fff;
+}
+
+.payErrorBtn1 {
+    border: 1px solid #979797;
+    border-radius: 2px;
+    background: #f5f5f5;
+    color: #444;
+    padding: 8px 5px;
+    font-size: 16px;
+    margin-right: 25px;
+    width: 200px;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.payErrorBtn1:hover {
+    background: #fbd3c0;
+}
+
+@media ( max-width: 640px) {
+    .payErrorImg img {
+        width: 100%;
+    }
+    .payErrorText {
+        font-size: 20px;
+    }
+    .payErrorBtn1 {
+        font-size: 14px;
+    }
+}
