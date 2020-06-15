@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/toNVH.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="toNVHCon">
+        <div class="toNVHIn">
+            <img src="./img/toNVH.png" class="toNVHBg">
+            <div class="toNVHBtn">
+                <button type="button" class="toNVHBtnOpen">打开案例>></button>
+                <button type="button" class="toNVHBtnHelp">查看帮助>></button>
+            </div>
+            <div class="toNVHClose">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(".toNVHClose").click(function() {
+            $(".toNVHCon").hide();
+        });
+    </script>
+
+</body>
+
+</html>

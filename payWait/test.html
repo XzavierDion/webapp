@@ -15,34 +15,76 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
+        //第一种
+        // var twoSum = function(nums, target) {
+        //     for (var i = 0; i < nums.length; i++) {
+        //         if (nums[i] + nums[i + 1] == target) {
+        //             var arr = [i, i + 1]
+        //             return arr;
+        //             break;
+        //         } else {
+        //             alert(nums);
+        //         }
+        //     }
+        // };
+
+        //第二种
+        // function twoSum(nums, target) {
+
+        //     for (var i = 0; i < nums.length; i++) {
+
+        //         function adde(item, index, arr) {
+        //             if (item + nums[i] == target) {
+        //                 return index;
+        //             }
+        //         }
+
+        //         var newArray = nums.map(adde);
+        //         console.log(newArray);
+        //     }
+
+        // };
+
+        //第三种
+        // function twoSum(nums, target) {
+
+        //     function adde(item, index, arr) {
+        //         for (var i = 0; i < nums.length; i++) {
+        //             if (item + nums[i] == target) {
+        //                 return index;
+        //             }
+        //         }
+        //     }
+
+        //     var newArray = nums.map(adde).filter(res => {
+        //         return res != undefined
+        //     });
+
+        //     console.log(newArray);
+
+        // };
+
+        //第四种
         function twoSum(nums, target) {
-            // i=0, j=0; i<10, j<6; i++, j++
-            for (var i = 0; i < nums.length; i++) {
-                // for (var j = 0; i < j < nums.length; j++) {
 
-                let newArray = nums.map((item) => {
-                    return item + nums[i];
-                    if (item + nums[i] == target) {
-                        alert(i);
+            function adde(item, index, arr) {
+                for (var i = 0; i < nums.length; i++) {
+                    if (item + nums[i] == target && index != i) {
+                        return index;
                     }
-                });
-
-                console.log(newArray);
-
-                // if (nums[i] + nums[j] == target) {
-                //     var arr = [i, j]
-                //     alert(arr);
-                //     break;
-                // } else {
-                //     alert("error");
-                //     alert(arr);
-                // }
-                // }
+                }
             }
+
+            var newArray = nums.map(adde).filter(res => {
+                return res != undefined
+            });
+
+            // return newArray;
+            console.log(newArray);
 
         };
 
-        twoSum([2, 11, 7, 15], 9);
+        twoSum([3, 3], 6);
     </script>
 
 </body>
