@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保本挖矿-挖矿计划管理</title>
+    <meta name="keywords" content="保本挖矿">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="./css/me.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>挖矿计划管理</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div style="display: flex;justify-content:space-between;align-items: center;margin-bottom: 15px;">
+                            <div class="dt_inli1">
+                                <input type="text" name="" class="form-control" style="width:200px;" placeholder="请输入用户ID" id="custipt">
+                                <button type="button" class="btn btn-primary" onclick="javascript:planlist();">搜索</button>
+                            </div>
+                            <div class="select_out">
+                                <span>订单情况</span>
+                                <select id="statusel" class="form-control table_select" onchange="javascript:planlist();">
+                                    <option value="running">进行中</option>
+                                    <option value="pause">已暂停</option>
+                                </select>
+                            </div>
+                            <!-- <div class="btn-group" data-toggle="buttons" style="display: flex;justify-content:center;align-items: center;">
+                                <label class="btn btn-primary active" onclick="javascript:planlist();">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> 进行中
+                                </label>
+                                <label class="btn btn-primary" onclick="javascript:pauselist();">
+                                    <input type="radio" name="options" id="option3" autocomplete="off"> 已暂停
+                                </label>
+                            </div> -->
+                        </div>
+                        <table id="plantable" class="table table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>用户ID</th>
+                                    <th>计划ID</th>
+                                    <th>新手挖矿</th>
+                                    <th>挖矿投入/锁定
+                                        <div>(USDT)</div>
+                                    </th>
+                                    <th>挖矿偏好</th>
+                                    <th>最后修改日期</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td>28117</td>
+                                    <td>3</td>
+                                    <td>已使用</td>
+                                    <td>
+                                        <div>5000</div>
+                                        <div>2000</div>
+                                    </td>
+                                    <td>
+                                        <div>30天</div>
+                                        <div>60天</div>
+                                        <div>90天</div>
+                                        <div>180天</div>
+                                    </td>
+                                    <td>2018/08/28</td>
+                                    <td>
+                                        <div class="div_intable table_contrl table_fenpei">分配订单</div>
+                                        <div class="div_intable table_contrl">查看订单</div>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <div id="down_contrl" style="color:#999;font-size:18px;font-weight:bold;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">分配订单</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            <div class="dt_inli">
+                                <div class="dt_inli_title">
+                                    <div>可分配</div>
+                                    <div><span id="canfp"></span> USDT</div>
+                                </div>
+                                <!-- <div class="dt_inli_number">30000 USDT</div> -->
+                            </div>
+                            <div class="dt_inli">
+                                <div class="dt_inli_title">
+                                    <select id="postselect" style="width:90px;" class="form-control table_select">
+                                        <option value="30">30天</option>
+                                        <option value="60">60天</option>
+                                        <option value="90">90天</option>
+                                        <option value="180">180天</option>
+                                    </select>
+                                </div>
+                                <input id="numipt" type="number" name="" class="form-control" placeholder="请输入分配数额">
+                                <div class="dt_inli_all">全部</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:postorder();">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">计划详情</h4>
+                </div>
+                <div class="modal-body">
+                    <table id="moretable" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>用户ID</th>
+                                <th>订单数额</th>
+                                <th>订单周期</th>
+                                <th>创建日期</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>
+                                    <div>2018/5/15</div>
+                                    <div>18:20:20</div>
+                                </td>
+                                <td>30天</td>
+                                <td>6000</td>
+                                <td>20</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/main.js"></script>
+    <script src="js/main1.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        planlist();
+
+        $(".dt_inli_all").click(function() {
+            $("#numipt").val(window.canfp);
+        });
+
+    });
+    </script>
+    <script type="text/javascript">
+    var planlist = function() {
+        
+        $("#down_contrl").empty();
+
+        $('#down_contrl').append('<button id="spage" type="button" class="btn btn-success btn-sm" onclick="spage()">上一页</button><span id="pagenum" style="border:0px solid #ccc;padding: 5px;border-radius:4px;margin:15px;">1</span><button id="npage" type="button" class="btn btn-success btn-sm" onclick="npage()">下一页</button>');
+
+        var custipt = $("#custipt").val();
+        var statusel = $("#statusel").val();
+
+
+        devTools.requestApi({
+            'url': '/mining/plans',
+            'data': {
+                'status': statusel,
+                'userId': custipt,
+            },
+            'success': function(d) {
+                $("#plantable tbody").empty();
+                console.log(JSON.stringify(d));
+                /*var e = {"code":"200","data":{"currentPage":1,"hasNextPage":false,"hasPreviousPage":false,"list":[{"createTime":"2018-09-16 23:27:31","cycle":"[\"1\",\"2\",\"3\"]","id":1,"investAmount":200,"lockedAmount":100,"status":"running","type":"stable","updateTime":"2018-09-17 00:38:51","userId":9,"valid":true},{"createTime":"2018-09-16 24:27:31","cycle":"[\"4\",\"5\",\"6\"]","id":2,"investAmount":400,"lockedAmount":300,"status":"running","type":"stable","updateTime":"2017-09-17 00:38:51","userId":10,"valid":true}],"pageSize":1,"totalCount":1,"totalPage":1},"msg":"成功","result":true}*/
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].type + '</td><td><div>' + json.data.list[i].investAmount + '</div><div>' + json.data.list[i].lockedAmount + '</div></td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].updateTime + '</td><td><div class="div_intable table_contrl table_fenpei">分配订单</div><div class="div_intable table_contrl table_seemore">查看订单</div></td></tr>'
+
+
+                    $("#plantable tbody").append(trlist);                   
+
+                }
+
+                $(".table_fenpei").click(function() {
+
+                        $('#myModal').modal('show');
+                        $("#numipt").val('');
+                        window.wkid = $(this).parents("tr").find("td").eq(1).text();
+                        var alltou = $(this).parents("tr").find("td").eq(3).find("div").eq(0).text();
+                        var suoding = $(this).parents("tr").find("td").eq(3).find("div").eq(1).text();
+                        window.canfp = alltou-suoding;
+                        $("#canfp").text(window.canfp);
+
+                    });
+
+                    $(".table_seemore").click(function() {
+                        $('#myModal1').modal('show');
+                        window.moreid = $(this).parents("tr").find("td").eq(1).text();
+                        modellist();
+                    });
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var postorder = function() {
+
+        var postselect = $('#postselect').val();
+        var numipt = $('#numipt').val();
+
+
+        if (numipt > 30000) {
+            alert('请输入正确数额');
+        }
+
+
+        if (numipt <= 30000) {
+
+            /*$.ajax({
+                type: "post",
+                url: "http://192.168.1.103:8080/mining/orders",
+                dataType: "json",
+
+                data: JSON.stringify({
+                    cycle: postselect,
+                    investAmount: numipt,
+                    planId:'1',                  
+                }),
+
+                headers: {
+                    'Login-User-Key': this.localStorateOperate(this.LOGIN_USER_KEY),
+                    'Login-User-Token': this.localStorateOperate(this.LOGIN_USER_TOKEN),
+                    'Content-Type': 'application/json'
+                },
+                success: function(data) {
+                    console.log(data);
+                    var json = eval(data);
+                    var msg = json.msg;
+                    var code = json.code;
+                    if (code == 200) {
+                        alert("已提交");
+                    } else {
+                        alert(msg);
+
+                    }
+                },
+            });*/
+
+            devTools1.requestApi({
+
+                'url': '/mining/orders',
+
+                'data': JSON.stringify({
+                    cycle: postselect,
+                    investAmount: numipt,
+                    planId: window.wkid,
+                }),
+
+                'success': function(d) {
+
+                    /*alert('success:' + JSON.stringify(d));*/
+                    alert('发送成功');
+
+                    $('#myModal').modal('hide');
+
+
+                },
+                'failed': function(d) {
+                    alert('未成功:' + JSON.stringify(d));
+
+                    $('#myModal').modal('hide');
+                }
+            });
+
+        }
+    }
+
+    var modellist = function() {
+        $("#moretable tbody").empty();
+        devTools.requestApi({
+
+            'url': '/mining/orders/',
+
+            'data': {
+                'planId': window.moreid,
+            },
+
+            'success': function(d) {
+                $("#moretable tbody").empty();
+                /*alert('tong');*/
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].investAmount + '</td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].createTime + '</td></tr>'
+
+                    $("#moretable tbody").append(trlist);
+
+                }
+
+
+            },
+            'failed': function(d) {
+                /*alert("错");*/
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var npage = function() {
+
+            var custipt = $("#custipt").val();
+            var statusel = $("#statusel").val();
+
+            var pagenum = $("#pagenum").text();
+            var nextnum = parseInt(pagenum) + 1;
+
+            devTools.requestApi({
+            'url': '/mining/plans',
+            'data': {
+                'currentPage': nextnum,
+                'status': statusel,
+                'userId': custipt,
+            },
+            'success': function(d) {
+                $("#plantable tbody").empty();
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].type + '</td><td><div>' + json.data.list[i].investAmount + '</div><div>' + json.data.list[i].lockedAmount + '</div></td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].updateTime + '</td><td><div class="div_intable table_contrl table_fenpei">分配订单</div><div class="div_intable table_contrl table_seemore">查看订单</div></td></tr>'
+
+
+                    $("#plantable tbody").append(trlist);
+
+
+                };
+
+                $(".table_fenpei").click(function() {
+
+                        $('#myModal').modal('show');
+                        $("#numipt").val('');
+                        window.wkid = $(this).parents("tr").find("td").eq(1).text();
+                        var alltou = $(this).parents("tr").find("td").eq(3).find("div").eq(0).text();
+                        var suoding = $(this).parents("tr").find("td").eq(3).find("div").eq(1).text();
+                        window.canfp = alltou-suoding;
+                        $("#canfp").text(window.canfp);
+
+                    });
+
+                    $(".table_seemore").click(function() {
+                        $('#myModal1').modal('show');
+                        window.moreid = $(this).parents("tr").find("td").eq(1).text();
+                        modellist();
+                    });
+
+                $("#pagenum").text(json.data.currentPage);
+
+                    npage_can = json.data.hasNextPage;
+                  
+                    if(npage_can == false){
+                        $("#npage").attr("disabled",true);
+                    }
+
+                    $("#spage").attr("disabled",false);
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var spage = function() {
+            var custipt = $("#custipt").val(); 
+            var statusel = $("#statusel").val();
+
+            var pagenum = $("#pagenum").text();
+            var snum = parseInt(pagenum) - 1;
+
+            devTools.requestApi({
+            'url': '/mining/plans',
+            'data': {
+                'currentPage': snum,
+                'status': statusel,
+                'userId': custipt,
+            },
+            'success': function(d) {
+                $("#plantable tbody").empty();
+                console.log(JSON.stringify(d));
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].type + '</td><td><div>' + json.data.list[i].investAmount + '</div><div>' + json.data.list[i].lockedAmount + '</div></td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].updateTime + '</td><td><div class="div_intable table_contrl table_fenpei">分配订单</div><div class="div_intable table_contrl table_seemore">查看订单</div></td></tr>'
+
+
+                    $("#plantable tbody").append(trlist);
+
+                };
+
+                $(".table_fenpei").click(function() {
+
+                        $('#myModal').modal('show');
+                        $("#numipt").val('');
+                        window.wkid = $(this).parents("tr").find("td").eq(1).text();
+                        var alltou = $(this).parents("tr").find("td").eq(3).find("div").eq(0).text();
+                        var suoding = $(this).parents("tr").find("td").eq(3).find("div").eq(1).text();
+                        window.canfp = alltou-suoding;
+                        $("#canfp").text(window.canfp);
+
+                    });
+
+                    $(".table_seemore").click(function() {
+                        $('#myModal1').modal('show');
+                        window.moreid = $(this).parents("tr").find("td").eq(1).text();
+                        modellist();
+                    });
+
+                $("#pagenum").text(json.data.currentPage);
+
+                    spage_can = json.data.hasPreviousPage;
+                  
+                    if(spage_can == false){
+                        $("#spage").attr("disabled",true);
+                    }
+
+                    $("#npage").attr("disabled",false);
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

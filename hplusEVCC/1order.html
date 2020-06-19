@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保本挖矿-挖矿订单管理</title>
+    <meta name="keywords" content="保本挖矿">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="./css/me.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>挖矿订单管理 <!-- <small>分类，查找</small> --></h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div style="display: flex;justify-content:space-between;align-items: center;margin-bottom: 15px;">
+                            <div class="dt_inli1">
+                                <input id="custipt" type="text" name="" class="form-control" style="width:200px;" placeholder="请输入用户ID">
+                                <button type="button" class="btn btn-primary" onclick="javascript:custlist();">搜索</button>
+                            </div>
+                            <div class="select_out">
+                                <span>订单周期</span>
+                                <select id="cyclesel" class="form-control table_select" onchange="javascript:custlist();">
+                                    <option value="">请选择</option>
+                                    <option value="30">30天</option>
+                                    <option value="60">60天</option>
+                                    <option value="90">90天</option>
+                                    <option value="180">180天</option>
+                                </select>
+                            </div>
+                            <div class="select_out">
+                                <span>订单情况</span>
+                                <select id="statusel" class="form-control table_select" onchange="javascript:custlist();">
+                                    <option value="running">进行中</option>
+                                    <option value="finish">已结束</option>
+                                </select>
+                            </div>
+                            <!-- <div class="btn-group" data-toggle="buttons" style="display: flex;justify-content:center;align-items: center;margin-left: 15px;">
+                                <label class="btn btn-primary active" onclick="javascript:custlist();">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> 进行中
+                                </label>
+                                <label class="btn btn-primary" onclick="javascript:finishlist();">
+                                    <input type="radio" name="options" id="option3" autocomplete="off"> 已结束
+                                </label>
+                            </div> -->
+                        </div>
+                        <table id="ordertable" class="table table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>用户ID</th>
+                                    <th>订单数额</th>
+                                    <th>订单周期</th>
+                                    <th>创建日期</th>
+                                    <!-- <th>结束日期</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td>28117</td>
+                                    <td>5000 USDT</td>
+                                    <td>30天</td>
+                                    <td>2018/08/28</td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <div id="down_contrl" style="color:#999;font-size:18px;font-weight:bold;"><!-- <button id="spage" type="button" class="btn btn-success">上一页</button><span id="pagenum" style="border:0px solid #ccc;padding: 5px;border-radius:4px;margin:15px;">1</span><button id="npage" type="button" class="btn btn-success">下一页</button> --></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/main.js"></script>
+    <script>
+    $(document).ready(function() {
+        custlist();
+    });
+    </script>
+    <script>
+
+    var custlist = function() {
+
+        $("#down_contrl").empty();
+
+        $('#down_contrl').append('<button id="spage" type="button" class="btn btn-success btn-sm" onclick="spage()">上一页</button><span id="pagenum" style="border:0px solid #ccc;padding: 5px;border-radius:4px;margin:15px;">1</span><button id="npage" type="button" class="btn btn-success btn-sm" onclick="npage()">下一页</button>');
+
+        var custipt = $("#custipt").val();
+        var cyclesel = $("#cyclesel").val();
+        var statusel = $("#statusel").val();
+
+        devTools.requestApi({
+            'url': '/mining/orders',
+            'data': {
+                'userId': custipt,
+                'cycle': cyclesel,
+                'status': statusel,
+            },
+            'success': function(d) {
+                $("#ordertable tbody").empty();
+                console.log(JSON.stringify(d));
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].investAmount + '</td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].createTime + '</td></tr>'
+
+                    $("#ordertable tbody").append(trlist);
+
+                };
+                
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var npage = function() {
+
+            var custipt = $("#custipt").val();
+            var cyclesel = $("#cyclesel").val();
+            var statusel = $("#statusel").val();
+
+            var pagenum = $("#pagenum").text();
+            var nextnum = parseInt(pagenum) + 1;
+       
+            /*alert(222);*/
+            devTools.requestApi({
+                'url': '/mining/orders',
+                'data': {
+                    'currentPage': nextnum,
+                    'userId': custipt,
+                    'cycle': cyclesel,
+                    'status': statusel,
+                },
+                'success': function(d) {
+                    $("#ordertable tbody").empty();
+                    console.log(JSON.stringify(d));
+                    var json = eval(d);
+
+                    for (var i = 0; i < json.data.list.length; i++) {
+                        var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].investAmount + '</td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].createTime + '</td></tr>'
+
+                        $("#ordertable tbody").append(trlist);
+
+                    }
+
+                    $("#pagenum").text(json.data.currentPage);
+
+                    npage_can = json.data.hasNextPage;
+                  
+                    if(npage_can == false){
+                        $("#npage").attr("disabled",true);
+                    }
+
+                    $("#spage").attr("disabled",false);
+
+                },
+                'failed': function(d) {
+                    alert('failed:' + JSON.stringify(d));
+                }
+            });
+    }
+
+    var spage = function() {
+            var custipt = $("#custipt").val();
+            var cyclesel = $("#cyclesel").val();
+            var statusel = $("#statusel").val();
+
+            var pagenum = $("#pagenum").text();
+            var snum = parseInt(pagenum) - 1;
+            /*alert(111);*/
+            devTools.requestApi({
+                'url': '/mining/orders',
+                'data': {
+                    'currentPage': snum,
+                    'userId': custipt,
+                    'cycle': cyclesel,
+                    'status': statusel,
+                },
+                'success': function(d) {
+                    $("#ordertable tbody").empty();
+                    console.log(JSON.stringify(d));
+                    var json = eval(d);
+
+                    for (var i = 0; i < json.data.list.length; i++) {
+                        var trlist = '<tr><td>' + json.data.list[i].userId + '</td><td>' + json.data.list[i].investAmount + '</td><td>' + json.data.list[i].cycle + '</td><td>' + json.data.list[i].createTime + '</td></tr>'
+
+                        $("#ordertable tbody").append(trlist);
+
+                    }
+
+                    $("#pagenum").text(json.data.currentPage);
+
+                    spage_can = json.data.hasPreviousPage;
+                  
+                    if(spage_can == false){
+                        $("#spage").attr("disabled",true);
+                    }
+
+                    $("#npage").attr("disabled",false);
+
+
+                },
+                'failed': function(d) {
+                    /*console.log('未成功:' + JSON.stringify(d));*/
+                    alert("没有更多了");
+                }
+            });
+    }
+   
+    </script>
+</body>
+
+</html>

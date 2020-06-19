@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保本挖矿-邀请管理</title>
+    <meta name="keywords" content="保本挖矿">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="./css/me.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>邀请管理 <!-- <small>分类，查找</small> --></h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div style="display: flex;justify-content:space-between;align-items: center;margin-bottom: 15px;">
+                            <div class="dt_inli1">
+                                <input id="custipt" type="text" name="" class="form-control" style="width:200px;" placeholder="请输入邀请人ID">
+                                <button type="button" class="btn btn-primary" onclick="javascript:custlist();">搜索</button>
+                            </div>
+                            <!-- <div class="select_out">
+                                <span>受邀人状态</span>
+                                <select class="form-control table_select">
+                                    <option value="1">全部</option>
+                                    <option value="2">未投资</option>
+                                    <option value="3">已投资</option>
+                                    <option value="4">已失效</option>
+                                </select>
+                            </div> -->
+                        </div>
+                        <table id="invitetable" class="table table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>邀请人ID</th>
+                                    <th>受邀人ID</th>
+                                    <th>受邀时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td>28117</td>
+                                    <td>13444555666</td>
+                                    <td>18999999999</td>
+                                    <td>
+                                        2018/08/28
+                                    </td>
+                                    <td>
+                                        <div class="invite_all">详情</div>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <div id="down_contrl" style="color:#999;font-size:18px;font-weight:bold;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">佣金详情</h4>
+                </div>
+                <div class="modal-body">
+                    <table id="awardstable" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>订单类型</th>
+                                <th>订单份额
+                                    <div>(USDT)</div>
+                                </th>
+                                <th>佣金
+                                    <div>(USDT)</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>
+                                    <div>2018/5/15</div>
+                                    <div>18:20:20</div>
+                                </td>
+                                <td>30天</td>
+                                <td>6000</td>
+                                <td>20</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/main.js"></script>
+    <script>
+    $(document).ready(function() {
+        invitelist();
+    });
+    </script>
+    <script>
+    var invitelist = function() {
+
+        $("#down_contrl").empty();
+
+        $('#down_contrl').append('<button id="spage" type="button" class="btn btn-success btn-sm" onclick="spage()">上一页</button><span id="pagenum" style="border:0px solid #ccc;padding: 5px;border-radius:4px;margin:15px;">1</span><button id="npage" type="button" class="btn btn-success btn-sm" onclick="npage()">下一页</button>');
+
+        devTools.requestApi({
+
+            'url': '/invite/relations',
+
+            /*'data': {
+                'userId':'9',
+            },*/
+
+            'success': function(d) {
+                $("#invitetable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].inviteUserId + '</td><td>' + json.data.list[i].inviteeUserId + '</td><td>' + json.data.list[i].createTime + '</td><td><div class="invite_all">详情</div></td></tr>'
+
+                    $("#invitetable tbody").append(trlist);
+
+                    $(".invite_all").click(function() {
+                        $('#myModal').modal('show');
+                        window.yqid = $(this).parents("tr").find("td").eq(1).text();
+                        awardslist();
+                    });
+
+                }
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+
+    }
+
+    var custlist = function() {
+
+        $("#down_contrl").empty();
+
+        $('#down_contrl').append('<button id="spage" type="button" class="btn btn-success btn-sm" onclick="spage1()">上一页</button><span id="pagenum" style="border:0px solid #ccc;padding: 5px;border-radius:4px;margin:15px;">1</span><button id="npage" type="button" class="btn btn-success btn-sm" onclick="npage1()">下一页</button>');
+
+        var custipt = $("#custipt").val();
+
+        devTools.requestApi({
+
+            'url': '/invite/relations',
+
+            'data': {
+                'userId': custipt,
+            },
+
+            'success': function(d) {
+                $("#invitetable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].inviteUserId + '</td><td>' + json.data.list[i].inviteeUserId + '</td><td>' + json.data.list[i].createTime + '</td><td><div class="invite_all">详情</div></td></tr>'
+
+                    $("#invitetable tbody").append(trlist);
+
+                    $(".invite_all").click(function() {
+
+                        $('#myModal').modal('show');
+
+                        window.yqid = $(this).parents("tr").find("td").eq(1).text();
+
+                        awardslist();
+
+                    });
+
+                }
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var awardslist = function() {
+        devTools.requestApi({
+
+            'url': '/invite/awards',
+
+            'data': {
+                'userId': window.yqid,
+            },
+
+            'success': function(d) {
+                $("#awardstable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].createTime + '</td><td></td><td></td><td>' + json.data.list[i].amount + '</td></tr>'
+
+                    $("#awardstable tbody").append(trlist);
+
+                }
+
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var npage = function() {
+
+        var custipt = $("#custipt").val();
+
+        var pagenum = $("#pagenum").text();
+        var nextnum = parseInt(pagenum) + 1;
+
+        devTools.requestApi({
+
+            'url': '/invite/relations',
+
+            'data': {
+                'currentPage': nextnum,
+            },
+
+            'success': function(d) {
+                $("#invitetable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].inviteUserId + '</td><td>' + json.data.list[i].inviteeUserId + '</td><td>' + json.data.list[i].createTime + '</td><td><div class="invite_all">详情</div></td></tr>'
+
+                    $("#invitetable tbody").append(trlist);
+
+                    $(".invite_all").click(function() {
+                        $('#myModal').modal('show');
+                        window.yqid = $(this).parents("tr").find("td").eq(1).text();
+                        awardslist();
+                    });
+
+                };
+                $("#pagenum").text(json.data.currentPage);
+
+                    npage_can = json.data.hasNextPage;
+                  
+                    if(npage_can == false){
+                        $("#npage").attr("disabled",true);
+                    }
+
+                    $("#spage").attr("disabled",false);
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var spage = function() {
+        var custipt = $("#custipt").val();
+
+        var pagenum = $("#pagenum").text();
+        var snum = parseInt(pagenum) - 1;
+
+        devTools.requestApi({
+
+            'url': '/invite/relations',
+
+            'data': {
+                'currentPage': snum,
+            },
+
+            'success': function(d) {
+                $("#invitetable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].inviteUserId + '</td><td>' + json.data.list[i].inviteeUserId + '</td><td>' + json.data.list[i].createTime + '</td><td><div class="invite_all">详情</div></td></tr>'
+
+                    $("#invitetable tbody").append(trlist);
+
+                    $(".invite_all").click(function() {
+                        $('#myModal').modal('show');
+                        window.yqid = $(this).parents("tr").find("td").eq(1).text();
+                        awardslist();
+                    });
+
+                };
+                $("#pagenum").text(json.data.currentPage);
+
+                    spage_can = json.data.hasPreviousPage;
+                  
+                    if(spage_can == false){
+                        $("#spage").attr("disabled",true);
+                    }
+
+                    $("#npage").attr("disabled",false);
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var npage1 = function() {
+
+        var custipt = $("#custipt").val();
+
+        var pagenum = $("#pagenum").text();
+        var nextnum = parseInt(pagenum) + 1;
+
+        devTools.requestApi({
+
+            'url': '/invite/relations',
+
+            'data': {
+                'currentPage': nextnum,
+                'userId': custipt,
+            },
+
+            'success': function(d) {
+                $("#invitetable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].inviteUserId + '</td><td>' + json.data.list[i].inviteeUserId + '</td><td>' + json.data.list[i].createTime + '</td><td><div class="invite_all">详情</div></td></tr>'
+
+                    $("#invitetable tbody").append(trlist);
+
+                    $(".invite_all").click(function() {
+                        $('#myModal').modal('show');
+                        window.yqid = $(this).parents("tr").find("td").eq(1).text();
+                        awardslist();
+                    });
+
+                };
+                $("#pagenum").text(json.data.currentPage);
+
+                    npage_can = json.data.hasNextPage;
+                  
+                    if(npage_can == false){
+                        $("#npage").attr("disabled",true);
+                    }
+
+                    $("#spage").attr("disabled",false);
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var spage1 = function() {
+        var custipt = $("#custipt").val();
+
+        var pagenum = $("#pagenum").text();
+        var snum = parseInt(pagenum) - 1;
+
+        devTools.requestApi({
+
+            'url': '/invite/relations',
+
+            'data': {
+                'currentPage': snum,
+                'userId': custipt,
+            },
+
+            'success': function(d) {
+                $("#invitetable tbody").empty();
+
+                console.log(JSON.stringify(d));
+
+                var json = eval(d);
+
+                for (var i = 0; i < json.data.list.length; i++) {
+                    var trlist = '<tr><td>' + json.data.list[i].id + '</td><td>' + json.data.list[i].inviteUserId + '</td><td>' + json.data.list[i].inviteeUserId + '</td><td>' + json.data.list[i].createTime + '</td><td><div class="invite_all">详情</div></td></tr>'
+
+                    $("#invitetable tbody").append(trlist);
+
+                    $(".invite_all").click(function() {
+                        $('#myModal').modal('show');
+                        window.yqid = $(this).parents("tr").find("td").eq(1).text();
+                        awardslist();
+                    });
+
+                };
+                $("#pagenum").text(json.data.currentPage);
+
+                    spage_can = json.data.hasPreviousPage;
+                  
+                    if(spage_can == false){
+                        $("#spage").attr("disabled",true);
+                    }
+
+                    $("#npage").attr("disabled",false);
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

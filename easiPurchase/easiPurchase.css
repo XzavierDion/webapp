@@ -1,0 +1,495 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Source Han Sans CN, Source Han Serif SC;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    min-width: 0;
+    user-select: none;
+    background: #fafafa;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.easiPurchaseCon {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0px 15px;
+}
+
+.easiPurchaseTip {
+    background: #FFFB8F;
+    color: #333;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 10px 5px 45px;
+    margin: 12px 0px 10px 0px;
+}
+
+.easiPurchaseBanner {
+    width: 100%;
+}
+
+.easiPurchaseBanner img {
+    width: 100%;
+}
+
+.easiPurchaseTitle {
+    width: 100%;
+    margin-top: 10px;
+    background: #096DD9;
+    padding: 18px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.easiPurchaseTitle1 {
+    width: 100%;
+    margin-top: 10px;
+    background: #096DD9;
+    padding: 15px 18px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+}
+
+.easiPurchasePackage {
+    width: 100%;
+    background: #fff;
+}
+
+.easiPurchasePackage>ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.easiPurchasePackage>ul>li {
+    width: 33%;
+    padding: 35px 0px;
+}
+
+.easiPurchasePackage>ul>li:last-child .easiPurchasePackagePrice {
+    border-right: none;
+}
+
+.easiPurchasePackageName {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 35px;
+}
+
+.easiPurchasePackageTip {
+    color: #8C8C8C;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0px 35px;
+}
+
+.easiPurchasePackageArticle {
+    padding: 30px 0px;
+}
+
+.easiPurchasePackageArticleTitle {
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+}
+
+.easiPurchasePackageArticleText {
+    margin-top: 2px;
+    color: #8C8C8C;
+    font-size: 14px;
+}
+
+.easiPurchasePackageBtns {
+    text-align: center;
+    padding: 0px 35px;
+    margin-top: 5px;
+}
+
+.easiPurchasePackageBtns button {
+    padding: 5px 25px;
+    font-size: 14px;
+    margin-right: 25px;
+    border-radius: 2px;
+    background: #eee;
+    color: #8C8C8C;
+    border: 1px solid #eee;
+}
+
+.easiPurchasePackageBtns button:last-child {
+    margin-right: 0px;
+}
+
+.easiPurchasePackageBtns button.easiPurchasePackageBtnBlue {
+    border: 1px solid #096DD9;
+    color: #096DD9;
+    background: #fff;
+}
+
+.easiPurchasePackageBtns button.easiPurchasePackageBtnBlue:hover {
+    background: #096DD9;
+    color: #fff;
+}
+
+.easiPurchasePackageBtns button.easiPurchasePackageBtnRed {
+    border: 1px solid #F5222D;
+    color: #fff;
+    background: #F5222D;
+}
+
+.easiPurchasePackageBtns button.easiPurchasePackageBtnRed:hover {
+    background: #e4111c;
+}
+
+.easiPurchasePackageBtns button.easiPurchasePackageBtnDisable {
+    cursor: not-allowed;
+}
+
+.easiPurchasePackagePrice {
+    padding: 0px 35px;
+    border-right: 1px solid #D8D8D8;
+    margin: 20px 0px;
+}
+
+.easiPurchasePackagePriceUl {
+    width: 100%;
+    color: #333;
+    font-size: 14px;
+}
+
+.easiPurchasePackagePriceUl>li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 0px;
+}
+
+.easiPurchasePackagePriceCheck {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.easiPurchasePackagePriceCheckOn {
+    border: 1px solid #F5222D;
+}
+
+.easiPurchasePackagePriceCheckOn .easiPurchasePackagePriceCheckIn {
+    display: block;
+}
+
+.easiPurchasePackagePriceCheckIn {
+    display: none;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #F5222D;
+}
+
+.easiPurchasePackagePriceNumber {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.easiPurchasePackageLine {
+    width: 100%;
+    padding: 0px 35px;
+}
+
+.easiPurchasePackageLineIn {
+    width: 100%;
+    border-top: 1px solid #D8D8D8;
+}
+
+.easiPurchasePackagePriceIn {
+    padding: 35px 0px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+.easiPurchaseTableOut {
+    background: #fff;
+    width: 100%;
+    padding: 20px 20px 40px 20px;
+}
+
+.easiPurchaseTable {
+    width: 100%;
+    border: 1px solid #D8D8D8;
+}
+
+.easiPurchaseThead {
+    display: flex;
+    width: 100%;
+    background: #f5f5f5;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.easiPurchaseTbody {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #d8d8d8;
+    font-size: 12px;
+    color: #333333;
+}
+
+.easiPurchaseTbody:last-child {
+    border-bottom: 0px solid #d8d8d8;
+}
+
+.easiPurchaseTableRight {
+    width: 100%;
+}
+
+.easiPurchaseTableEven li:nth-child(even) {
+    background: #FAFAFA;
+}
+
+.easiPurchaseTableOdd li:nth-child(odd) {
+    background: #FAFAFA;
+}
+
+.easiPurchaseThead .easiPurchaseTableRight {
+    display: flex;
+    align-items: center;
+}
+
+.easiPurchaseThead .easiPurchaseTableRight>div {
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.easiPurchaseThead .easiPurchaseTableRight>div:first-child {
+    text-align: left;
+}
+
+.easiPurchaseTbody .easiPurchaseTableRight li {
+    width: 100%;
+    display: flex;
+}
+
+.easiPurchaseTbody .easiPurchaseTableRight li>div {
+    text-align: center;
+    padding: 12px 0px;
+}
+
+.easiPurchaseTbody .easiPurchaseTableRight li>div:first-child {
+    text-align: Left;
+    padding-left: 15px;
+}
+
+.easiPurchaseTbody .easiPurchaseTableRight li>div.easiPurchaseCol1 {
+    border-right: 1px solid #d8d8d8;
+}
+
+.easiPurchaseCol1 {
+    width: 23%;
+}
+
+.easiPurchaseCol2 {
+    width: 11%;
+}
+
+.easiPurchaseCol3 {
+    width: 11%;
+}
+
+.easiPurchaseCol4 {
+    width: 11%;
+}
+
+.easiPurchaseCol5 {
+    width: 11%;
+}
+
+.easiPurchaseCol6 {
+    width: 11%;
+}
+
+.easiPurchaseCol7 {
+    width: 11%;
+}
+
+.easiPurchaseCol8 {
+    width: 11%;
+}
+
+.easiPurchaseTableLeft {
+    border-right: 1px solid #D8D8D8;
+    width: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8C8C8C;
+}
+
+.easiPurchaseThead .easiPurchaseTableLeft {
+    border-right: 0px solid #D8D8D8;
+}
+
+.easiPurchaseContact {
+    margin: 40px 0px;
+    width: 100%;
+    background: #002766;
+    padding: 35px 15px 45px 15px;
+}
+
+.easiPurchaseContact>div {
+    text-align: center;
+}
+
+.easiPurchaseContact>div:first-child {
+    font-weight: lighter;
+    color: #bfbfbf;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.easiPurchaseContact>div:last-child {
+    font-weight: normal;
+    color: #fff;
+    font-size: 28px;
+}
+
+.easiPurchaseTheadMobile {
+    display: none;
+}
+
+.easiPurchaseColDown {
+    font-size: 12px;
+}
+
+.easiPurchaseMotorUlCon {
+    position: relative;
+    display: inline-block;
+}
+
+.easiPurchaseMotorUlCtrl {
+    cursor: pointer;
+}
+
+.easiPurchaseMotorUlCtrl i {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.easiPurchaseMotorUlCtrlOn {
+    color: #096DD9;
+}
+
+.easiPurchaseMotorUlCtrlOn i {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    /* IE 9 */
+    -moz-transform: rotate(180deg);
+    /* Firefox */
+    -webkit-transform: rotate(180deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(180deg);
+}
+
+.easiPurchaseMotorUl {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 257px;
+    background: #fff;
+    border: #eee;
+    box-shadow: 0px 8px 22px 0px rgba(58, 65, 68, 0.5);
+    display: none;
+}
+
+.easiPurchaseMotorUl li {
+    padding: 5px 15px;
+}
+
+@media ( max-width: 640px) {
+    .easiPurchaseCon {
+        padding: 0;
+    }
+    .easiPurchaseTip {
+        padding: 5px 20px;
+    }
+    .easiPurchasePackage>ul {
+        flex-wrap: wrap;
+    }
+    .easiPurchasePackage>ul>li {
+        width: 100%;
+        border-bottom: 1px solid #D8D8D8;
+    }
+    .easiPurchasePackageLineIn {
+        display: none;
+    }
+    .easiPurchasePackagePrice {
+        border-right: none;
+    }
+    .easiPurchaseTableLeft {
+        display: none;
+    }
+    .easiPurchaseThead {
+        font-size: 2.7vw;
+    }
+    .easiPurchaseTbody {
+        font-size: 2.7vw;
+    }
+    .easiPurchaseColDown {
+        display: none;
+    }
+    .easiPurchaseTableOut {
+        padding: 15px 15px 40px 15px;
+    }
+    .easiPurchaseTbody .easiPurchaseTableRight li>div {
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .easiPurchaseTbody .easiPurchaseTableRight li>div:first-child {
+        padding-left: 5px;
+    }
+    .easiPurchaseTheadPc {
+        display: none;
+    }
+    .easiPurchaseTheadMobile {
+        display: block;
+    }
+    .easiPurchaseThead .easiPurchaseTableRight>div:first-child {
+        padding-left: 5px;
+    }
+}

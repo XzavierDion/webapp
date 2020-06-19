@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保本挖矿-业务统计</title>
+    <meta name="keywords" content="保本挖矿">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="css/me.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+    .col-sm-3 {
+        /* width:20%; */
+    }
+    
+    .ibox-title {
+        overflow: hidden;
+    }
+    
+    #myModal li {
+        width: auto;
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="clients-list">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"  onclick="pingtime()">平台资金统计</a>
+                </li>
+                <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false" onclick="watime()">挖矿数据统计</a>
+                </li>
+                <li class=""><a data-toggle="tab" href="#tab-3" aria-expanded="false" onclick="xintime()">新手挖矿统计</a>
+                </li>
+                <li class=""><a data-toggle="tab" href="#tab-4" aria-expanded="false" onclick="yongtime()">佣金统计</a>
+                </li>
+                <li class=""><a data-toggle="tab" href="#tab-5" aria-expanded="false" onclick="litime()">利息统计</a>
+                </li>
+            </ul>
+            <div class="tab-content" style="padding-top: 15px;border: 1px solid #ddd;border-top: 0px;">
+                <div id="tab-1" class="tab-pane active">
+                    <div class="row" style="padding-left: 40px;margin-bottom: 15px;">
+                        <div style="display: flex;align-items: center;float: left;margin-right: 30px;">
+                                   <h5 style="color:#ccc;margin-right: 10px;">平台总资金</h5>
+                                   <h1 class="no-margins" id="balance">0</h1>
+                                   <span class="label label-success pull-right" style="margin-left:10px;">USDT</span>
+                        </div>
+                        <div style="display: flex;align-items: center;float: left;">
+
+                                    <h5 style="color:#ccc;margin-right: 10px;">平台总余额</h5>
+                                    <h1 class="no-margins" id="fund">0</h1>
+                                    <span class="label label-success pull-right" style="margin-left:10px;">USDT</span>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="display: flex;align-items: center;">
+                            <!-- <select class="form-control table_select" style="width:105px;margin-right:20px;">
+                                <option value="30">按天查询</option>
+                                <option value="60">按月查询</option>
+                            </select> -->
+                            <div style="margin-left:25px;display: flex;align-items: center;margin-right: 20px;">
+                                <span>起始日期：</span>
+                                <input id="datestart" type="date" name="" class="form-control startime" style="width:150px;">
+                            </div>
+                            <div style="display: flex;align-items: center;margin-right: 20px;">
+                                <span>结束日期：</span>
+                                <input id="dateend" type="date" name="" class="form-control endtime" style="width:150px;">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="pingtime()">查询</button>
+                        </div>
+                        <div class="col-sm-12" style="padding-top: 15px;">
+
+                                
+                                <div class="ibox-content">
+                                    <div id="chart_pingtai"></div>
+                                </div>
+    
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-2" class="tab-pane">
+                    <div class="row" style="padding-left: 40px;margin-bottom: 15px;">
+                        <div style="display: flex;align-items: center;float: left;margin-right: 30px;">
+                                    <h5 style="color:#ccc;margin-right: 10px;">挖矿总余额</h5>
+                                    <h1 class="no-margins" id="miningAmount">0</h1>
+                                    <span class="label label-info pull-right" style="margin-left:10px;">USDT</span>
+                        </div>
+                        <div style="display: flex;align-items: center;float: left;margin-right: 30px;">                                  
+                                    <h5 style="color:#ccc;margin-right: 10px;">订单总金额</h5>
+                                    <h1 class="no-margins" id="orderAmount">0</h1>
+                                    <span class="label label-info pull-right" style="margin-left:10px;">USDT</span>
+                        </div>
+                        <div style="display: flex;align-items: center;float: left;margin-right: 30px;">
+                                    <h5 style="color:#ccc;margin-right: 10px;">挖矿待分配金额</h5>
+                                    <h1 class="no-margins" id="unassignAmount">0</h1>
+                                    <span class="label label-info pull-right" style="margin-left:10px;">USDT</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="display: flex;align-items: center;">
+                            <!-- <select class="form-control table_select" style="width:105px;margin-right:20px;">
+                                <option value="30">按天查询</option>
+                                <option value="60">按月查询</option>
+                            </select> -->
+                            <div style="margin-left:25px;display:flex; align-items:center; margin-right:20px;">
+                                <span>起始日期：</span>
+                                <input id="datestart1" type="date" name="" class="form-control startime" style="width:150px;">
+                            </div>
+                            <div style="display: flex;align-items: center;margin-right:20px;">
+                                <span>结束日期：</span>
+                                <input id="dateend1" type="date" name="" class="form-control endtime" style="width:150px;">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="watime()">查询</button>
+                        </div>
+                        <div class="col-sm-12" style="margin-top:15px;">
+                                <div class="ibox-content">
+                                    <div id="chart_wakuang"></div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-3" class="tab-pane">
+                    <div class="row">
+                        <div class="col-sm-12" style="display: flex;align-items: center;">
+                            <div style="margin-left:25px;display:flex; align-items:center; margin-right:20px;">
+                                <span>起始日期：</span>
+                                <input id="datestart2" type="date" name="" class="form-control startime" style="width:150px;">
+                            </div>
+                            <div style="display: flex;align-items: center;margin-right:20px;">
+                                <span>结束日期：</span>
+                                <input id="dateend2" type="date" name="" class="form-control endtime" style="width:150px;">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="xintime()">查询</button>
+                        </div>
+                        <div class="col-sm-12" style="margin-top:15px;">
+                                <div class="ibox-content">
+                                    <div id="chart_xinshou"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-pane">
+                    <div class="row">
+                        <div class="col-sm-12" style="display: flex;align-items: center;">
+                            <div style="margin-left:25px;display:flex; align-items:center; margin-right:20px;">
+                                <span>起始日期：</span>
+                                <input id="datestart3" type="date" name="" class="form-control startime" style="width:150px;">
+                            </div>
+                            <div style="display: flex;align-items: center;margin-right:20px;">
+                                <span>结束日期：</span>
+                                <input id="dateend3" type="date" name="" class="form-control endtime" style="width:150px;">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="yongtime()">查询</button>
+                        </div>
+                        <div class="col-sm-12" style="margin-top:15px;">
+
+                                <div class="ibox-content">
+                                    <div id="chart_yongjin"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-5" class="tab-pane">
+                    <div class="row">
+                        <div class="col-sm-12" style="display: flex;align-items: center;">
+                            <div style="margin-left:25px;display:flex; align-items:center; margin-right:20px;">
+                                <span>起始日期：</span>
+                                <input id="datestart4" type="date" name="" class="form-control startime" style="width:150px;">
+                            </div>
+                            <div style="display: flex;align-items: center;margin-right:20px;">
+                                <span>结束日期：</span>
+                                <input id="dateend4" type="date" name="" class="form-control endtime" style="width:150px;">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="litime()">查询</button>
+                        </div>
+                        <div class="col-sm-12" style="margin-top:15px;">
+                                <div class="ibox-content">
+                                    <div id="chart_lixi"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".index_smalltitle").click(function() {
+            $('#myModal').modal('show');
+        });
+
+        
+
+        /*$(".index_bigtitle li").click(function() {
+            $(this).css({
+                "background": "#1C84C6",
+                "color": "#fff",
+            }).siblings().css({
+                "background": "#e3e3e3",
+                "color": "#ccc",
+            });
+        })*/
+
+
+   var mydate = new Date();
+
+   window.datestart = mydate.getFullYear()+"-"+('0'+(mydate.getMonth())).slice(-2)+"-"+('0'+mydate.getDate()).slice(-2);
+   window.datend = mydate.getFullYear()+"-"+ ('0'+(mydate.getMonth() + 1)).slice(-2)+"-"+('0'+mydate.getDate()).slice(-2);
+     
+   $(".startime").val(window.datestart);
+   $(".endtime").val(window.datend);
+  
+   pingtime();
+
+    });
+    </script>
+    <script>
+
+    var pingtime = function() {
+
+        var dstart = $("#datestart").val();
+        var dend = $("#dateend").val();
+
+        devTools.requestApi({
+            'url': '/sum/fund/map',
+            'data': {
+                'start': dstart,
+                'end': dend,
+            },
+            'success': function(d) {
+                var json = eval(d);
+                /* console.log(json.data.dates);*/
+                $("#balance").text(json.data.balance);
+                $("#fund").text(json.data.fund);
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart_pingtai'));
+
+                option = {
+
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    color: ["#18A689", "#00BFFF", "#1C84C6", "#F8AC59", '#EE7942'],
+                    legend: {
+                        data: ['充值金额', '提币金额']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        top: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json.data.dates
+                    },
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} '
+                        },
+                        min: 0,
+                        /*max: */
+                    }],
+                    dataZoom: [{
+                        type: 'inside',
+                        start: 50,
+                        end: 100
+                    }, {
+                        show: true,
+                        type: 'slider',
+                        y: '90%',
+                        start: 50,
+                        end: 100
+                    }],
+                    series: [{
+                        name: '充值金额',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.recharges
+                    }, {
+                        name: '提币金额',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.withdraws
+                    }, ]
+                };
+
+                myChart.setOption(option);
+
+
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var watime = function() {
+
+        var dstart = $("#datestart1").val();
+        var dend = $("#dateend1").val();
+
+        devTools.requestApi({
+            'url': '/sum/mining/map',
+            'data': {
+                'start': dstart,
+                'end': dend,
+            },
+            'success': function(d) {
+                var json = eval(d);
+                console.log(eval(d));
+                $("#miningAmount").text(json.data.miningAmount);
+                $("#orderAmount").text(json.data.orderAmount);
+                $("#unassignAmount").text(json.data.unassignAmount);
+
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart_wakuang'));
+
+                option = {
+
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    color: ["#18A689", "#00BFFF", "#1C84C6", "#F8AC59", '#EE7942'],
+                    legend: {
+                        data: ['锁定', '未锁定']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '6%',
+                        bottom: '10%',
+                        top: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json.data.dates
+                    },
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} '
+                        },
+                        min: 0,
+                    }],
+                    dataZoom: [{
+                        type: 'inside',
+                        start: 50,
+                        end: 100
+                    }, {
+                        show: true,
+                        type: 'slider',
+                        y: '90%',
+                        start: 50,
+                        end: 100
+                    }],
+                    series: [{
+                        name: '锁定',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.lock
+                    }, {
+                        name: '未锁定',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.unlock
+                    }, ]
+                };
+
+                myChart.setOption(option);
+
+
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var xintime = function() {
+
+        var dstart = $("#datestart2").val();
+        var dend = $("#dateend2").val();
+
+        devTools.requestApi({
+            'url': '/sum/mining/novice/map',
+            'data': {
+                'start': dstart,
+                'end': dend,
+            },
+            'success': function(d) {
+                var json = eval(d);
+                console.log(eval(d));
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart_xinshou'));
+
+                option = {
+
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    color: ["#18A689", "#00BFFF", "#1C84C6", "#F8AC59", '#EE7942'],
+                    legend: {
+                        data: ['新手挖矿数']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        top: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json.data.dates
+                    },
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} '
+                        },
+                        min: 0,
+                    }],
+                    dataZoom: [{
+                        type: 'inside',
+                        start: 50,
+                        end: 100
+                    }, {
+                        show: true,
+                        type: 'slider',
+                        y: '90%',
+                        start: 50,
+                        end: 100
+                    }],
+                    series: [{
+                        name: '新手挖矿数',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.novice
+                    }, ]
+                };
+
+                myChart.setOption(option);
+
+
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var yongtime = function() {
+
+        var dstart = $("#datestart3").val();
+        var dend = $("#dateend3").val();
+
+        devTools.requestApi({
+            'url': '/sum/invite/award/map',
+            'data': {
+                'start': dstart,
+                'end': dend,
+            },
+            'success': function(d) {
+                var json = eval(d);
+                console.log(eval(d));
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart_yongjin'));
+
+                option = {
+
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    color: ["#18A689", "#00BFFF", "#1C84C6", "#F8AC59", '#EE7942'],
+                    legend: {
+                        data: ['佣金']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        top: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json.data.dates
+                    },
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} '
+                        },
+                        min: 0,
+                    }],
+                    dataZoom: [{
+                        type: 'inside',
+                        start: 50,
+                        end: 100
+                    }, {
+                        show: true,
+                        type: 'slider',
+                        y: '90%',
+                        start: 50,
+                        end: 100
+                    }],
+                    series: [{
+                        name: '佣金',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.awards
+                    }, ]
+                };
+
+                myChart.setOption(option);
+
+
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+
+    var litime = function() {
+
+        var dstart = $("#datestart4").val();
+        var dend = $("#dateend4").val();
+
+        devTools.requestApi({
+            'url': '/sum/interest/map',
+            'data': {
+                'start': dstart,
+                'end': dend,
+            },
+            'success': function(d) {
+                var json = eval(d);
+                /* console.log(json.data.dates);*/
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart_lixi'));
+
+                option = {
+
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    color: ["#18A689", "#00BFFF", "#1C84C6", "#F8AC59", '#EE7942'],
+                    legend: {
+                        data: ['总利息', ]
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        top: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: json.data.dates
+                    },
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} '
+                        },
+                        min: 0,
+                        /*max: */
+                    }],
+                    dataZoom: [{
+                        type: 'inside',
+                        start: 50,
+                        end: 100
+                    }, {
+                        show: true,
+                        type: 'slider',
+                        y: '90%',
+                        start: 50,
+                        end: 100
+                    }],
+                    series: [{
+                        name: '总利息',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                width: 2,
+                            }
+                        },
+                        data: json.data.incomes
+                    }, ]
+                };
+
+                myChart.setOption(option);
+
+
+
+            },
+            'failed': function(d) {
+                alert('未成功:' + JSON.stringify(d));
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

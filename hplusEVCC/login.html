@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保本挖矿-登录</title>
+    <meta name="keywords" content="保本挖矿">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>
+   if (window.top !== window.self) {
+       window.top.location = window.location;
+   }
+   </script>
+</head>
+
+<body class="gray-bg">
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name" style="font-size:88px;letter-spacing:12px;">EVCC</h1>
+            </div>
+            <!-- <h3>欢迎使用 H+</h3> -->
+            <div class="m-t" role="form" action="">
+                <div class="form-group">
+                    <input id="nameIpt" type="text" class="form-control" placeholder="用户名">
+                </div>
+                <div class="form-group">
+                    <input id="codeIpt" type="number" class="form-control" placeholder="密码">
+                </div>
+                <button type="button" class="btn btn-primary block full-width m-b" onclick="javascript:htLogin();">登 录</button>
+                <!-- <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/main.js"></script>
+    <script>
+    var htLogin = function() {
+
+        var nameIpt = $('#nameIpt').val();
+        var codeIpt = $('#codeIpt').val();
+
+        /*$.ajax({
+            type: "GET",
+            url: "http://192.168.1.103:8080/system/user/login",
+            async: true,
+            data: {
+                username : nameIpt,
+                password : codeIpt,
+            },
+            success: function(data) {
+                console.log(data);
+                var json = eval(data);
+                var msg = json.msg;
+                var code = json.code;
+                if (code == 200) {
+                    alert("接口接通");
+
+                } else {
+                    alert(msg);
+                }
+            },
+        });*/
+        devTools.requestApi({
+            'url': '/system/user/login',
+            'async': true,
+            'data': {
+                'username': nameIpt,
+                'password': codeIpt,
+            },
+            'success': function(d) {
+                devTools.setLoginToken(d.data.userKey, d.data.token);
+                var json = eval(d);
+                var msg = json.msg;
+                console.log(msg);
+                alert("登录成功");
+                window.location.href = "index.html";
+            }
+        });
+
+    }
+    </script>
+</body>
+
+</html>

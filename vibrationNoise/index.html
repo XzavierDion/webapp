@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/vibNoiseAnalysisParam.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="flexDiv vibrationNoise_out">
+		<ul class="vibrationNoise_leftUl">
+			<li class="vibrationNoise_leftLiActive">电磁参数</li>
+			<li>结构参数</li>
+			<li>振动噪声分析参数</li>
+		</ul>
+		<ul class="vibrationNoise_rightUl">
+			<li>
+				<div class="vibrationNoise_rightTitle">电磁参数</div>
+				<div class="vibrationNoise_rightCon">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">电流激励</div>
+						<div class="vibrationNoise_rightValue">
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div style="margin:8px 0px;">
+					<button type="button" class="vibrationNoise_transformButton">
+						<span>高级选项</span>
+	                    <span class="glyphicon glyphicon-menu-down vibrationNoise_gout" aria-hidden="true"></span>
+                    </button>
+				</div>
+				<div class="vibrationNoise_rightCon" style="display:none;">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">A相电流幅值</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">A相电流相角</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">电磁力阶次</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">最大噪声分析频率</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">频率分辨率</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">时间拓展个数</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">空间拓展个数</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">波数</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">转速</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+			    </div>
+			</li>
+			<li>
+				<div class="vibrationNoise_rightTitle">结构参数</div>
+				<div class="vibrationNoise_rightCon1">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">计算模式</div>
+						<div class="vibrationNoise_rightValue">
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="vibrationNoise_rightCon">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">绝缘质量</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">轴长度</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">轴承距</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳外径</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳质量</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+				</div>
+				<div style="margin:8px 0px;">
+					<button type="button" class="vibrationNoise_transformButton">
+						<span>高级选项</span>
+	                    <span class="glyphicon glyphicon-menu-down vibrationNoise_gout" aria-hidden="true"></span>
+	                </button>
+                </div>
+				<div class="vibrationNoise_rightCon" style="display: none;">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">气隙半径</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">极数</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">槽数</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">齿宽</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">齿高</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">铁芯叠长</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">铁芯叠压系数</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">铁芯密度</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">铁芯弹性模量</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">铁芯泊松比</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">绕组伸出长度</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">绕组材料弹性模量</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">绕组材料泊松比</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">绕组质量</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">轴直径</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">轴密度</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳内径</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳材料密度</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳材料弹性模量</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳材料泊松比</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">机壳边界状态</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">安装边界条件</div>
+						<div class="vibrationNoise_rightValue">
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="vibrationNoise_rightTitle">振动噪声分析参数</div>
+				<div class="vibrationNoise_rightCon1">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">分析模型选择</div>
+						<div class="vibrationNoise_rightValue">
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="vibrationNoise_rightCon1">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">模态频率、阻尼数据来源</div>
+						<div class="flexDiv vibrationNoise_rightValue">
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+							<button type="button" class="vibrationNoise_duoyu">文字标题</button>
+						</div>
+					</div>
+				</div>
+				<div class="vibrationNoise_rightCon">
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">轴向模态计算阶次</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">最大径向模态阶次</div>
+						<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+					</div>
+					<div class="vibrationNoise_rightLi">
+						<div class="vibrationNoise_rightName">分析类型</div>
+						<div class="vibrationNoise_rightValue">
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+ 
+                <!-- 空载多工况开始 -->
+				<div class="kzDiv">
+					<div class="vibrationNoise_rightCon">
+						<div class="vibrationNoise_rightLi">
+							<div class="vibrationNoise_rightName">铁芯泊松比</div>
+							<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+						</div>
+						<div class="vibrationNoise_rightLi">
+							<div class="vibrationNoise_rightName">机壳质量</div>
+							<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+						</div>
+						<div class="vibrationNoise_rightLi">
+							<div class="vibrationNoise_rightName">绕组质量</div>
+							<div class="vibrationNoise_rightValue"><input type="text" name=""></div>
+						</div>
+				    </div>
+				    <div style="margin:10px 0px;">
+				    	<label class="flexDiv">
+					    	<input type="checkbox" name="" style="margin:0px 4px 0px 0px;">
+					    	<span>重新求解有限元</span>
+				    	</label>
+				    </div>
+				    <div class="kzDiv_tip">说明：在完成单工况分析的情况下，不勾选“重新求解有限元”，求解时间可缩短至2~3分钟。</div>
+				</div>
+				<!-- 空载多工况结束 -->
+
+                <!-- 负载多工况开始 -->
+				<div class="flexDiv fzDiv">
+ 
+				    <label class="radio-inline" style="margin-right: 30px;">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="checked"> 输入转速-转矩参数
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 输入转速-电流参数
+					</label>
+
+				</div>
+
+                <div class="fzUl">
+
+                	<div class="fzLi"  style="display: block;"><!-- 负载多工况转矩参数 -->
+						<div class="fzLi_UlOut">
+                    		<div class="flexDiv fzLi_UlOutTitle">
+                				<div class="fzLi_number"></div>
+                				<div class="fzLi_zs1">转速</div>
+                				<div class="fzLi_zj">转矩</div>
+                    		</div>
+                    		<ul class="fzLi_Ul">
+                    			<li class="click5">
+                    				<div class="fzLi_number">1</div>
+                    				<div class="fzLi_zs1"><input type="text" name=""></div>
+                    				<div class="fzLi_zj"><input type="text" name=""></div>
+                    				<div class="fzLi_check"><input type="checkbox" name=""></div>
+                    			</li>
+                    			<li class="click5">
+                    				<div class="fzLi_number">2</div>
+                    				<div class="fzLi_zs1"><input type="text" name=""></div>
+                    				<div class="fzLi_zj"><input type="text" name=""></div>
+                    				<div class="fzLi_check"><input type="checkbox" name=""></div>
+                    			</li>
+                    		</ul>
+	                    </div>
+	                    <div class="flexDiv fzLi_button">
+	                    	<button type="button" disabled="disabled">新建行</button>
+	                    	<button type="button" disabled="disabled">删除行</button>
+	                    </div>
+
+	                    <div class="flexDiv mapDiv">
+						    <label class="radio-inline" style="margin-right: 30px;" onclick="$('#fzDiv_autoMap').show();$('#fzDiv_select1').hide();">
+							  <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3" checked="checked"> 自动求解map图计算
+							</label>
+							<label class="radio-inline" id="" onclick="$('#fzDiv_select1').show();$('#fzDiv_autoMap').hide();">
+							  <input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option4"> 选择已有map试验获取
+							</label>
+							<select id="fzDiv_select1" class="fzDiv_select1">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+						<div id="fzDiv_autoMap" class="fzDiv_autoMap"><!-- 自动求解map图计算 -->
+							<div class="fzDiv_autoMapTitle">
+								电流扫描参数页面
+							</div>
+							<div class="flexDiv fzDiv_autoMapCon">
+
+								<div class="fzDiv_autoMapLi">
+									<div class="fzDiv_autoMapLiName">电机类型</div>
+									<div class="fzDiv_autoMapLiValue">
+										<select>
+										    <option>1</option>
+										    <option>2</option>
+										    <option>3</option>
+									    </select>
+								   </div>
+								</div>
+
+								<div class="fzDiv_autoMapLi">
+									<div class="fzDiv_autoMapLiName">电机类型</div>
+									<div class="fzDiv_autoMapLiValue">
+										<select>
+										    <option>1</option>
+										    <option>2</option>
+										    <option>3</option>
+									    </select>
+								   </div>
+								</div>
+
+								<div class="fzDiv_autoMapLi">
+									<div class="fzDiv_autoMapLiName">是否退磁</div>
+									<div class="fzDiv_autoMapLiValue">
+										<input type="checkbox" name="">
+								    </div>
+								</div>
+
+								<div class="fzDiv_autoMapLi">
+									<div class="fzDiv_autoMapLiName">是否退磁</div>
+									<div class="fzDiv_autoMapLiValue">
+										<input type="checkbox" name="">
+								    </div>
+								</div>
+
+								<div class="fzDiv_autoMapLi">
+									<div class="fzDiv_autoMapLiName">母线电压限值(V)</div>
+									<div class="fzDiv_autoMapLiValue">
+										<input type="text" name="">
+								    </div>
+								</div>
+
+								<div class="fzDiv_autoMapLi">
+									<div class="fzDiv_autoMapLiName">母线电压限值(V)</div>
+									<div class="fzDiv_autoMapLiValue">
+										<input type="text" name="">
+								    </div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="fzLi"><!-- 负载多工况转速电流分析 -->
+	                    <div class="fzLi_UlOut">
+                    		<div class="flexDiv fzLi_UlOutTitle">
+                				<div class="fzLi_number"></div>
+                				<div class="fzLi_zs">转速</div>
+                				<div class="fzLi_dlfz">电流幅值</div>
+                				<div class="fzLi_dlxw">电流相位</div>
+                    		</div>
+                    		<ul class="fzLi_Ul">
+                    			<li>
+                    				<div class="fzLi_number">1</div>
+                    				<div class="fzLi_zs"><input type="text" name=""></div>
+                    				<div class="fzLi_dlfz"><input type="text" name=""></div>
+                    				<div class="fzLi_dlfz"><input type="text" name=""></div>
+                    				<div class="fzLi_check"><input type="checkbox" name=""></div>
+                    			</li>
+                    			<li>
+                    				<div class="fzLi_number">2</div>
+                    				<div class="fzLi_zs"><input type="text" name=""></div>
+                    				<div class="fzLi_dlfz"><input type="text" name=""></div>
+                    				<div class="fzLi_dlfz"><input type="text" name=""></div>
+                    				<div class="fzLi_check"><input type="checkbox" name=""></div>
+                    			</li>
+                    			<li>
+                    				<div class="fzLi_number">3</div>
+                    				<div class="fzLi_zs"><input type="text" name=""></div>
+                    				<div class="fzLi_dlfz"><input type="text" name=""></div>
+                    				<div class="fzLi_dlfz"><input type="text" name=""></div>
+                    				<div class="fzLi_check"><input type="checkbox" name=""></div>
+                    			</li>
+                    		</ul>
+	                    </div>
+	                    <div class="flexDiv fzLi_button">
+	                    	<button type="button">新建行</button>
+	                    	<button type="button">删除行</button>
+	                    </div>
+
+					</div>
+					
+			    </div>
+			    <!-- 负载多工况结束 -->
+
+			</li>
+			<li>
+				<div class="kong"></div>
+			</li>
+		</ul>
+        <div class="flexDiv vibrationNoise_bottom">
+        	<div class="vibrationNoise_bottomLeft">
+        		<button type="button" style="">恢复默认值</button>
+        	</div>
+        	<div class="vibrationNoise_bottomRight">
+        		<button type="button" style="">关闭</button>
+        		<button type="button" style="">分析</button>
+        	</div>
+        </div>
+	<div>
+    <script type="text/javascript">
+
+    	$(".vibrationNoise_leftUl li").click(function(){
+    		var h1 = $(".vibrationNoise_rightUl li").eq(0).height();
+    	    var h2 = $(".vibrationNoise_rightUl li").eq(1).height();
+    		/*$(this).addClass("vibrationNoise_leftLiActive").siblings().removeClass("vibrationNoise_leftLiActive");*/
+    		var leftIndex =  $(this).index();
+    		
+    		if(leftIndex == 0){   			 
+    			$(".vibrationNoise_rightUl").scrollTop(0);
+    		}
+    		if(leftIndex == 1){ 			 
+    			$(".vibrationNoise_rightUl").scrollTop(h1+35);
+    		}
+            if(leftIndex == 2){   			 
+    			$(".vibrationNoise_rightUl").scrollTop(h1+h2+70);
+    		}   		
+    	});
+     
+        $(".vibrationNoise_rightUl").scroll(function() {//窗口开始滚动方法
+        	var h1 = $(".vibrationNoise_rightUl li").eq(0).height();
+    	    var h2 = $(".vibrationNoise_rightUl li").eq(1).height();
+
+        	var sTop = $(this).scrollTop(); 
+
+            if ( sTop >= 0  &&  sTop < h1+35) {//判断 div出现在屏幕上方的位置 大于 div开始的位置，小于div结束的位置
+				$(".vibrationNoise_leftUl li").eq(0).addClass("vibrationNoise_leftLiActive").siblings().removeClass("vibrationNoise_leftLiActive");
+			}
+			if ( sTop >= h1+35  &&  sTop < h1+h2+70 ){//判断 div出现在屏幕上方的位置 大于 div开始的位置，小于div结束的位置
+				$(".vibrationNoise_leftUl li").eq(1).addClass("vibrationNoise_leftLiActive").siblings().removeClass("vibrationNoise_leftLiActive");
+			}
+			if ( sTop >= h1+h2+70 ) {//判断 div出现在屏幕上方的位置 大于 div开始的位置，小于div结束的位置
+				$(".vibrationNoise_leftUl li").eq(2).addClass("vibrationNoise_leftLiActive").siblings().removeClass("vibrationNoise_leftLiActive");
+			}
+        });
+
+    	$(".vibrationNoise_transformButton").click(function(){
+            $(this).find(".vibrationNoise_gout").toggleClass("vibrationNoise_transform");
+            $(this).parent().siblings(".vibrationNoise_rightCon").eq(1).toggle({"display":"flex"});
+    	});
+
+        $(".fzDiv label").click(function(){
+        	var fzIndex = $(this).index();
+        	$(".fzLi").eq(fzIndex).css({"display":"block"}).siblings().css({"display":"none"});
+        })
+    </script>
+</body>
+</html>

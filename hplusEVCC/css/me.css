@@ -1,0 +1,230 @@
+.div_intable{margin-bottom:8px;display:block;}
+.table_change{color:blue;}
+.table_contrl{color:blue;}
+#myModal ul{
+	list-style: none;
+	margin: 0;
+	padding:0;
+}
+#myModal li{
+	margin-bottom: 15px;
+	width:100%;
+    display: block;
+}
+.dt_inli{
+    margin-bottom: 8px;
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.dt_inli1{
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.float-e-margins .btn {
+    margin-bottom: 0px;
+}
+#myModal .dt_inli{
+	margin-bottom: 8px;
+	width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#myModal .dt_inli .dt_inli_title{
+	width:100px;
+	display: inline-block;
+}
+#myModal .dt_inli .form-control{
+    display: inline-block;
+    width:calc(100% - 120px);
+}
+#myModal .dt_inli .dt_inli_all{
+   width:40px;
+   text-align: right;
+   display: inline-block;
+   color:blue;
+}
+#myModal input[type=checkbox], #myModal input[type=radio] {
+    margin:0;
+    margin-bottom: 2px;
+    margin-right: 5px;
+    line-height: normal;}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background:#F3F3F4;
+}
+.nav-header {
+    padding: 18px 25px;
+}
+.clients-list {
+    margin-top: 0px;
+        background: #fff;
+}
+.table_select{
+    width:100px;
+}
+.select_out span{
+    width:70px;
+}
+.select_out{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+}
+.invite_all{
+    color:blue;
+}
+.withdraw_pass{
+    color:blue;
+}
+
+.withdraw_every{
+   height:40px;
+   display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+}
+
+.withdraw_upctrl{
+    color:blue;
+    margin-left: 15px;
+}
+
+.withdraw_upnumber{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.withdraw_today{
+    height:40px;
+    display: flex;
+    justify-content: flex-start;
+
+    font-size: 14px;
+}
+.withdraw_todayr{
+    margin-left:15px;
+}
+.index_bigtitle{font-size:20px; font-weight: bold;padding:0px 15px 15px 15px;}
+.index_bigtitle ul{list-style: none;margin:0;padding:0;display: flex;}
+.index_bigtitle ul li{margin-right:15px;padding:10px;border-radius:4px; background:#e3e3e3; color:#ccc;}
+.index_bigtitle .sta_active{background:#1C84C6;color:#fff;}
+
+.index_smalltitle{font-size: 12px; font-weight: normal; color:;margin-left: 15px;}
+
+@media (min-width: 768px){
+    .modal-dialog {
+    width:90%;
+    margin: 30px auto;
+    }
+}
+
+.index_model_up{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.index_model_up .table_select{
+    margin:0px 8px;
+}
+
+.index_model_down{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* #myModal .custm_modal_ul li{
+    border-bottom: 1px dotted #ccc;    
+    padding-top: 14px; 
+    padding-bottom:6px;
+    margin-bottom: 0px;
+}  */
+#myModal .custm_modal_ul li{
+    border-bottom: 1px dotted #ccc;    
+    padding-top: 14px; 
+    padding-bottom:14px;
+    margin-bottom: 0px;
+} 
+
+#myModal .custm_modal_ul li span:last-child{
+   margin-left: 30px;
+   font-size: 20px;
+   font-weight: bold;
+   color:#333;
+}
+
+#myModal1 .custm_modal_ul li{
+    border-bottom: 1px dotted #ccc;    
+    padding-top: 14px; 
+    padding-bottom:14px;
+    margin-bottom: 0px;
+    
+} 
+
+#myModal1 .custm_modal_ul li span{
+    margin-right: 30px;
+}
+
+
+.custm_modal_ul{
+    list-style: none;
+    padding-left: 0;
+}
+.dataTables-example ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+
+#chart_pingtai{height:350px;width:100%;}
+#chart_wakuang{height: 350px;width: 100%;}
+#chart_xinshou{height: 350px;width: 100%;}
+#chart_yongjin{height: 350px;width: 100%;}
+#chart_lixi{height: 350px;width: 100%;}
+
+.navbar-fixed-top, .navbar-static-top {
+    background: #fff;
+}
+.minimalize-styl-2 {
+    margin: 11px 5px 5px 20px;
+}
+
+.content-tabs {
+    border-bottom: solid 1px #e7eaec;
+    height:41px;
+}
+
+.footer {
+    background: none repeat scroll 0 0 #fff;
+    border-top: 1px solid #e7eaec;
+    overflow: hidden;
+    padding: 15px 20px;
+    margin: 0 -15px;
+    height: 46px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+    background: #F3F3F4;
+}
+
+.tab-pane{
+    height:300px;
+}
+
+.custval{
+    font-weight: bold;
+    display: inline-block;
+}
+
+.custleft{
+    display: inline-block;
+    width:70px;
+}
