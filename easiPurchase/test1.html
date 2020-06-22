@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width:100%;margin:0 auto;padding:0;max-width:768px;">
+        <div style="width:100%;margin:0;padding:0;">
+            <img src="https://jia.easimotor.com/r/cms/www/default/images/listhead.png" style="width:100%;margin:0;padding:0;">
+        </div>
+        <div style="width:100%;margin:0;padding:0;position:relative;">
+            <div style="width:100%;margin:0;padding:0;">
+                <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody1.png" id="listbody1" style="width:100%;margin:0;padding:0;" class="listbody">
+                <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody2.png" id="listbody2" style="width:100%;margin:0;padding:0;display:none;" class="listbody">
+                <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody3.png" id="listbody3" style="width:100%;margin:0;padding:0;display:none;" class="listbody">
+                <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody4.png" id="listbody4" style="width:100%;margin:0;padding:0;display:none;" class="listbody">
+                <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody5.png" id="listbody5" style="width:100%;margin:0;padding:0;display:none;" class="listbody">
+            </div>
+            <div style="width:5%;position:absolute;right:6%;top:8%;height:92%;">
+                <div style="color:#fff;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl1" class="listctrl">高效电机系列</div>
+                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl2" class="listctrl">高速电机系列</div>
+                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl3" class="listctrl">同步磁阻电机系列</div>
+                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl4" class="listctrl">制造工艺系列</div>
+                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl5" class="listctrl">测试系列</div>
+            </div>
+        </div>
+        <div style="width:100%;margin:0;padding:0;">
+            <img src="https://jia.easimotor.com/r/cms/www/default/images/listfoot.png" style="width:100%;margin:0;padding:0;">
+        </div>
+    </div>
+    <script>
+        var x = document.querySelectorAll(".listctrl");
+        var y = document.querySelectorAll(".listbody");
+
+        // function show() {
+        //     this.style.color = "#fff";
+        //     y[i].style.display = "block"
+        // }
+
+        function sibling(elm) {
+            var a = [];
+            var p = elm.parentNode.children;
+            for (var i = 0, pl = p.length; i < pl; i++) {
+                if (p[i] !== elm) a.push(p[i]);
+            }
+            return a;
+        }
+
+        for (i = 0; i < x.length; i++) {
+            x[i].index = i;
+            x[i].onclick = function() {
+                this.style.color = "#fff";
+                var index = this.index;
+                y[index].style.display = "block";
+                for (j = 0; j < x.length; j++) {
+                    sibling(y[index])[j].style.display = "none";
+                    sibling(this)[j].style.color = "#000";
+                }
+            }
+        }
+
+
+
+
+
+        // var listctrl1 = document.getElementById('listctrl1');
+        // var listctrl2 = document.getElementById('listctrl2');
+        // var listctrl3 = document.getElementById('listctrl3');
+        // var listctrl4 = document.getElementById('listctrl4');
+        // var listctrl5 = document.getElementById('listctrl5');
+        // var listbody1 = document.getElementById('listbody1');
+        // var listbody2 = document.getElementById('listbody2');
+        // var listbody3 = document.getElementById('listbody3');
+        // var listbody4 = document.getElementById('listbody4');
+        // var listbody5 = document.getElementById('listbody5');
+
+        // function ctrl1() {　　
+        //     listbody1.style.display = "block";
+        //     listbody2.style.display = "none";
+        //     listbody3.style.display = "none";
+        //     listbody4.style.display = "none";
+        //     listbody5.style.display = "none";
+        //     listctrl1.style.color = "#fff";
+        //     listctrl2.style.color = "#000";
+        //     listctrl3.style.color = "#000";
+        //     listctrl4.style.color = "#000";
+        //     listctrl5.style.color = "#000";
+        // }
+
+        // function ctrl2() {　　
+        //     listbody2.style.display = "block";
+        //     listbody1.style.display = "none";
+        //     listbody3.style.display = "none";
+        //     listbody4.style.display = "none";
+        //     listbody5.style.display = "none";
+        //     listctrl1.style.color = "#000";
+        //     listctrl2.style.color = "#fff";
+        //     listctrl3.style.color = "#000";
+        //     listctrl4.style.color = "#000";
+        //     listctrl5.style.color = "#000";
+        // }
+
+        // function ctrl3() {　　
+        //     listbody3.style.display = "block";
+        //     listbody1.style.display = "none";
+        //     listbody2.style.display = "none";
+        //     listbody4.style.display = "none";
+        //     listbody5.style.display = "none";
+        //     listctrl1.style.color = "#000";
+        //     listctrl2.style.color = "#000";
+        //     listctrl3.style.color = "#fff";
+        //     listctrl4.style.color = "#000";
+        //     listctrl5.style.color = "#000";
+        // }
+
+        // function ctrl4() {　　
+        //     listbody4.style.display = "block";
+        //     listbody1.style.display = "none";
+        //     listbody2.style.display = "none";
+        //     listbody3.style.display = "none";
+        //     listbody5.style.display = "none";
+        //     listctrl1.style.color = "#000";
+        //     listctrl2.style.color = "#000";
+        //     listctrl3.style.color = "#000";
+        //     listctrl4.style.color = "#fff";
+        //     listctrl5.style.color = "#000";
+        // }
+
+        // function ctrl5() {　　
+        //     listbody5.style.display = "block";
+        //     listbody1.style.display = "none";
+        //     listbody2.style.display = "none";
+        //     listbody3.style.display = "none";
+        //     listbody4.style.display = "none";
+        //     listctrl1.style.color = "#000";
+        //     listctrl2.style.color = "#000";
+        //     listctrl3.style.color = "#000";
+        //     listctrl4.style.color = "#000";
+        //     listctrl5.style.color = "#fff";
+        // }
+    </script>
+</body>
+
+</html>
