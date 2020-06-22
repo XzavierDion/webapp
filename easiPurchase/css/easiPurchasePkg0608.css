@@ -170,6 +170,11 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.purchaseCheckTop {
+    padding: 20px 0px;
 }
 
 .purchaseCheckTitleTop {
@@ -202,6 +207,7 @@ button {
 .purchaseCheckTimeValue button {
     border: none;
     padding: 3px 0px;
+    background: #fff !important;
 }
 
 .purchaseCheckTimeValue button:hover {
@@ -240,7 +246,104 @@ button {
     margin-right: 0px;
 }
 
+.purchaseCheckChose {
+    color: #444;
+    font-size: 16px;
+    padding: 5px 0px 20px 0px;
+}
+
+.purchaseCheckChoseRed {
+    color: #ED6335;
+}
+
+.purchaseCheckChoseUl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -2%;
+}
+
+.purchaseCheckChoseUl li {
+    width: 18%;
+    min-width: 150px;
+    padding: 10px 5px;
+    overflow: hidden;
+    border: 1px solid #00A0E9;
+    color: #2d2d2d;
+    position: relative;
+    margin-left: 2%;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.purchaseCheckChoseUl li.purchaseCheckChoseOn {
+    border: 2px solid #00A0E9;
+}
+
+.purchaseCheckIcon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    display: none;
+}
+
+.purchaseCheckChoseOn .purchaseCheckIcon {
+    display: block;
+}
+
+.purchaseCheckBuyDiv {
+    margin-bottom: 10px;
+}
+
+.purchaseCheckBuyName {
+    color: #444;
+    font-size: 16px;
+}
+
+.purchaseCheckBuyNumber {
+    display: flex;
+    align-items: center;
+}
+
+.purchaseCheckBuyIcon {
+    font-size: 18px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.purchaseCheckBuyIcon:hover {
+    color: #707070;
+}
+
+.purchaseCheckBuyIpt {
+    height: 18px;
+    width: 56px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #979797;
+    background: #FAFAFA;
+    outline: none;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin: 0px 1px;
+}
+
 @media ( max-width: 640px) {
+    .purchaseCheckChoseUl {
+        justify-content: space-between;
+    }
+    .purchaseCheckChoseUl li {
+        font-size: 12px;
+    }
+    .purchaseCheckTop {
+        flex-wrap: wrap;
+    }
     .purchaseCheckTextIcon {
         width: 34px;
         height: 34px;
@@ -339,5 +442,15 @@ button {
         justify-content: space-between;
         align-items: center;
         margin-top: 8px;
+    }
+}
+
+@media ( max-width: 350px) {
+    .purchaseCheckCon {
+        padding: 0px 10px;
+    }
+    .purchaseCheckChoseUl li {
+        min-width: 136px;
+        margin: 0 -2% 10px 0px;
     }
 }

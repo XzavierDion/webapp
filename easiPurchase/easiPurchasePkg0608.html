@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/easiPurchasePkg0608.css">
 </head>
 
@@ -15,7 +16,7 @@
             <span>订单详情</span>
         </div>
         <div class="purchaseCheckLi">
-            <div class="purchaseCheckDiv">
+            <div class="purchaseCheckDiv purchaseCheckTop">
                 <div class="purchaseCheckTitleTop">EasiMotor Online 标准版套餐</div>
                 <div class="purchaseCheckPriceTop">￥2500</div>
             </div>
@@ -33,9 +34,9 @@
                 </div>
             </div>
             <div>
-                <div>任选<span>1</span>款电机类型</div>
-                <ul>
-                    <li>
+                <div class="purchaseCheckChose">任选<span class="purchaseCheckChoseRed">1</span>款电机类型</div>
+                <ul class="purchaseCheckChoseUl">
+                    <li class="purchaseCheckChoseOn">
                         <span>鼠笼式三相感应电机</span>
                         <img src="img/selectHook.png" class="purchaseCheckIcon">
                     </li>
@@ -121,12 +122,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="purchaseCheckDiv">
-                <div>购买数量</div>
-                <div>
-                    <div>-</div>
-                    <div><input type="text"></div>
-                    <div>+</div>
+            <div class="purchaseCheckDiv purchaseCheckBuyDiv">
+                <div class="purchaseCheckBuyName">购买数量</div>
+                <div class="purchaseCheckBuyNumber">
+                    <i class="fa fa-minus-square purchaseCheckBuyIcon" aria-hidden="true"></i>
+                    <input type="text" class="purchaseCheckBuyIpt" placeholder="1">
+                    <i class="fa fa-plus-square purchaseCheckBuyIcon" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
