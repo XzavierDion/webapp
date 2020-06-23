@@ -8,6 +8,42 @@
 </head>
 
 <body>
+    <style>
+        .listctrlDiv>div {
+            color: black;
+            font-size: 22px;
+            line-height: 1.2;
+            height: 15%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .listctrlDiv {
+            width: 5%;
+            position: absolute;
+            right: 15%;
+            top: 8%;
+            height: 92%;
+        }
+        
+        @media ( max-width: 640px) {
+            .listctrlDiv>div {
+                color: black;
+                font-size: 3vw;
+                line-height: 1.2;
+                height: 15%;
+                display: flex;
+                align-items: center;
+            }
+            .listctrlDiv {
+                width: 5%;
+                position: absolute;
+                right: 6%;
+                top: 8%;
+                height: 92%;
+            }
+        }
+    </style>
     <div style="width:100%;margin:0 auto;padding:0;max-width:768px;">
         <div style="width:100%;margin:0;padding:0;">
             <img src="https://jia.easimotor.com/r/cms/www/default/images/listhead.png" style="width:100%;margin:0;padding:0;">
@@ -20,12 +56,12 @@
                 <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody4.png" id="listbody4" style="width:100%;margin:0;padding:0;display:none;" class="listbody">
                 <img src="https://jia.easimotor.com/r/cms/www/default/images/listbody5.png" id="listbody5" style="width:100%;margin:0;padding:0;display:none;" class="listbody">
             </div>
-            <div style="width:5%;position:absolute;right:6%;top:8%;height:92%;">
-                <div style="color:#fff;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl1" class="listctrl">高效电机系列</div>
-                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl2" class="listctrl">高速电机系列</div>
-                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl3" class="listctrl">同步磁阻电机系列</div>
-                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl4" class="listctrl">制造工艺系列</div>
-                <div style="color:black;font-size:3vw;line-height:1.2;height:15%;display: flex;align-items: center;" id="listctrl5" class="listctrl">测试系列</div>
+            <div class="listctrlDiv" style="width:5%;position:absolute;right:6%;top:8%;height:92%;">
+                <div style="color:#fff;" id="listctrl1" class="listctrl" onclick="ctrl1();">高效电机系列</div>
+                <div style="" id="listctrl2" class="listctrl" onclick="ctrl2();">高速电机系列</div>
+                <div style="" id="listctrl3" class="listctrl" onclick="ctrl3();">同步磁阻电机系列</div>
+                <div style="" id="listctrl4" class="listctrl" onclick="ctrl4();">制造工艺系列</div>
+                <div style="" id="listctrl5" class="listctrl" onclick="ctrl5();">测试系列</div>
             </div>
         </div>
         <div style="width:100%;margin:0;padding:0;">
@@ -56,7 +92,7 @@
                 this.style.color = "#fff";
                 var index = this.index;
                 y[index].style.display = "block";
-                for (j = 0; j < x.length; j++) {
+                for (j = 0; j < x.length - 1; j++) {
                     sibling(y[index])[j].style.display = "none";
                     sibling(this)[j].style.color = "#000";
                 }
