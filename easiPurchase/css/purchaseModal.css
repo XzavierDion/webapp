@@ -37,7 +37,39 @@ button {
     background: #fff;
     padding: 30px 15px;
     width: 520px;
+    position: relative;
 }
+
+.purchaseRemove {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    height: 34px;
+    width: 34px;
+    position: absolute;
+    right: -44px;
+    top: 0;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchaseRemove:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.purchaseRemove img {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* 免费试用版次数计算 */
 
 .purchaseModalTitle {
     font-size: 18px;
@@ -54,7 +86,7 @@ button {
 }
 
 .purchaseModalTip {
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
     margin: 20px 0px 15px 0px;
     text-align: center;
@@ -62,14 +94,14 @@ button {
 
 .purchaseModalNumber {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     color: #444444;
     margin-bottom: 30px;
 }
 
 .purchaseModalRed {
     color: #F5222D;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .purchaseModalBtns {
@@ -77,4 +109,123 @@ button {
     justify-content: center;
 }
 
-@media ( max-width: 640px) {}
+.purchaseModalBtns button {
+    cursor: pointer;
+    padding: 7px 25px;
+    border-radius: 2px;
+    font-size: 16px;
+    margin-right: 10px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.purchaseModalBtns button:last-child {
+    margin-right: 0;
+}
+
+.purchaseModalBtn {
+    background: #eee;
+    color: #8c8c8c;
+}
+
+.purchaseModalBtn:hover {
+    background: #F5222D;
+    color: #fff;
+}
+
+.purchaseModalBtn1 {
+    background: #F5222D;
+    color: #fff;
+}
+
+.purchaseModalBtn1:hover {
+    background: #b91a23;
+    color: #fff;
+}
+
+
+/* 免费试用版次数计算 */
+
+.purchaseModalTitle1 {
+    font-size: 18px;
+    color: #333333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.purchaseModalTip1 {
+    font-size: 14px;
+    color: #333;
+    margin: 20px 0px 5px 0px;
+    text-align: center;
+}
+
+.purchaseModalTipRed {
+    color: #F5222D;
+}
+
+.purchaseModalCheck {
+    width: 65%;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 0px;
+}
+
+.easiPurchasePackagePriceCheck {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.easiPurchasePackagePriceCheckOn {
+    border: 1px solid #F5222D;
+}
+
+.easiPurchasePackagePriceCheckOn .easiPurchasePackagePriceCheckIn {
+    display: block;
+}
+
+.easiPurchasePackagePriceCheckIn {
+    display: none;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #F5222D;
+}
+
+.easiPurchasePackagePriceNumber {
+    width: 68%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #333;
+    font-size: 14px;
+}
+
+@media ( max-width: 640px) {
+    .purchaseRemove {
+        top: -40px;
+        right: 0;
+    }
+    .purchaseModalCon {
+        width: 90%;
+    }
+    .purchaseModalCheck {
+        width: 100%;
+    }
+    .easiPurchasePackagePriceNumber {
+        width: 70%;
+    }
+}
