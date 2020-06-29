@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/purchaseModal.css">
+</head>
+
+<body>
+    <div class="purchaseModalOut">
+        <div class="purchaseModalCon">
+            <div class="purchaseRemove">
+                <img src="img/purchaseRemove.png">
+            </div>
+            <!-- 余额付款-->
+            <div>
+                <div class="purchaseModalTitle1">
+                    <span>温馨提示</span>
+                </div>
+                <div class="purchaseModalTip1">
+                    <span>您当前套餐无法使用</span>
+                    <span class="purchaseModalTipRed">"磁路法计算"</span>
+                    <span>功能，您可能通过购买使用该功能</span>
+                </div>
+                <div class="purchaseModalCheck">
+                    <div class="easiPurchasePackagePriceCheck easiPurchasePackagePriceCheckOn">
+                        <div class="easiPurchasePackagePriceCheckIn"></div>
+                    </div>
+                    <div class="easiPurchasePackagePriceNumber">
+                        <span>1次/1种电机类型</span>
+                        <span>10元</span>
+                    </div>
+                </div>
+                <div class="purchaseModalDiv">
+                    <ul class="purchaseModalUlCtrl">
+                        <li class="purchaseModalUlCtrlOn">余额支付</li>
+                        <li>扫码支付</li>
+                    </ul>
+                    <ul class="purchaseModalUlCon">
+                        <li style="display:block;">
+                            <!-- 余额不足 -->
+                            <div style="display:block;">
+                                <div class="purchaseModalShortLogo">
+                                    <img src="img/pay_warning.png" style="width:80px;">
+                                </div>
+                                <div class="purchaseModalShortTip">
+                                    <span>您的余额不足，请尽快充值~</span>
+                                </div>
+                                <div class="purchaseModalShortNumber">
+                                    <span>当前余额：</span>
+                                    <span>￥8</span>
+                                </div>
+                                <div class="purchaseModalShortA">
+                                    <span>前往充值</span>
+                                </div>
+                            </div>
+                            <!-- 余额支付 -->
+                            <div style="display:none;">
+                                <div class="purchaseModalPayNumber">
+                                    <span>余额支付:</span>
+                                    <span class="purchaseModalPayRed">￥10</span>
+                                </div>
+                                <div class="purchaseModalPayBalance">
+                                    <span>当前余额:</span>
+                                    <span>￥110</span>
+                                </div>
+                                <div class="purchaseModalPayBtns">
+                                    <button type="button" class="purchaseModalPayBtn">确定支付</button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 扫码支付 -->
+                        <li>
+                            <div class="purchaseModalQRNumber">
+                                <span>扫码支付：</span>
+                                <span class="purchaseModalPayRed">￥10</span>
+                            </div>
+                            <div class="purchaseModalQRImg">
+                                <img src="img/example.jpg">
+                            </div>
+                            <div class="purchaseModalQRTip">
+                                <span>支付宝/微信扫码支付</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="purchaseModalBtnBottom">
+                    <button type="button" class="purchaseModalBtnBlue">套餐升级</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(".purchaseModalUlCtrl li").click(function() {
+            $(this).addClass("purchaseModalUlCtrlOn").siblings().removeClass("purchaseModalUlCtrlOn");
+            var indexLi = $(this).index();
+            $(".purchaseModalUlCon li").eq(indexLi).css({
+                "display": "block"
+            }).siblings().css({
+                "display": "none"
+            });
+        });
+    </script>
+</body>
+
+</html>
