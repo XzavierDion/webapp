@@ -1,0 +1,293 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Source Han Sans CN, Source Han Serif SC;
+    /* letter-spacing: 1.2px; */
+    font-size: 14px;
+    min-width: 0;
+    user-select: none;
+    background: #F7F9FA;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.purchaseAccountCon {
+    padding: 0px 30px;
+    width: 100%;
+}
+
+
+/* .purchaseAccountRight {
+    padding: 0px 30px;
+    width: 100%;
+} */
+
+.purchaseAccountInfo {
+    margin-top: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    padding: 15px 25px;
+}
+
+.purchaseAccountUp {
+    color: #8C8C8C;
+    font-size: 14px;
+}
+
+.purchaseAccountBalanceUp {
+    text-align: right;
+}
+
+.purchaseAccountNameDown {
+    color: #333;
+    font-size: 22px;
+    padding: 18px 0px 10px 0px;
+}
+
+.purchaseAccountBalanceDown {
+    color: #979797;
+    font-size: 14px;
+    padding: 18px 0px 10px 0px;
+}
+
+.purchaseAccountDownRed {
+    font-size: 22px;
+    color: #F5222D;
+}
+
+.purchaseAccountCtrl {
+    margin-top: 20px;
+    display: flex;
+}
+
+.purchaseAccountCtrlLi {
+    font-size: 14px;
+    background: #fff;
+    color: #979797;
+    border: 1px solid #D8D8D8;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.purchaseAccountCtrlLi:hover {
+    background: #068373;
+    color: #fff;
+    border: 1px solid #068373;
+}
+
+.purchaseAccountCtrlOn {
+    background: #068373;
+    color: #fff;
+    border: 1px solid #068373;
+}
+
+.purchaseAccountDivLi {
+    background: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    padding: 0px 30px;
+}
+
+.supplyPackageUl {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.supplyPackageUl li {
+    width: 15%;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    border: 1px solid #E5E5E5;
+    position: relative;
+    cursor: pointer;
+    color: #979797;
+    background: #fff;
+    min-width: 200px;
+}
+
+.supplyPackageUl li:last-child {
+    margin-right: 0px;
+}
+
+.supplyPackageUl li.supplyPackageLiChecked {
+    color: #fff;
+    background: #18A4AB;
+}
+
+.supplyPackageLiChecked .supplyPackageName {
+    background: #49C6CD;
+    color: #fff;
+}
+
+.supplyPackageLiChecked .supplyPackagePrice {
+    color: #fff;
+}
+
+.supplyPackageLiChecked .supplyPackageTipIn>div .fa {
+    color: #fff;
+}
+
+.supplyPackageLiChecked .supplyPackageChecked {
+    display: block;
+}
+
+.supplyPackageLiChecked .supplyPackageTipOrange {
+    color: #fff;
+}
+
+.supplyPackageUl li:hover {
+    color: #fff;
+    background: #18A4AB;
+}
+
+.supplyPackageUl li:hover .supplyPackageName {
+    background: #49C6CD;
+    color: #fff;
+}
+
+.supplyPackageUl li:hover .supplyPackagePrice {
+    color: #fff;
+}
+
+.supplyPackageUl li:hover .supplyPackageTipIn>div .fa {
+    color: #fff;
+}
+
+.supplyPackageUl li:hover .supplyPackageTipOrange {
+    color: #fff;
+}
+
+.supplyPackageTipOrange {
+    color: #FA8C16;
+}
+
+.supplyPackageName {
+    width: 100%;
+    background: #F2F2F2;
+    position: relative;
+    padding: 18px 5px;
+    color: #5F5F5F;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.supplyPackageLabel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.supplyPackagePrice {
+    margin: 20px 5px;
+    text-align: center;
+    color: #068373;
+}
+
+.supplyPackagePriceLg {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.supplyPackageTip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 45px;
+    padding: 0px 5px;
+}
+
+.supplyPackageTipIn>div {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.supplyPackageTipIn>div .fa {
+    color: #0EC5A1;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.supplyPackageChecked {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+}
+
+
+/* 列表 */
+
+.purchaseAccountSelect {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 20px 0px;
+}
+
+.purchaseAccountSelect .btn-group {
+    margin-right: 20px;
+}
+
+.purchaseAccountSelect .btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+
+.purchaseAccountSelect .btn span {
+    margin-right: 5px;
+}
+
+.purchaseAccountSelect .btn span:last-child {
+    margin-right: 0px;
+}
+
+.purchaseAccountSelect .dropdown-menu {
+    min-width: 0;
+    width: 100%;
+}
+
+.purchaseAccountSelect .dropdown-menu>li>a {
+    padding: 3px 12px;
+}
+
+@media ( max-width: 640px) {
+    .supplyPackageUl {
+        flex-wrap: wrap;
+        margin: 15px 0px 30px 0px;
+    }
+    .supplyPackageUl li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
