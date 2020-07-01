@@ -281,6 +281,93 @@ button {
     padding: 3px 12px;
 }
 
+.purchaseAccountSelectText {
+    color: #979797;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.purchaseAccountThead {
+    display: flex;
+    color: #333;
+    font-size: 16px;
+    background: #F5F5F5;
+}
+
+.purchaseAccountThead>div {
+    padding: 14px 0px;
+}
+
+.purchaseAccountThead>div:first-child {
+    padding-left: 30px;
+}
+
+.purchaseAccountTbody li {
+    display: flex;
+    color: #333;
+    font-size: 16px;
+}
+
+.purchaseAccountTbody li:nth-of-type(odd) {
+    background: #fff;
+}
+
+.purchaseAccountTbody li:nth-of-type(even) {
+    background: #fafafa;
+}
+
+.purchaseAccountTbody li>div {
+    padding: 14px 0px;
+}
+
+.purchaseAccountTbody li>div:first-child {
+    padding-left: 30px;
+}
+
+.purchaseAccountTd1 {
+    width: 28%;
+}
+
+.purchaseAccountTd2 {
+    width: 24%;
+}
+
+.purchaseAccountTd3 {
+    width: 28%;
+}
+
+.purchaseAccountTd4 {
+    width: 20%;
+}
+
+.purchaseAccountNumberUp {
+    color: #F5222D;
+}
+
+.purchaseAccountNumberDown {
+    color: #068373;
+}
+
+.purchaseAccountTable {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.purchaseAccountPage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
 @media ( max-width: 640px) {
     .supplyPackageUl {
         flex-wrap: wrap;
