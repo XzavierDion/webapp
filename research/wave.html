@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gray {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .gray li {
+            color: #979797;
+        }
+        
+        .gray li.redick {
+            color: red;
+            font-weight: 600;
+        }
+        
+        .wave {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+        }
+        
+        .wave li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .smallBox {
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+            margin-bottom: 3px;
+            border-radius: 3px;
+            background: rgba(0, 181, 29, 0.1);
+        }
+        
+        .smallBox:last-child {
+            margin-right: 0px;
+        }
+        
+        .colorOn .smallBox {
+            animation: myfirst 1.2s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes myfirst {
+            from {
+                background: rgba(0, 181, 29, 0.1);
+            }
+            to {
+                background: rgba(0, 181, 29, 0.6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="wave">
+        <li class="colorOn">
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+        <li>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+            <div class="smallBox"></div>
+        </li>
+    </ul>
+    <script>
+        var colorBox = document.querySelectorAll(".wave li");
+        // for (i = 0; i < colorBox.length; i++) {　
+        //     colorBox[i].classList.add("colorOn");
+        // }
+
+        // for (var i = 0; i < colorBox.length; i++) {
+        //     setTimeout(fn1(i), 1000);
+        // }
+
+        // function fn1(a) {
+        //     return function() {
+        //         colorBox[a].classList.add("colorOn");
+        //     }
+        // }
+
+        for (var i = 0; i < colorBox.length; i++) {
+            (function(j) {
+                setTimeout(function() {
+                    colorBox[j].classList.add("colorOn");
+                }, 100 * j);
+            })(i);
+        }
+        //每隔一秒显示一下
+    </script>
+    <!-- <ul class="gray">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <script>
+        var ddd = document.querySelectorAll(".gray li");
+        for (i = 0; i < ddd.length; i++) {
+            ddd[i].classList.add("redick");
+        }
+    </script> -->
+    <!-- <script>
+        function longList(m, n) {
+
+            var langList = [];
+            for (i = 0; i < m; i++) {
+                langList.push(n);
+
+            }
+            return langList;
+
+        }
+        console.log(longList(4, 3));
+    </script> -->
+    <script>
+    </script>
+</body>
+
+</html>
