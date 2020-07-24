@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!--  <input type="button" onclick="javascript:playAudio();" value="Play Local" /> -->
+
+<input type="button" onclick="javascript:readOnlineSpectrum();" value="Read Data"/>
+
+<input type="button" onclick="javascript:playOnlineAudio();" value="Play Online" />
+
+<input type="button" onclick="javascript:exportAudio();" value="Export"/>
+<p>
+<form action="../audio/export.html" method="post" id="exportAudioForm">
+<input type="text" name="spectrum" id="spectrumdata" value=""/>
+</form>
+
+<audio id="MyAudio" autoplay>您的浏览器不支持 audio 标签。</audio>
+
+</body>
+
+<script type="text/javascript" src="../static/js/common/jquery-1.11.3.min.js"></script>
+<script language="javascript">
+
+var spectrumdata = [[400,0.2], [120,0.13],[650, 0.5],[2100,0.28]];
+
+function playAudio() {
+	var x = document.getElementById("MyAudio");
+	x.src = "javasound.wav";
+}
+
+function playOnlineAudio() {
+    $.ajax({
+        async : false,
+        cache : false,  
+        type : 'POST',  
+        dataType : "Json",  
+        url: "http://lutx-dell-xps.easi-tech.com:8080/EMOnline" + "/audio/generate.html",
+        data: {
+            spectrum:JSON.stringify(spectrumdata)
+        },
+        error: function (XHR,TS) {//请求失败处理函数  
+        	console.log("ajax error.");
+        },
+        success:function(data){ //请求成功后处理函数。
+            if(data.message == "success"){
+                var x = document.getElementById("MyAudio");
+                x.src = "data:audio/wav;base64,"+data.wavData;
+            } else {
+                console.log("generate audio error:"+data.message);
+            }
+        }  
+    });
+	
+}
+
+function exportAudio() {
+	var data = document.getElementById("spectrumdata");
+    data.value = JSON.stringify(spectrumdata);
+    var form = document.getElementById("exportAudioForm");
+    form.submit();
+}
+
+function readOnlineSpectrum() {
+    $.ajax({
+        async : false,
+        cache : false,  
+        type : 'POST',  
+        dataType : "Json",  
+        url: "http://lutx-dell-xps.easi-tech.com:8080/EMOnline/vibNoise/getNoiseSpectrumData.html",
+        data: {
+            nodeId: "5fe5b8a88fb0_vn2single_vn2load",
+            dbProjectId: 470,
+            dsnPath: "8168417c7eb2",
+            singleLocation: "s850"
+        },
+        error: function (XHR,TS) {//请求失败处理函数  
+            console.log("ajax error.");
+        },
+        success:function(data){ //请求成功后处理函数。
+            if(data.message == "success"){
+            	spectrumdata = JSON.parse(data.resultJsonStr);
+            	document.getElementById("spectrumdata").value = data.resultJsonStr;
+            } else {
+                console.log("getNoiseSpectrumData error:"+data.message);
+            }
+        }  
+    });
+}
+</script>
+
+</html>

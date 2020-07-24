@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/sound.css">
+</head>
+
+<body>
+    <div class="soundCon">
+        <div class="soundTitleLg">声音频谱分析</div>
+        <div id="main" class="soundChart">
+        </div>
+        <div class="soundTable" style="background: #fff;">
+            <div class="soundBtns">
+                <button type="button">新增</button>
+                <button type="button">删除</button>
+            </div>
+            <div class="soundThead">
+                <div class="soundLeft"><span>左数值</span></div>
+                <div class="soundRight"><span>右数值</span></div>
+            </div>
+            <ul class="soundTbody">
+                <li>
+                    <div class="soundLeft"><input type="text" value="11"></div>
+                    <div class="soundRight"><input type="text" value="22"></div>
+                </li>
+                <li>
+                    <div class="soundLeft"><input type="text" value="11"></div>
+                    <div class="soundRight"><input type="text" value="22"></div>
+                </li>
+            </ul>
+        </div>
+        <ul class="soundCtrl">
+            <li>
+                <div class="soundCtrlClick"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                <div class="soundCtrlText"><span>重置</span></div>
+            </li>
+            <li>
+                <div class="soundCtrlClick" style="color:#f8981d; font-size:40px;"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                <div class="soundCtrlText"><span>播放</span></div>
+            </li>
+            <li>
+                <div class="soundCtrlClick"><i class="fa fa-download" aria-hidden="true"></i></div>
+                <div class="soundCtrlText"><span>输出</span></div>
+            </li>
+
+        </ul>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/nvf.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            // backgroundColor: '#fff',
+            grid: {
+                top: '15%',
+                right: '10%',
+                left: '10%',
+                bottom: '12%'
+            },
+            xAxis: [{
+                type: 'category',
+                color: '#59588D',
+                data: ['2016', '2017', '2018', '2019', '2020'],
+                axisLabel: {
+                    margin: 20,
+                    color: '#999',
+                    textStyle: {
+                        fontSize: 18
+                    },
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#d2d2d2',
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+            }],
+            yAxis: [{
+                min: 0,
+                max: 100,
+                axisLabel: {
+                    formatter: '{value}%',
+                    color: '#999',
+                    textStyle: {
+                        fontSize: 18
+                    },
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(107,107,107,0.37)',
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(131,101,101,0.2)',
+                        type: 'dashed',
+                    }
+                }
+            }],
+            series: [{
+                type: 'bar',
+                data: [40, 90, 10, 20, 56],
+                barWidth: '50px',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#FF9A22' // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#FFD56E' // 100% 处的颜色
+                        }], false),
+                        barBorderRadius: [0, 0, 0, 0],
+                    }
+                },
+                label: {
+                    show: true,
+                    fontSize: 18,
+                    fontWeight: 'bold',
+                    position: 'top',
+                    color: '#333',
+                }
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
