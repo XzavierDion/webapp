@@ -7,25 +7,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/sound.css">
+    <link rel="stylesheet" href="./css/audio.css">
 </head>
 
 <body>
-    <div class="soundCon">
+    <div class="soundCon" id="soundCon">
         <div class="soundTitleLg">声音频谱分析</div>
         <div id="main" class="soundChart">
         </div>
-        <div class="soundTable">
-            <div class="soundBtns">
-                <button type="button">新增</button>
-                <button type="button">删除</button>
-            </div>
-            <div class="soundThead">
-                <div class="soundLeft"><span>频率</span></div>
-                <div class="soundRight"><span>声功率级(分贝)</span></div>
-            </div>
-            <ul class="soundTbody">
-                <!-- <li>
+        <!-- <div class="soundBtns">
+            <button type="button">新增</button>
+            <button type="button">删除</button>
+        </div> -->
+
+        <div class="soundThead">
+            <div class="soundLeft"><span>频率</span></div>
+            <div class="soundRight"><span>声功率级(分贝)</span></div>
+        </div>
+        <ul class="soundTbody">
+            <!-- <li>
                     <div class="soundLeft"><input type="text" value="11"></div>
                     <div class="soundRight"><input type="text" value="22"></div>
                 </li>
@@ -33,30 +33,36 @@
                     <div class="soundLeft"><input type="text" value="11"></div>
                     <div class="soundRight"><input type="text" value="22"></div>
                 </li> -->
-            </ul>
-        </div>
-    </div>
-    <div class="soundCtrlOut">
+        </ul>
+
         <ul class="soundCtrl">
             <li>
-                <div class="soundCtrlClick"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                <div class="soundCtrlClick" onclick="javascript:readOnlineSpectrum();"><i class="fa fa-refresh" aria-hidden="true"></i></div>
                 <div class="soundCtrlText"><span>重置</span></div>
             </li>
             <li>
-                <div class="soundCtrlClick" style="color:#f8981d; font-size:40px;"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                <div class="soundCtrlClick" style="color:#f8981d; font-size:40px;" onclick="javascript:playOnlineAudio();"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                 <div class="soundCtrlText"><span>播放</span></div>
             </li>
             <li>
-                <div class="soundCtrlClick"><i class="fa fa-download" aria-hidden="true"></i></div>
+                <div class="soundCtrlClick" onclick="javascript:exportAudio();"><i class="fa fa-download" aria-hidden="true"></i></div>
                 <div class="soundCtrlText"><span>输出</span></div>
             </li>
 
         </ul>
     </div>
+    <div style="display: none;">
+        <form action="../audio/export.html" method="post" id="exportAudioForm">
+            <input type="text" name="spectrum" id="spectrumdata" value="" />
+        </form>
+        <audio id="MyAudio" autoplay>您的浏览器不支持 audio 标签。</audio>
+    </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/echarts.min.js"></script>
     <script>
+        document.getElementById('soundCon').style.height = window.innerHeight + 'px';
+
         //声音数据全局变量
         var spectrumdata = [
             [300, 7.85955],
@@ -167,6 +173,7 @@
         //获取x轴y轴数据
         var datax = [],
             datay = []
+
         for (i = 0; i < spectrumdata.length; i++) {
             datax.push(spectrumdata[i][0]);
             datay.push(spectrumdata[i][1]);
@@ -184,10 +191,10 @@
         }
         option = {
             grid: {
-                top: '15%',
+                top: '8%',
                 right: '8%',
                 left: '12%',
-                bottom: '12%'
+                bottom: '16%'
             },
             tooltip: {},
             xAxis: [{
@@ -195,10 +202,10 @@
                 color: '#59588D',
                 data: datax,
                 axisLabel: {
-                    margin: 20,
+                    margin: 15,
                     color: '#999',
                     textStyle: {
-                        fontSize: 18
+                        fontSize: 16
                     },
                 },
                 axisLine: {
@@ -217,7 +224,7 @@
                     formatter: '{value}',
                     color: '#999',
                     textStyle: {
-                        fontSize: 18
+                        fontSize: 16
                     },
                 },
                 axisLine: {
@@ -290,12 +297,13 @@
             });
         }
 
-
+        //播放本地音频
         function playAudio() {
             var x = document.getElementById("MyAudio");
             x.src = "javasound.wav";
         }
 
+        //播放线上音频
         function playOnlineAudio() {
             $.ajax({
                 async: false,
@@ -321,6 +329,7 @@
 
         }
 
+        //导出音频
         function exportAudio() {
             var data = document.getElementById("spectrumdata");
             data.value = JSON.stringify(spectrumdata);
