@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="myStr" prefix="myStr"%>
+<%@ taglib uri="myHidden" prefix="myHidden"%>
+<%@ taglib uri="mySelect" prefix="mySelect"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%
+	String baseEmIndexPath = com.ytd.comm.util.WebPathUtil.getBasePath(request);
+%>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<%-- <base href="<%=baseEmIndexPath%>"> --%>
+<meta name=renderer  content=webkit>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/audio.css">
-</head>
+<!--页面说明：  首页  -->
+<%@ include file="/static/common/emOnline/globalSimple.jsp"%>
+<%@ include file="/static/common/emOnline/meta.jsp"%>
+<title>EasiMotor Online</title>
+<style type="text/css">
 
+</style>
+<!-- 外链样式 -->
+<link href="static/css/emOnline/audio.css" rel="stylesheet" type="text/css" />
+</head>
 <body>
+<myHidden:hidden strId="LBL_0000002313" />
     <div class="soundCon" id="soundCon">
         <div class="soundTitleLg">声音频谱分析</div>
         <div id="main" class="soundChart">
@@ -18,12 +33,11 @@
         <div class="soundBtns">
             <button type="button">新增</button>
             <button type="button">删除</button>
-            <button type="button">确定</button>
         </div>
 
         <div class="soundThead">
-            <div class="soundLeft"><i id="leftUp" class="fa fa-long-arrow-up" aria-hidden="true"></i><span>频率</span><i id="leftDown" class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
-            <div class="soundRight"><i id="rightUp" class="fa fa-long-arrow-up" aria-hidden="true"></i><span>声功率级(分贝)</span><i id="rightDown" class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
+            <div class="soundLeft"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>频率</span><i class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
+            <div class="soundRight"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>声功率级(分贝)</span><i class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
         </div>
         <ul class="soundTbody">
             <!-- <li>
@@ -58,11 +72,8 @@
         </form>
         <audio id="MyAudio" autoplay>您的浏览器不支持 audio 标签。</audio>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="static/js/modules/ECharts/echarts.min.js"></script>
     <script>
-        //容器高度等于浏览器高度
         document.getElementById('soundCon').style.height = window.innerHeight + 'px';
 
         //声音数据全局变量
@@ -179,96 +190,12 @@
         for (i = 0; i < spectrumdata.length; i++) {
             datax.push(spectrumdata[i][0]);
             datay.push(spectrumdata[i][1]);
-            //渲染列表            
-            // var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdata[i][1] + '"></div></li>';
-            // $(".soundTbody").append(list);
 
-        }
-
-        //复制变量
-        var spectrumdataList = spectrumdata;
-
-        for (i = 0; i < spectrumdataList.length; i++) {
-            //初始渲染列表            
-            var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
+            //渲染列表 
+            var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdata[i][1] + '"></div></li>';
             $(".soundTbody").append(list);
-        }
-
-        //频率升序
-        function leftUp(a, b) {
-            return a[0] - b[0]
-        }
-
-        //频率降序
-        function leftDown(a, b) {
-            return b[0] - a[0]
-        }
-
-        //分贝升序
-        function rightUp(a, b) {
-            return a[1] - b[1]
-        }
-
-        //分贝降序
-        function rightDown(a, b) {
-            return b[1] - a[1]
-        }
-
-        //列表排序方法
-        function sortClick(idx) {
-
-            //改变箭头颜色
-            $("#" + idx.name.toString()).css({
-                "color": "#f8981d"
-            }).siblings("i").css({
-                "color": "#333"
-            });
-
-            $("#" + idx.name.toString()).parent().siblings().find("i").css({
-                "color": "#333"
-            });
-
-            // 清空列表
-            $(".soundTbody").html("");
-
-            //为列表分配排序规则
-            spectrumdataList.sort(idx);
-
-            // alert(idx);
-            for (i = 0; i < spectrumdataList.length; i++) {
-                //渲染列表            
-                var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
-                $(".soundTbody").append(list);
-            }
 
         }
-
-        $("#leftDown").click(function() {
-            sortClick(leftDown);
-        });
-
-        $("#leftUp").click(function() {
-            sortClick(leftUp);
-        });
-
-        $("#rightDown").click(function() {
-            sortClick(rightDown);
-        });
-
-        $("#rightUp").click(function() {
-            sortClick(rightUp);
-        });
-
-        // $("#rightUp").click(function() {
-        //     $(".soundTbody").html("");
-        //     spectrumdataList.sort(rightUp);
-        //     alert(333);
-        //     for (i = 0; i < spectrumdataList.length; i++) {
-        //         //渲染列表            
-        //         var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
-        //         $(".soundTbody").append(list);
-        //     }
-        // });
 
         //柱状图
         var myChart = echarts.init(document.getElementById('main'));
@@ -362,7 +289,7 @@
                 cache: false,
                 type: 'POST',
                 dataType: "Json",
-                url: "http://lutx-dell-xps.easi-tech.com:8080/EMOnline/vibNoise/getNoiseSpectrumData.html",
+                url: "http://10.136.101.128:8080/EMOnline" + "/vibNoise/getNoiseSpectrumData.html",
                 data: {
                     nodeId: "5fe5b8a88fb0_vn2single_vn2load",
                     dbProjectId: 470,
@@ -396,7 +323,7 @@
                 cache: false,
                 type: 'POST',
                 dataType: "Json",
-                url: "http://lutx-dell-xps.easi-tech.com:8080/EMOnline" + "/audio/generate.html",
+                url: "http://10.136.101.128/EMOnline" + "/audio/generate.html",
                 data: {
                     spectrum: JSON.stringify(spectrumdata)
                 },
@@ -424,5 +351,5 @@
         }
     </script>
 </body>
-
+<%@ include file="/static/common/emOnline/commJsFileSimple.jsp"%>
 </html>
