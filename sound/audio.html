@@ -15,17 +15,17 @@
         <div class="soundTitleLg">声音频谱分析</div>
         <div id="main" class="soundChart">
         </div>
-        <div class="soundBtns">
-            <button type="button">新增</button>
-            <button type="button">删除</button>
-            <button type="button">确定</button>
+        <div id="soundBtns" class="soundBtns">
+            <button type="button" id="dataAddListModalBtn">新增</button>
+            <button type="button" onclick="javascript:dataDeleteList();">删除</button>
+            <!-- <button type="button" onclick="javascript:dataChangeList();">确定</button> -->
         </div>
 
         <div class="soundThead">
-            <div class="soundLeft"><i id="leftUp" class="fa fa-long-arrow-up" aria-hidden="true"></i><span>频率</span><i id="leftDown" class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
-            <div class="soundRight"><i id="rightUp" class="fa fa-long-arrow-up" aria-hidden="true"></i><span>声功率级(分贝)</span><i id="rightDown" class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
+            <div class="soundLeft"><span>频率</span><i id="leftUp" class="fa fa-long-arrow-up" aria-hidden="true"></i><i id="leftDown" class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
+            <div class="soundRight"><span>声功率级(分贝)</span><i id="rightUp" class="fa fa-long-arrow-up" aria-hidden="true"></i><i id="rightDown" class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
         </div>
-        <ul class="soundTbody">
+        <ul class="soundTbody" id="soundTbody">
             <!-- <li>
                     <div class="soundLeft"><input type="text" value="11"></div>
                     <div class="soundRight"><input type="text" value="22"></div>
@@ -42,7 +42,7 @@
                 <div class="soundCtrlText"><span>重置</span></div>
             </li>
             <li>
-                <div class="soundCtrlClick" style="color:#f8981d; font-size:40px;" onclick="javascript:playOnlineAudio();"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                <div class="soundCtrlClick soundCtrlClickOn" onclick="javascript:playOnlineAudio();"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                 <div class="soundCtrlText"><span>播放</span></div>
             </li>
             <li>
@@ -58,12 +58,44 @@
         </form>
         <audio id="MyAudio" autoplay>您的浏览器不支持 audio 标签。</audio>
     </div>
+    <div class="dataAddListModal" id="dataAddListModal">
+        <div class="dataModalIn">
+            <div class="soundThead">
+                <div class="soundLeft"><span>频率</span></div>
+                <div class="soundRight"><span>声功率级(分贝)</span></div>
+            </div>
+            <ul class="soundTbody">
+                <li>
+                    <div class="soundLeft"><input type="text" id="addLeft"></div>
+                    <div class="soundRight"><input type="text" id="addRight"></div>
+                </li>
+            </ul>
+            <div class="dataModalBtn">
+                <button type="button" id="dataModalBtn" onclick="javascript:dataAddList();">增加</button>
+            </div>
+            <i class="fa fa-times" id="dataModalClose" aria-hidden="true"></i>
+        </div>
+    </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/echarts.min.js"></script>
     <script>
         //容器高度等于浏览器高度
         document.getElementById('soundCon').style.height = window.innerHeight + 'px';
+
+        //打开弹出框
+        $("#dataAddListModalBtn").click(function() {
+            $("#dataAddListModal").css({
+                "display": "flex"
+            });
+        });
+
+        //关闭弹出框
+        $("#dataModalClose").click(function() {
+            $("#dataAddListModal").css({
+                "display": "none"
+            });
+        });
 
         //声音数据全局变量
         var spectrumdata = [
@@ -72,104 +104,104 @@
             [600, 33.2578],
             [700, 7.56395],
             [800, 16.4926],
-            [900, 13.1894],
-            [1000, 6.91312],
-            [1100, 3.60738],
-            [1200, 26.1325],
-            [1250, 12.5515],
-            [1400, 8.73997],
-            [1500, 3.21746],
-            [1550, 19.3945],
-            [1700, 3.26974],
-            [1800, 11.788],
-            [1850, 40.4579],
-            [1950, 7.16492],
-            [2000, 24.6723],
-            [2050, 10.6105],
-            [2100, 4.4821],
-            [2150, 41.5744],
-            [2250, 12.2813],
-            [2300, 15.3445],
-            [2400, 13.9827],
-            [2450, 23.0866],
-            [2500, 8.14844],
-            [2750, 22.2316],
-            [2850, 9.23366],
-            [2900, 0.640908],
-            [3000, 6.11812],
-            [3100, 9.36545],
-            [3200, 15.6873],
-            [3250, 0.462011],
-            [3300, 6.69199],
-            [3350, 1.18378],
-            [3450, 1.5659],
-            [3500, 15.6901],
-            [3600, 22.1515],
-            [3650, 4.90473],
-            [3700, 33.2941],
-            [3750, 15.5014],
-            [3800, 24.1046],
-            [3850, 24.7286],
-            [3900, 21.4024],
-            [3950, 11.4202],
-            [4000, 21.4653],
-            [4050, 9.61241],
-            [4100, 14.6175],
-            [4150, 23.09],
-            [4200, 25.8788],
-            [4250, 13.4573],
-            [4300, 36.9417],
-            [4350, 7.897],
-            [4400, 23.0538],
-            [4450, 19.7918],
-            [4500, 12.9944],
-            [4550, 10.0408],
-            [4600, 23.5726],
-            [4700, 10.6256],
-            [4750, 15.9241],
-            [4800, 15.2801],
-            [4900, 8.89523],
-            [5000, 6.63981],
-            [5050, 7.13641],
-            [5100, 17.5505],
-            [5150, 7.75611],
-            [5300, 6.99667],
-            [5350, 12.1125],
-            [5450, 19.666],
-            [5500, 6.27641],
-            [5550, 36.0843],
-            [5600, 13.9684],
-            [5650, 19.3785],
-            [5700, 28.6016],
-            [5750, 18.0646],
-            [5800, 13.7793],
-            [5850, 34.742],
-            [5900, 8.51909],
-            [5950, 16.2821],
-            [6000, 23.1275],
-            [6100, 11.0543],
-            [6200, 14.0564],
-            [6250, 7.76308],
-            [6300, 27.9884],
-            [6350, 24.3602],
-            [6400, 10.6534],
-            [6450, 40.0707],
-            [6550, 23.4213],
-            [6700, 8.88231],
-            [6750, 30.2287],
-            [6850, 9.39361],
-            [6900, 14.5614],
-            [7300, 15.5877],
-            [7450, 19.5291],
-            [7500, 16.6167],
-            [7550, 44.1041],
-            [7600, 15.9403],
-            [7650, 18.2999],
-            [7700, 39.2762],
-            [7750, 13.3867],
-            [7800, 21.3787],
-            [7850, 33.4979],
-            [7900, 21.1904]
+            // [900, 13.1894],
+            // [1000, 6.91312],
+            // [1100, 3.60738],
+            // [1200, 26.1325],
+            // [1250, 12.5515],
+            // [1400, 8.73997],
+            // [1500, 3.21746],
+            // [1550, 19.3945],
+            // [1700, 3.26974],
+            // [1800, 11.788],
+            // [1850, 40.4579],
+            // [1950, 7.16492],
+            // [2000, 24.6723],
+            // [2050, 10.6105],
+            // [2100, 4.4821],
+            // [2150, 41.5744],
+            // [2250, 12.2813],
+            // [2300, 15.3445],
+            // [2400, 13.9827],
+            // [2450, 23.0866],
+            // [2500, 8.14844],
+            // [2750, 22.2316],
+            // [2850, 9.23366],
+            // [2900, 0.640908],
+            // [3000, 6.11812],
+            // [3100, 9.36545],
+            // [3200, 15.6873],
+            // [3250, 0.462011],
+            // [3300, 6.69199],
+            // [3350, 1.18378],
+            // [3450, 1.5659],
+            // [3500, 15.6901],
+            // [3600, 22.1515],
+            // [3650, 4.90473],
+            // [3700, 33.2941],
+            // [3750, 15.5014],
+            // [3800, 24.1046],
+            // [3850, 24.7286],
+            // [3900, 21.4024],
+            // [3950, 11.4202],
+            // [4000, 21.4653],
+            // [4050, 9.61241],
+            // [4100, 14.6175],
+            // [4150, 23.09],
+            // [4200, 25.8788],
+            // [4250, 13.4573],
+            // [4300, 36.9417],
+            // [4350, 7.897],
+            // [4400, 23.0538],
+            // [4450, 19.7918],
+            // [4500, 12.9944],
+            // [4550, 10.0408],
+            // [4600, 23.5726],
+            // [4700, 10.6256],
+            // [4750, 15.9241],
+            // [4800, 15.2801],
+            // [4900, 8.89523],
+            // [5000, 6.63981],
+            // [5050, 7.13641],
+            // [5100, 17.5505],
+            // [5150, 7.75611],
+            // [5300, 6.99667],
+            // [5350, 12.1125],
+            // [5450, 19.666],
+            // [5500, 6.27641],
+            // [5550, 36.0843],
+            // [5600, 13.9684],
+            // [5650, 19.3785],
+            // [5700, 28.6016],
+            // [5750, 18.0646],
+            // [5800, 13.7793],
+            // [5850, 34.742],
+            // [5900, 8.51909],
+            // [5950, 16.2821],
+            // [6000, 23.1275],
+            // [6100, 11.0543],
+            // [6200, 14.0564],
+            // [6250, 7.76308],
+            // [6300, 27.9884],
+            // [6350, 24.3602],
+            // [6400, 10.6534],
+            // [6450, 40.0707],
+            // [6550, 23.4213],
+            // [6700, 8.88231],
+            // [6750, 30.2287],
+            // [6850, 9.39361],
+            // [6900, 14.5614],
+            // [7300, 15.5877],
+            // [7450, 19.5291],
+            // [7500, 16.6167],
+            // [7550, 44.1041],
+            // [7600, 15.9403],
+            // [7650, 18.2999],
+            // [7700, 39.2762],
+            // [7750, 13.3867],
+            // [7800, 21.3787],
+            // [7850, 33.4979],
+            // [7900, 21.1904]
         ];
 
         //获取x轴y轴数据
@@ -182,93 +214,7 @@
             //渲染列表            
             // var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdata[i][1] + '"></div></li>';
             // $(".soundTbody").append(list);
-
         }
-
-        //复制变量
-        var spectrumdataList = spectrumdata;
-
-        for (i = 0; i < spectrumdataList.length; i++) {
-            //初始渲染列表            
-            var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
-            $(".soundTbody").append(list);
-        }
-
-        //频率升序
-        function leftUp(a, b) {
-            return a[0] - b[0]
-        }
-
-        //频率降序
-        function leftDown(a, b) {
-            return b[0] - a[0]
-        }
-
-        //分贝升序
-        function rightUp(a, b) {
-            return a[1] - b[1]
-        }
-
-        //分贝降序
-        function rightDown(a, b) {
-            return b[1] - a[1]
-        }
-
-        //列表排序方法
-        function sortClick(idx) {
-
-            //改变箭头颜色
-            $("#" + idx.name.toString()).css({
-                "color": "#f8981d"
-            }).siblings("i").css({
-                "color": "#333"
-            });
-
-            $("#" + idx.name.toString()).parent().siblings().find("i").css({
-                "color": "#333"
-            });
-
-            // 清空列表
-            $(".soundTbody").html("");
-
-            //为列表分配排序规则
-            spectrumdataList.sort(idx);
-
-            // alert(idx);
-            for (i = 0; i < spectrumdataList.length; i++) {
-                //渲染列表            
-                var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
-                $(".soundTbody").append(list);
-            }
-
-        }
-
-        $("#leftDown").click(function() {
-            sortClick(leftDown);
-        });
-
-        $("#leftUp").click(function() {
-            sortClick(leftUp);
-        });
-
-        $("#rightDown").click(function() {
-            sortClick(rightDown);
-        });
-
-        $("#rightUp").click(function() {
-            sortClick(rightUp);
-        });
-
-        // $("#rightUp").click(function() {
-        //     $(".soundTbody").html("");
-        //     spectrumdataList.sort(rightUp);
-        //     alert(333);
-        //     for (i = 0; i < spectrumdataList.length; i++) {
-        //         //渲染列表            
-        //         var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
-        //         $(".soundTbody").append(list);
-        //     }
-        // });
 
         //柱状图
         var myChart = echarts.init(document.getElementById('main'));
@@ -354,6 +300,200 @@
             }]
         };
         myChart.setOption(option);
+
+        //数据增加
+        function dataAddList() {
+            $("#dataAddListModal").css({
+                "display": "none"
+            });
+
+            var addLeft = $("#addLeft").val();
+            var addRight = $("#addRight").val();
+
+            if (addLeft != 0 && addRight != 0 && addLeft != " " && addRight != " ") {
+                //全局变量增加数据
+                spectrumdata.push([addLeft, addRight]);
+
+                console.log(spectrumdata);
+
+                function refreshData(data) {
+                    //刷新echarts数据
+                    var option = myChart.getOption();
+                    var datax = [],
+                        datay = []
+
+                    for (i = 0; i < spectrumdata.length; i++) {
+                        datax.push(spectrumdata[i][0]);
+                        datay.push(spectrumdata[i][1]);
+                    }
+                    option.series[0].data = datay;
+                    option.xAxis[0].data = datax;
+                    myChart.setOption(option);
+                }
+
+                refreshData(spectrumdata);
+
+                // 清空列表
+                $("#soundTbody").html("");
+
+                for (i = 0; i < spectrumdata.length; i++) {
+                    //渲染列表            
+                    var list = '<li><div class="soundCheck"><input type="checkbox"></div><div class="soundLeft"><input type="text" value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" value="' + spectrumdata[i][1] + '"></div></li>';
+                    $("#soundTbody").append(list);
+                }
+            }
+        }
+
+        //数据删除
+        function dataDeleteList() {
+
+            //获得要删除列的index索引
+            var deleteListIndex = [];
+            $("#soundTbody li input[type=checkbox]:checked").each(function() {
+                deleteListIndex.push($(this).parents("li").index());
+            });
+            console.log(deleteListIndex);
+            if (deleteListIndex.length != 0) {
+                //全局变量删除数据
+                for (j = 0; j < deleteListIndex.length; j++) {
+                    spectrumdata.splice(j, 1);
+                }
+
+                console.log(spectrumdata);
+
+                function refreshData(data) {
+                    //刷新echarts数据
+                    var option = myChart.getOption();
+                    var datax = [],
+                        datay = []
+
+                    for (i = 0; i < spectrumdata.length; i++) {
+                        datax.push(spectrumdata[i][0]);
+                        datay.push(spectrumdata[i][1]);
+                    }
+                    option.series[0].data = datay;
+                    option.xAxis[0].data = datax;
+                    myChart.setOption(option);
+                }
+
+                refreshData(spectrumdata);
+
+                // 清空列表
+                $("#soundTbody").html("");
+
+                for (i = 0; i < spectrumdata.length; i++) {
+                    //渲染列表            
+                    var list = '<li><div class="soundCheck"><input type="checkbox"></div><div class="soundLeft"><input type="text" value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" value="' + spectrumdata[i][1] + '"></div></li>';
+                    $("#soundTbody").append(list);
+                }
+            }
+
+        }
+
+
+        //复制变量
+        // var spectrumdataList = spectrumdata;
+
+        // for (i = 0; i < spectrumdataList.length; i++) {
+        //     //初始渲染列表            
+        //     var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
+        //     $(".soundTbody").append(list);
+        // }
+
+        //频率升序
+        function leftUp(a, b) {
+            return a[0] - b[0]
+        }
+
+        //频率降序
+        function leftDown(a, b) {
+            return b[0] - a[0]
+        }
+
+        //分贝升序
+        function rightUp(a, b) {
+            return a[1] - b[1]
+        }
+
+        //分贝降序
+        function rightDown(a, b) {
+            return b[1] - a[1]
+        }
+
+        //列表排序方法
+        function sortClick(idx) {
+
+            //改变箭头状态
+            $("#" + idx.name.toString()).css({
+                "display": "none",
+            }).siblings("i").css({
+                "display": "inline-block",
+            });
+            // $("#" + idx.name.toString()).parent().siblings().find("i").css({
+            //     "color": "#333"
+            // });
+
+            // 清空列表
+            $("#soundTbody").html("");
+
+            //为列表分配排序规则
+            spectrumdata.sort(idx);
+
+            //正常状态（频率升序）下
+            if (idx.name.toString() == "leftUp") {
+                for (i = 0; i < spectrumdata.length; i++) {
+                    //渲染列表            
+                    var list = '<li><div class="soundCheck"><input type="checkbox"></div><div class="soundLeft"><input type="text" value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" value="' + spectrumdata[i][1] + '"></div></li>';
+                    $("#soundTbody").append(list);
+                }
+                $("#soundBtns button").css({
+                    "display": "inline-block"
+                });
+
+            } else { //其他状态（其他排序）下
+                for (i = 0; i < spectrumdata.length; i++) {
+                    //渲染列表            
+                    var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdata[i][1] + '"></div></li>';
+                    $("#soundTbody").append(list);
+                }
+                $("#soundBtns button").css({
+                    "display": "none"
+                });
+
+            }
+
+
+        }
+
+        sortClick(leftUp);
+
+        $("#leftUp").click(function() {
+            sortClick(leftUp);
+        });
+
+        $("#leftDown").click(function() {
+            sortClick(leftDown);
+        });
+
+        $("#rightUp").click(function() {
+            sortClick(rightUp);
+        });
+
+        $("#rightDown").click(function() {
+            sortClick(rightDown);
+        });
+
+        // $("#rightUp").click(function() {
+        //     $(".soundTbody").html("");
+        //     spectrumdataList.sort(rightUp);
+        //     alert(333);
+        //     for (i = 0; i < spectrumdataList.length; i++) {
+        //         //渲染列表            
+        //         var list = '<li><div class="soundLeft"><input type="text" readonly value="' + spectrumdataList[i][0] + '"></div><div class="soundRight"><input type="text" readonly value="' + spectrumdataList[i][1] + '"></div></li>';
+        //         $(".soundTbody").append(list);
+        //     }
+        // });
+
 
         //拿到声音数据
         function readOnlineSpectrum() {

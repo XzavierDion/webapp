@@ -161,9 +161,89 @@ button {
     padding-bottom: 5px;
 }
 
+.soundCtrlClickOn {
+    color: #f8981d;
+    font-size: 40px;
+}
+
 .soundCtrlText {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
+}
+
+#leftUp {
+    display: none;
+}
+
+#rightUp {
+    display: none;
+}
+
+.soundCheck {
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.dataAddListModal {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.dataModalIn {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    position: relative;
+}
+
+.dataModalIn .soundTbody {
+    padding-bottom: 0px;
+}
+
+.dataModalIn .soundThead {
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.dataModalBtn {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.dataModalBtn button {
+    background: #f8981d;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+#dataModalClose {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }
