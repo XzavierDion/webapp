@@ -353,40 +353,48 @@
                 deleteListIndex.push($(this).parents("li").index());
             });
             console.log(deleteListIndex);
-            if (deleteListIndex.length != 0) {
-                //全局变量删除数据
-                for (j = 0; j < deleteListIndex.length; j++) {
-                    spectrumdata.splice(j, 1);
-                }
 
-                console.log(spectrumdata);
+            deleteListIndex.sort(function(a, b) {
+                return b - a
+            });
 
-                function refreshData(data) {
-                    //刷新echarts数据
-                    var option = myChart.getOption();
-                    var datax = [],
-                        datay = []
+            deleteListIndex.forEach(function(index) {
+                spectrumdata.splice(index, 1)
+            });
 
-                    for (i = 0; i < spectrumdata.length; i++) {
-                        datax.push(spectrumdata[i][0]);
-                        datay.push(spectrumdata[i][1]);
-                    }
-                    option.series[0].data = datay;
-                    option.xAxis[0].data = datax;
-                    myChart.setOption(option);
-                }
+            //全局变量删除数据
+            // for (j = 0; j < deleteListIndex.length; j++) {
+            //     spectrumdata.splice(j, 1);
+            // }
 
-                refreshData(spectrumdata);
+            console.log(spectrumdata);
 
-                // 清空列表
-                $("#soundTbody").html("");
+            function refreshData(data) {
+                //刷新echarts数据
+                var option = myChart.getOption();
+                var datax = [],
+                    datay = []
 
                 for (i = 0; i < spectrumdata.length; i++) {
-                    //渲染列表            
-                    var list = '<li><div class="soundCheck"><input type="checkbox"></div><div class="soundLeft"><input type="text" value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" value="' + spectrumdata[i][1] + '"></div></li>';
-                    $("#soundTbody").append(list);
+                    datax.push(spectrumdata[i][0]);
+                    datay.push(spectrumdata[i][1]);
                 }
+                option.series[0].data = datay;
+                option.xAxis[0].data = datax;
+                myChart.setOption(option);
             }
+
+            refreshData(spectrumdata);
+
+            // 清空列表
+            $("#soundTbody").html("");
+
+            for (i = 0; i < spectrumdata.length; i++) {
+                //渲染列表            
+                var list = '<li><div class="soundCheck"><input type="checkbox"></div><div class="soundLeft"><input type="text" value="' + spectrumdata[i][0] + '"></div><div class="soundRight"><input type="text" value="' + spectrumdata[i][1] + '"></div></li>';
+                $("#soundTbody").append(list);
+            }
+
 
         }
 
